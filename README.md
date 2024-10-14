@@ -63,7 +63,7 @@
 
 ## Overview
 
-This repository contains files used to generate the online presentation [Managing biodiversity data](https://biodiversitydata.github.io/course-data-cleaning) based on [Quarto](https://quarto.org/) and the [RevealJS](https://quarto.org/docs/presentations/revealjs/) framework.
+This repository contains files used to generate the online presentation [Aggregating biodiversity data](https://biodiversitydata.github.io/course-data-cleaning) based on [Quarto](https://quarto.org/) and the [RevealJS](https://quarto.org/docs/presentations/revealjs/) framework.
 
 
 ## Usage
@@ -82,7 +82,7 @@ To understand the file organisation of this repository, please read this [Wiki](
 
 ## Citation
 
-Casajus N & Coux C (2024) Managing biodiversity data. Online presentation available at <https://github.com/biodiversitydata/course-data-cleaning/>.
+Casajus N & Coux C (2024) Aggregating biodiversity data. Online presentation available at <https://github.com/biodiversitydata/course-data-cleaning/>.
 
 
 ## Contributing
