@@ -1,4 +1,4 @@
-<!-- Logo & Title -->
+# <!-- Logo & Title -->
 
 <h1 align="center">
   <br>
@@ -15,7 +15,7 @@
 
 <br>
 <p align="center">
-  <a href="https://biodiversitydata.github.io/course-data-cleaning" target="_blank"><b>View presentation</b></a>
+  <a href="https://biodiversitydata.github.io/data-cleaning" target="_blank"><b>View presentation</b></a>
 </p>
 <br>
 
@@ -37,13 +37,13 @@
   <br/>
   
   <!-- Quarto render -->
-  <a href="https://github.com/biodiversitydata/course-data-cleaning/actions/workflows/quarto-render.yml">
-    <img src="https://github.com/biodiversitydata/course-data-cleaning/actions/workflows/quarto-render.yml/badge.svg" alt="GHA render">
+  <a href="https://github.com/biodiversitydata/data-cleaning/actions/workflows/quarto-render.yml">
+    <img src="https://github.com/biodiversitydata/data-cleaning/actions/workflows/quarto-render.yml/badge.svg" alt="GHA render">
   </a>
   
   <!-- GitHub deployment -->
-  <a href="https://github.com/biodiversitydata/course-data-cleaning/actions/workflows/pages/pages-build-deployment">
-    <img src="https://github.com/biodiversitydata/course-data-cleaning/actions/workflows/pages/pages-build-deployment/badge.svg" alt="GHA deploy">
+  <a href="https://github.com/biodiversitydata/data-cleaning/actions/workflows/pages/pages-build-deployment">
+    <img src="https://github.com/biodiversitydata/data-cleaning/actions/workflows/pages/pages-build-deployment/badge.svg" alt="GHA deploy">
   </a>
 </p>
 
@@ -63,7 +63,7 @@
 
 ## Overview
 
-This repository contains files used to generate the online presentation [Aggregating biodiversity data](https://biodiversitydata.github.io/course-data-cleaning) based on [Quarto](https://quarto.org/) and the [RevealJS](https://quarto.org/docs/presentations/revealjs/) framework.
+This repository contains files used to generate the online presentation [Aggregating biodiversity data](https://biodiversitydata.github.io/data-cleaning) based on [Quarto](https://quarto.org/) and the [RevealJS](https://quarto.org/docs/presentations/revealjs/) framework.
 
 
 ## Usage
@@ -82,14 +82,14 @@ To understand the file organisation of this repository, please read this [Wiki](
 
 ## Citation
 
-Casajus N & Coux C (2024) Aggregating biodiversity data. Online presentation available at <https://github.com/biodiversitydata/course-data-cleaning/>.
+Casajus N & Coux C (2024) Aggregating biodiversity data. Online presentation available at <https://github.com/biodiversitydata/data-cleaning/>.
 
 
 ## Contributing
 
-All types of contributions are encouraged and valued. For more information, check out our [Contributor Guidelines](https://github.com/biodiversitydata/course-data-cleaning/blob/main/CONTRIBUTING.md).
+All types of contributions are encouraged and valued. For more information, check out our [Contributor Guidelines](https://github.com/biodiversitydata/data-cleaning/blob/main/CONTRIBUTING.md).
 
-Please note that the `course-data-cleaning` project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+Please note that the `data-cleaning` project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
 
 ## Acknowledgments
