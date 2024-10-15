@@ -1,0 +1,17 @@
+# {{< fa broom size=1x >}} &nbsp;&nbsp;Data cleaning (15 min)
+
+## Coming soon
+
+Work in progress...
+
+<br>
+
+- Packages `janitor`, `dplyr`, `lubridate`, `stringr`, `tidyr`
+
+<!-- new list -->
+
+- One slide on `janitor` and `dplyr`
+- One or two slides on `*_join()`
+- Long vs. tidy format w/ `tidyr`
+- Working on strings w/ `stringr`, `paste()`, `strsplit()`, `gsub()`
+- Working on dates w/ `lubridate`

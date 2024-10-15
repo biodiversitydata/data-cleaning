@@ -26,9 +26,37 @@ engine: knitr
 ```
 
 
-<!-- Insert section 'Quarto basics' -->
+<!-- Insert section 'Raw vs. derived data' -->
 
 ```{r}
-#| child: "sections/quarto-basics.qmd"
+#| child: "sections/data-status.qmd"
+```
+
+
+<!-- Insert section 'Scripting' -->
+
+```{r}
+#| child: "sections/scripting.qmd"
+```
+
+
+<!-- Insert section 'Data cleaning' -->
+
+```{r}
+#| child: "sections/data-cleaning.qmd"
+```
+
+
+<!-- Insert section 'Data homogenization' -->
+
+```{r}
+#| child: "sections/data-homogenization.qmd"
+```
+
+
+<!-- Insert section 'Exercise' -->
+
+```{r}
+#| child: "sections/exercise.qmd"
 ```
 

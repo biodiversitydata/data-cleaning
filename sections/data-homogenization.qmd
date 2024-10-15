@@ -1,0 +1,9 @@
+# {{< fa circle-check size=1x >}} &nbsp;&nbsp;Data homogenization (15 min)
+
+## Coming soon
+
+Work in progress...
+
+<br>
+
+- Example of taxonomy homogenization

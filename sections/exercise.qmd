@@ -1,0 +1,5 @@
+# {{< fa user-clock size=1x >}} &nbsp;&nbsp;Exercise (20 min)
+
+## Coming soon
+
+Work in progress...
