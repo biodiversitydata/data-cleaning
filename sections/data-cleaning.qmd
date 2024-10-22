@@ -1,17 +1,134 @@
 # {{< fa broom size=1x >}} &nbsp;&nbsp;Data cleaning (15 min)
 
-## Coming soon
+## Column names
 
-Work in progress...
+R package `janitor` is of great help !
 
-<br>
+```{r}
+#| echo: true
+
+# Create a data.frame with dirty names
+test_df <- as.data.frame(matrix(ncol = 6))
+names(test_df) <- c("firstName", "ábc@!*", "% successful (2009)",
+                    "REPEAT VALUE", "REPEAT VALUE", "")
+```
+
+```{r}
+#| echo: true
+
+test_df |>
+  janitor::clean_names() |>
+  colnames()
+```
+
+## Sorting and arranging
+
+R package `dplyr` is very useful to :
+
+- select columns (based on their names only, no $var [,"var"] etc) : `dplyr::select(column1, column2)`
+
+- filter specific lines from those selected columns : `dplyr::filter(level1 == a, level2 > x)`
+
+- apply a function to the table subset : `group_by(factor_column)` and then `mutate(new_column = old_column*2)`
+
+- put it back together in a dataframe/data table etc.
+
+
+## Demo
+
+```{r}
+#| echo: true
+
+# load the iris dataset implemented in base R:
+data("iris")
+head(iris)
+```
+
+
+```{r}
+#| echo: true
+
+iris_nice <- janitor::clean_names(iris)
+colnames(iris_nice)
+```
+
+
+## Demo
+
+```{r}
+#| echo: true
+iris_nice |>
+  dplyr::select(sepal_length, sepal_width, species) |>
+  dplyr::filter(sepal_length <= 5) |>
+  dplyr::group_by(species) |>
+  dplyr::mutate(mean_length = mean(sepal_length),
+                mean_width = mean(sepal_width))
+
+```
+
+## Merging dataframes
+
+The family of `dplyr::join_` functions can deal with all types of dataframe merges. It's the R equivalent to SQL querying. 
+
+
+```{r}
+#| echo: true
+
+# load datasets from dplyr
+instruments <- dplyr::band_instruments |> as.data.frame()
+instruments
+
+members <- dplyr::band_members |> as.data.frame()
+members
+```
+
+
+## Merging dataframes
+
+**`inner_join()`** only keeps observations from x that have a matching key in y.
+
+```{r}
+#| warning: false
+
+dplyr::inner_join(members, instruments) 
+```
+
+**`left_join()`** returns all x rows.
+This is probably the most used one.
+
+```{r}
+#| warning: false
+
+dplyr::left_join(members, instruments) 
+```
+
+
+## Merging dataframes
+
+**`right_join()`** returns matched of x rows, followed by unmatched y rows.
+
+```{r}
+#| warning: false
+
+dplyr::right_join(members, instruments) 
+```
+
+**`full_join()`** returns all x rows, followed by unmatched y rows.
+Most conservative.
+```{r}
+#| warning: false
+
+dplyr::full_join(members, instruments) 
+```
+
+
 
 - Packages `janitor`, `dplyr`, `lubridate`, `stringr`, `tidyr`
 
 <!-- new list -->
 
-- One slide on `janitor` and `dplyr`
-- One or two slides on `*_join()`
+- One slide on `janitor` and `dplyr` # done
+- One or two slides on `*_join()` # done
 - Long vs. tidy format w/ `tidyr`
 - Working on strings w/ `stringr`, `paste()`, `strsplit()`, `gsub()`
 - Working on dates w/ `lubridate`
