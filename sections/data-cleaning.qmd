@@ -4,37 +4,47 @@
 
 R package `janitor` is of great help !
 
+<br><br><br>
+
 ```{r}
 #| echo: true
 
 # Create a data.frame with dirty names
+
 test_df <- as.data.frame(matrix(ncol = 6))
 names(test_df) <- c("firstName", "ábc@!*", "% successful (2009)",
                     "REPEAT VALUE", "REPEAT VALUE", "")
-```
 
-```{r}
-#| echo: true
 
 test_df |>
   janitor::clean_names() |>
   colnames()
 ```
 
+
 ## Sorting and arranging
+
+<br>
 
 R package `dplyr` is very useful to :
 
-- select columns (based on their names only, no $var [,"var"] etc) : `dplyr::select(column1, column2)`
+<br>
 
-- filter specific lines from those selected columns : `dplyr::filter(level1 == a, level2 > x)`
+- **select** columns (based on their names only, no $var [,"var"] etc) : `dplyr::select(column1, column2)`
+
+
+- **filter** specific lines from those selected columns : `dplyr::filter(level1 == a, level2 > x)`
+
 
 - apply a function to the table subset : `group_by(factor_column)` and then `mutate(new_column = old_column*2)`
+
 
 - put it back together in a dataframe/data table etc.
 
 
 ## dplyr demo
+
+<br><br>
 
 ```{r}
 #| echo: true
@@ -44,6 +54,7 @@ data("iris")
 head(iris)
 ```
 
+<br><br>
 
 ```{r}
 #| echo: true
@@ -54,6 +65,9 @@ colnames(iris_nice)
 
 
 ## dplyr demo
+
+<br><br>
+
 
 ```{r}
 #| echo: true
@@ -69,6 +83,8 @@ iris_nice |>
 ## Merging dataframes
 
 The family of `dplyr::join_` functions can deal with all types of dataframe merges. It's the R equivalent to SQL querying. 
+
+<br><br>
 
 Load datasets from dplyr:
 
@@ -90,6 +106,7 @@ instruments
 ::: {.column width=45%}
 
 ```{r}
+#| echo: true
 
 members <- dplyr::band_members |>
   as.data.frame()
@@ -107,7 +124,9 @@ members
 **`inner_join()`** only keeps observations from x that have a matching key in y.
 
 ```{r}
+#| echo: true
 #| warning: false
+
 
 dplyr::inner_join(members, instruments) 
 ```
@@ -119,6 +138,7 @@ dplyr::inner_join(members, instruments)
 This is probably the most used one.
 
 ```{r}
+#| echo: true
 #| warning: false
 
 dplyr::left_join(members, instruments) 
@@ -131,26 +151,32 @@ dplyr::left_join(members, instruments)
 
 ::: {.column width=45%}
 
-
-
 **`right_join()`** returns matched of x rows, followed by unmatched y rows.
 
 ```{r}
+#| echo: true
 #| warning: false
 
 dplyr::right_join(members, instruments) 
 ```
 
-**`full_join()`** returns all x rows, followed by unmatched y rows.
-Most conservative.
+<br>
+
+
+**`full_join()`** returns all x rows, followed by unmatched y rows. Most conservative.
+
 ```{r}
+#| echo: true
 #| warning: false
 
 dplyr::full_join(members, instruments) 
 ```
 
 :::
+
 ::::
+
+
 
 ## Pivoting with tidyr
 
@@ -168,6 +194,7 @@ head(relig_income)
 
 ## Pivoting with tidyr
 
+<br> 
 
 :::: {.columns}
 ::: {.column width=45%}
@@ -184,6 +211,7 @@ newtab <- tidyr::pivot_longer(
 )
 ```
 
+<br>
 
 ```{r}
 #| echo: true
@@ -198,6 +226,10 @@ head(newtab)
 
 ::: {.column width=45%}
 
+
+<br> <br> 
+
+
 ```{r}
 #| echo: false
 #| eval: true
@@ -206,6 +238,7 @@ head(newtab |> as.data.frame(), 12)
 ```
 
 :::
+
 ::::
 
 
@@ -215,7 +248,7 @@ head(newtab |> as.data.frame(), 12)
 
 ## Pivoting with tidyr
 
-`pivot_wider()` is the opposite of `pivot_longer()`. 
+`pivot_wider()` is the opposite of `pivot_longer()`. <br> <br> 
 
 
 ```{r}
@@ -227,7 +260,7 @@ back <- tidyr::pivot_wider(
 )
 ```
 
-
+<br> <br> 
 
 ```{r}
 #| echo: false
@@ -238,6 +271,113 @@ head(back)
 
 
 ## Working on strings
+
+```{r}
+#| eval: false
+#| echo: true
+
+string1 <- "This is a string"
+string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
+```
+
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+
+> "This is a string without a closing quote
++ 
++ 
++ HELP I'M STUCK
+```
+
+<br> 
+
+**`paste()`**: stick 2 strings together: 
+
+```{r}
+#| eval: true
+#| echo: true
+a <- "apple"
+b <- "banana"
+paste(a, b)
+```
+or collapse elements from a vector into a string: 
+
+```{r}
+#| eval: true
+#| echo: true
+(team <- c("Nico", "Camille", "Olivier", "Yvan", "Sophie", "Anne-Sophie"))
+(paste(team, collapse = " - "))
+```
+
+
+## Working on strings
+
+**Regular expressions**, or "regexps" : a concise language for describing patterns in strings. More [here](https://r4ds.had.co.nz/strings.html).
+
+The `stringr` package uses a standardized set of functions applied to strings to:
+
+- **detect matches:** `str_detect(string, pattern)` returns TRUE/FALSE, `str_which()` returns position in string (like `grep()` in base R), `str_count()` returns # of matches
+
+- **replace matches:** `str_replace_all(string, pattern, replacement)` <--> same as `gsub()` in base R, useful to replace typos
+
+- **subset matches:** `str_subset(string, pattern)` <--> same as `grep(patter, string, value=TRUE)` in base R
+
+```{r}
+#| eval: true
+#| echo: true
+stringr::str_which(team, "Ca")
+stringr::str_subset(team, "Ca")
+```
+- **manipulate:** `str_flatten()` <--> same as `paste()`, `str_split(string, pattern)`: cuts a string where pattern matches.
+
+
+- **trim white spaces:** `str_trim()` : very usefull!! Good to run just in case.... 
+
+- **change character case:** `str_to_upper()`: ALL CAPS.
+
+
+
+## Working on dates... and times
+
+We recommend the `lubridate`  package, and its precious [cheatsheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf).
+
+### Parsing
+
+Identify the order of the year (y), month (m), day (d), hour (h), minute (m) and second (s) elements in your data
+
+
+```{r}
+#| echo: true
+#| warning: false
+
+library(lubridate)
+
+# all of these are equivalent: 
+c(ymd("20110604"), mdy("06-04-2011"), dmy("04/06/2011"), mdy("June 4th, 2011"))
+
+# date and time: you can specify the timezone:
+ ymd_hms("2017-11-28T14:02:00", tz="Pacific/Auckland")
+```
+<br>
+
+A date-time is a point on the timeline, stored as the number of seconds since 1970-01-01 00:00:00 UTC
+
+```{r}
+#| echo: true
+as_datetime(1511870400)
+```
+
+<br> 
+
+```{r}
+#| echo: true
+
+as_date(198660)
+
+```
 
 
 
