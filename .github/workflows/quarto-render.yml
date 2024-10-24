@@ -29,6 +29,9 @@ jobs:
             any::rmarkdown
             any::janitor
             any::dplyr
+            any::tidyr
+            any::stringr
+            any::lubridate
             
       - name: Render qmd files
         run: |
