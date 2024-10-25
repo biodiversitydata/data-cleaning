@@ -86,8 +86,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1><i class="fa-solid fa-broom fa-1x" aria-label="broom"></i> &nbsp;&nbsp;Data cleaning (15 min)</h1>
 <section id="column-names" class="level2">
 <h2 class="anchored" data-anchor-id="column-names">Column names</h2>
-<p>R package <code>janitor</code> is of great help !</p>
-<p><br><br><br></p>
+<p><br></p>
+<p>R package <code>janitor</code>:</p>
+<p><br><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data.frame with dirty names</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -135,25 +136,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 </div>
 </div>
-<p><br><br></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>iris_nice <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(iris)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(iris_nice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "sepal_length" "sepal_width"  "petal_length" "petal_width"  "species"     </code></pre>
-</div>
-</div>
 </section>
 <section id="dplyr-demo-1" class="level2">
 <h2 class="anchored" data-anchor-id="dplyr-demo-1">dplyr demo</h2>
 <p><br><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>iris_nice <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(sepal_length, sepal_width, species) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(sepal_length <span class="sc">&lt;=</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">mean_length =</span> <span class="fu">mean</span>(sepal_length),</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">mean_width =</span> <span class="fu">mean</span>(sepal_width))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the iris dataset implemented in base R:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+</div>
+<p><br><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>iris_nice <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(iris)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(iris_nice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "sepal_length" "sepal_width"  "petal_length" "petal_width"  "species"     </code></pre>
+</div>
+</div>
+</section>
+<section id="dplyr-demo-2" class="level2">
+<h2 class="anchored" data-anchor-id="dplyr-demo-2">dplyr demo</h2>
+<p><br><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>iris_nice <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(sepal_length, sepal_width, species) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(sepal_length <span class="sc">&lt;=</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">mean_length =</span> <span class="fu">mean</span>(sepal_length),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">mean_width =</span> <span class="fu">mean</span>(sepal_width))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 32 × 5
 # Groups:   species [3]
@@ -181,9 +200,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>instruments <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>band_instruments <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>instruments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>instruments <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>band_instruments <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>instruments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   name  plays
 1  John guitar
@@ -195,9 +214,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </div><div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>members <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>band_members <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>members</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>members <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>band_members <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>members</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band
 1 Mick  Stones
@@ -212,16 +231,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="merging-dataframes-1">Merging dataframes</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
-<p><strong><code>inner_join()</code></strong> only keeps observations from x that have a matching key in y.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  name    band  plays
-1 John Beatles guitar
-2 Paul Beatles   bass</code></pre>
-</div>
-</div>
-<p><br></p>
 <p><strong><code>left_join()</code></strong> returns all x rows. This is probably the most used one.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -232,9 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3 Paul Beatles   bass</code></pre>
 </div>
 </div>
-</div><div class="column" style="width:10%;">
-
-</div><div class="column" style="width:45%;">
+<p><br></p>
 <p><strong><code>right_join()</code></strong> returns matched of x rows, followed by unmatched y rows.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -245,10 +252,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3 Keith    &lt;NA&gt; guitar</code></pre>
 </div>
 </div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div>
+</div>
+</section>
+<section id="merging-dataframes-2" class="level2">
+<h2 class="anchored" data-anchor-id="merging-dataframes-2">Merging dataframes</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><strong><code>left_join()</code></strong> returns all x rows. This is probably the most used one.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  name    band  plays
+1 Mick  Stones   &lt;NA&gt;
+2 John Beatles guitar
+3 Paul Beatles   bass</code></pre>
+</div>
+</div>
+<p><br></p>
+<p><strong><code>right_join()</code></strong> returns matched of x rows, followed by unmatched y rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   name    band  plays
+1  John Beatles guitar
+2  Paul Beatles   bass
+3 Keith    &lt;NA&gt; guitar</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><strong><code>inner_join()</code></strong> only keeps observations from x that have a matching key in y.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  name    band  plays
+1 John Beatles guitar
+2 Paul Beatles   bass</code></pre>
+</div>
+</div>
 <p><br></p>
 <p><strong><code>full_join()</code></strong> returns all x rows, followed by unmatched y rows. Most conservative.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">full_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">full_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   name    band  plays
 1  Mick  Stones   &lt;NA&gt;
@@ -263,12 +314,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="pivoting-with-tidyr" class="level2">
 <h2 class="anchored" data-anchor-id="pivoting-with-tidyr">Pivoting with tidyr</h2>
 <p><code>pivot_longer()</code> : compiles information from multiple columns into a unique column. This is commonly needed to reformat datasets that were optimized for ease of data entry or comparison rather than ease of analysis.</p>
+<p><br></p>
 <blockquote class="blockquote">
 <p>This format is the one privileged by the ggplot functions.</p>
 </blockquote>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>relig_income <span class="ot">&lt;-</span> tidyr<span class="sc">::</span>relig_income </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(relig_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>relig_income <span class="ot">&lt;-</span> tidyr<span class="sc">::</span>relig_income </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(relig_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 11
   religion  `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`
@@ -290,16 +343,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>newtab <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  relig_income, </span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols =</span> <span class="sc">!</span>religion,</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">"income"</span>,</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">"count"</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>newtab <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  relig_income, </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols =</span> <span class="sc">!</span>religion,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">"income"</span>,</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">"count"</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(newtab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(newtab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:10%;">
 
@@ -329,11 +382,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="pivoting-with-tidyr-2">Pivoting with tidyr</h2>
 <p><code>pivot_wider()</code> is the opposite of <code>pivot_longer()</code>. <br> <br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>back <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  newtab,</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_from =</span> income,</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_from =</span> count</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>back <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  newtab,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_from =</span> income,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_from =</span> count</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br> <br></p>
 <div class="cell">
@@ -355,41 +408,100 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="working-on-strings" class="level2">
 <h2 class="anchored" data-anchor-id="working-on-strings">Working on strings</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>string1 <span class="ot">&lt;-</span> <span class="st">"This is a string"</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>string2 <span class="ot">&lt;-</span> <span class="st">'If I want to include a "quote" inside a string, I use single quotes'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>string1 <span class="ot">&lt;-</span> <span class="st">"This is a string"</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>string2 <span class="ot">&lt;-</span> <span class="st">'If I want to include a "quote" inside a string, I use single quotes'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="st">"This is a string without a closing quote</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="st">+ </span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="st">+ </span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="st">+ HELP I'M STUCK</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="st">"This is a string without a closing quote</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="st">+ </span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="st">+ </span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="st">+ HELP I'M STUCK</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="working-on-strings-1" class="level2">
+<h2 class="anchored" data-anchor-id="working-on-strings-1">Working on strings</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>string1 <span class="ot">&lt;-</span> <span class="st">"This is a string"</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>string2 <span class="ot">&lt;-</span> <span class="st">'If I want to include a "quote" inside a string, I use single quotes'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="st">"This is a string without a closing quote</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="st">+ </span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="st">+ </span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="st">+ HELP I'M STUCK</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p><strong><code>paste()</code></strong>: stick 2 strings together:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">"apple"</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="st">"banana"</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">"apple"</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="st">"banana"</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "apple banana"</code></pre>
+</div>
+</div>
+</section>
+<section id="working-on-strings-2" class="level2">
+<h2 class="anchored" data-anchor-id="working-on-strings-2">Working on strings</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>string1 <span class="ot">&lt;-</span> <span class="st">"This is a string"</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>string2 <span class="ot">&lt;-</span> <span class="st">'If I want to include a "quote" inside a string, I use single quotes'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="st">"This is a string without a closing quote</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="st">+ </span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="st">+ </span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="st">+ HELP I'M STUCK</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><strong><code>paste()</code></strong>: stick 2 strings together:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">"apple"</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="st">"banana"</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "apple banana"</code></pre>
 </div>
 </div>
 <p>or collapse elements from a vector into a string:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>(team <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Nico"</span>, <span class="st">"Camille"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>(team <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Nico"</span>, <span class="st">"Camille"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Nico"        "Camille"     "Olivier"     "Yvan"        "Sophie"     
 [6] "Anne-Sophie"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">paste</span>(team, <span class="at">collapse =</span> <span class="st">" - "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">paste</span>(team, <span class="at">collapse =</span> <span class="st">" - "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Nico - Camille - Olivier - Yvan - Sophie - Anne-Sophie"</code></pre>
 </div>
 </div>
 </section>
-<section id="working-on-strings-1" class="level2">
-<h2 class="anchored" data-anchor-id="working-on-strings-1">Working on strings</h2>
+<section id="working-on-strings-3" class="level2">
+<h2 class="anchored" data-anchor-id="working-on-strings-3">Working on strings</h2>
+<p><strong>Regular expressions</strong>, or “regexps” : a concise language for describing patterns in strings. More <a href="https://r4ds.had.co.nz/strings.html">here</a>.</p>
+</section>
+<section id="working-on-strings-4" class="level2">
+<h2 class="anchored" data-anchor-id="working-on-strings-4">Working on strings</h2>
+<p><strong>Regular expressions</strong>, or “regexps” : a concise language for describing patterns in strings. More <a href="https://r4ds.had.co.nz/strings.html">here</a>.</p>
+<p>The <code>stringr</code> package uses a standardized set of functions applied to strings to:</p>
+<ul>
+<li><strong>detect matches:</strong> <code>str_detect(string, pattern)</code> returns TRUE/FALSE, <code>str_which()</code> returns position in string (like <code>grep()</code> in base R), <code>str_count()</code> returns # of matches</li>
+</ul>
+</section>
+<section id="working-on-strings-5" class="level2">
+<h2 class="anchored" data-anchor-id="working-on-strings-5">Working on strings</h2>
+<p><strong>Regular expressions</strong>, or “regexps” : a concise language for describing patterns in strings. More <a href="https://r4ds.had.co.nz/strings.html">here</a>.</p>
+<p>The <code>stringr</code> package uses a standardized set of functions applied to strings to:</p>
+<ul>
+<li><p><strong>detect matches:</strong> <code>str_detect(string, pattern)</code> returns TRUE/FALSE, <code>str_which()</code> returns position in string (like <code>grep()</code> in base R), <code>str_count()</code> returns # of matches</p></li>
+<li><p><strong>replace matches:</strong> <code>str_replace_all(string, pattern, replacement)</code> &lt;–&gt; same as <code>gsub()</code> in base R, useful to replace typos</p></li>
+</ul>
+</section>
+<section id="working-on-strings-6" class="level2">
+<h2 class="anchored" data-anchor-id="working-on-strings-6">Working on strings</h2>
 <p><strong>Regular expressions</strong>, or “regexps” : a concise language for describing patterns in strings. More <a href="https://r4ds.had.co.nz/strings.html">here</a>.</p>
 <p>The <code>stringr</code> package uses a standardized set of functions applied to strings to:</p>
 <ul>
@@ -398,11 +510,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>subset matches:</strong> <code>str_subset(string, pattern)</code> &lt;–&gt; same as <code>grep(patter, string, value=TRUE)</code> in base R</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_which</span>(team, <span class="st">"Ca"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_which</span>(team, <span class="st">"Ca"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_subset</span>(team, <span class="st">"Ca"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_subset</span>(team, <span class="st">"Ca"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Camille"</code></pre>
+</div>
+</div>
+</section>
+<section id="working-on-strings-7" class="level2">
+<h2 class="anchored" data-anchor-id="working-on-strings-7">Working on strings</h2>
+<p><strong>Regular expressions</strong>, or “regexps” : a concise language for describing patterns in strings. More <a href="https://r4ds.had.co.nz/strings.html">here</a>.</p>
+<p>The <code>stringr</code> package uses a standardized set of functions applied to strings to:</p>
+<ul>
+<li><p><strong>detect matches:</strong> <code>str_detect(string, pattern)</code> returns TRUE/FALSE, <code>str_which()</code> returns position in string (like <code>grep()</code> in base R), <code>str_count()</code> returns # of matches</p></li>
+<li><p><strong>replace matches:</strong> <code>str_replace_all(string, pattern, replacement)</code> &lt;–&gt; same as <code>gsub()</code> in base R, useful to replace typos</p></li>
+<li><p><strong>subset matches:</strong> <code>str_subset(string, pattern)</code> &lt;–&gt; same as <code>grep(patter, string, value=TRUE)</code> in base R</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_which</span>(team, <span class="st">"Ca"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_subset</span>(team, <span class="st">"Ca"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Camille"</code></pre>
 </div>
@@ -416,32 +548,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="working-on-dates-and-times" class="level2">
 <h2 class="anchored" data-anchor-id="working-on-dates-and-times">Working on dates… and times</h2>
 <p>We recommend the <code>lubridate</code> package, and its precious <a href="https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf">cheatsheet</a>.</p>
-<section id="parsing" class="level3">
-<h3 class="anchored" data-anchor-id="parsing">Parsing</h3>
-<blockquote class="blockquote">
+<section id="parsing" class="level4">
+<h4 class="anchored" data-anchor-id="parsing">Parsing</h4>
 <p>Identify the order of the year (y), month (m), day (d), hour (h), minute (m) and second (s) elements in your data</p>
-</blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co"># all of these are equivalent: </span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co"># all of these are equivalent: </span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2011-06-04" "2011-06-04" "2011-06-04" "2011-06-04"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># date and time:</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># date and time: you can specify the timezone:</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>, <span class="at">tz=</span><span class="st">"Pacific/Auckland"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2017-11-28 14:02:00 UTC"</code></pre>
+<pre><code>[1] "2017-11-28 14:02:00 NZDT"</code></pre>
 </div>
 </div>
-<p>A date-time is a point on the timeline, stored as the number of seconds since 1970-01-01 00:00:00 UTC</p>
+</section>
+</section>
+<section id="working-on-dates-and-times-1" class="level2">
+<h2 class="anchored" data-anchor-id="working-on-dates-and-times-1">Working on dates… and times</h2>
+<p>We recommend the <code>lubridate</code> package, and its precious <a href="https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf">cheatsheet</a>.</p>
+<section id="parsing-1" class="level4">
+<h4 class="anchored" data-anchor-id="parsing-1">Parsing</h4>
+<p>Identify the order of the year (y), month (m), day (d), hour (h), minute (m) and second (s) elements in your data</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_datetime</span>(<span class="dv">1511870400</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co"># all of these are equivalent: </span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2011-06-04" "2011-06-04" "2011-06-04" "2011-06-04"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># date and time: you can specify the timezone:</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>, <span class="at">tz=</span><span class="st">"Pacific/Auckland"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2017-11-28 14:02:00 NZDT"</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>A date-time is a point on the timeline, stored as the number of seconds since 1970-01-01 00:00:00 UTC</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_datetime</span>(<span class="dv">1511870400</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2017-11-28 12:00:00 UTC"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_date</span>(<span class="dv">198660</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_date</span>(<span class="dv">198660</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2513-11-30"</code></pre>
 </div>
@@ -458,8 +614,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>One slide on <code>janitor</code> and <code>dplyr</code> # done</li>
 <li>One or two slides on <code>*_join()</code> # done</li>
 <li>Long vs.&nbsp;tidy format w/ <code>tidyr</code> # done</li>
-<li>Working on strings w/ <code>stringr</code>, <code>paste()</code>, <code>strsplit()</code>, <code>gsub()</code></li>
-<li>Working on dates w/ <code>lubridate</code></li>
+<li>Working on strings w/ <code>stringr</code>, <code>paste()</code>, <code>strsplit()</code>, <code>gsub()</code> # done</li>
+<li>Working on dates w/ <code>lubridate</code> # done</li>
 </ul>
 </section>
 </section>

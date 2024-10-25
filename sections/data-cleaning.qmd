@@ -2,9 +2,11 @@
 
 ## Column names
 
-R package `janitor` is of great help !
+<br>
 
-<br><br><br>
+R package `janitor`:
+
+<br><br>
 
 ```{r}
 #| echo: true
@@ -40,6 +42,19 @@ R package `dplyr` is very useful to :
 
 
 - put it back together in a dataframe/data table etc.
+
+
+## dplyr demo
+
+<br><br>
+
+```{r}
+#| echo: true
+
+# load the iris dataset implemented in base R:
+data("iris")
+head(iris)
+```
 
 
 ## dplyr demo
@@ -115,23 +130,10 @@ members
 :::
 ::::
 
-
 ## Merging dataframes
 
 :::: {.columns}
 ::: {.column width=45%}
-
-**`inner_join()`** only keeps observations from x that have a matching key in y.
-
-```{r}
-#| echo: true
-#| warning: false
-
-
-dplyr::inner_join(members, instruments) 
-```
-
-<br>
 
 
 **`left_join()`** returns all x rows.
@@ -144,12 +146,7 @@ This is probably the most used one.
 dplyr::left_join(members, instruments) 
 ```
 
-:::
-
-::: {.column width=10%}
-:::
-
-::: {.column width=45%}
+<br>
 
 **`right_join()`** returns matched of x rows, followed by unmatched y rows.
 
@@ -159,6 +156,68 @@ dplyr::left_join(members, instruments)
 
 dplyr::right_join(members, instruments) 
 ```
+
+
+
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+
+:::
+
+::::
+
+
+## Merging dataframes
+
+:::: {.columns}
+::: {.column width=45%}
+
+
+**`left_join()`** returns all x rows.
+This is probably the most used one.
+
+```{r}
+#| echo: true
+#| warning: false
+
+dplyr::left_join(members, instruments) 
+```
+
+<br>
+
+**`right_join()`** returns matched of x rows, followed by unmatched y rows.
+
+```{r}
+#| echo: true
+#| warning: false
+
+dplyr::right_join(members, instruments) 
+```
+
+
+
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+
+**`inner_join()`** only keeps observations from x that have a matching key in y.
+
+```{r}
+#| echo: true
+#| warning: false
+
+
+dplyr::inner_join(members, instruments) 
+```
+
+
 
 <br>
 
@@ -182,7 +241,11 @@ dplyr::full_join(members, instruments)
 
 `pivot_longer()` : compiles information from multiple columns into a unique column. This is commonly needed to reformat datasets that were optimized for ease of data entry or comparison rather than ease of analysis. 
 
+<br>
+
 > This format is the one privileged by the ggplot functions.
+
+<br>
 
 ```{r}
 #| echo: true
@@ -270,6 +333,67 @@ head(back)
 ```
 
 
+
+
+## Working on strings
+
+```{r}
+#| eval: false
+#| echo: true
+
+string1 <- "This is a string"
+string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
+```
+
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+
+> "This is a string without a closing quote
++ 
++ 
++ HELP I'M STUCK
+```
+
+
+
+## Working on strings
+
+```{r}
+#| eval: false
+#| echo: true
+
+string1 <- "This is a string"
+string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
+```
+
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+
+> "This is a string without a closing quote
++ 
++ 
++ HELP I'M STUCK
+```
+
+<br> 
+
+**`paste()`**: stick 2 strings together: 
+
+```{r}
+#| eval: true
+#| echo: true
+a <- "apple"
+b <- "banana"
+paste(a, b)
+```
+
+
 ## Working on strings
 
 ```{r}
@@ -312,6 +436,52 @@ or collapse elements from a vector into a string:
 (paste(team, collapse = " - "))
 ```
 
+## Working on strings
+
+**Regular expressions**, or "regexps" : a concise language for describing patterns in strings. More [here](https://r4ds.had.co.nz/strings.html).
+
+
+
+
+## Working on strings
+
+**Regular expressions**, or "regexps" : a concise language for describing patterns in strings. More [here](https://r4ds.had.co.nz/strings.html).
+
+The `stringr` package uses a standardized set of functions applied to strings to:
+
+- **detect matches:** `str_detect(string, pattern)` returns TRUE/FALSE, `str_which()` returns position in string (like `grep()` in base R), `str_count()` returns # of matches
+
+
+## Working on strings
+
+**Regular expressions**, or "regexps" : a concise language for describing patterns in strings. More [here](https://r4ds.had.co.nz/strings.html).
+
+The `stringr` package uses a standardized set of functions applied to strings to:
+
+- **detect matches:** `str_detect(string, pattern)` returns TRUE/FALSE, `str_which()` returns position in string (like `grep()` in base R), `str_count()` returns # of matches
+
+- **replace matches:** `str_replace_all(string, pattern, replacement)` <--> same as `gsub()` in base R, useful to replace typos
+
+
+## Working on strings
+
+**Regular expressions**, or "regexps" : a concise language for describing patterns in strings. More [here](https://r4ds.had.co.nz/strings.html).
+
+The `stringr` package uses a standardized set of functions applied to strings to:
+
+- **detect matches:** `str_detect(string, pattern)` returns TRUE/FALSE, `str_which()` returns position in string (like `grep()` in base R), `str_count()` returns # of matches
+
+- **replace matches:** `str_replace_all(string, pattern, replacement)` <--> same as `gsub()` in base R, useful to replace typos
+
+- **subset matches:** `str_subset(string, pattern)` <--> same as `grep(patter, string, value=TRUE)` in base R
+
+```{r}
+#| eval: true
+#| echo: true
+stringr::str_which(team, "Ca")
+stringr::str_subset(team, "Ca")
+```
+
 
 ## Working on strings
 
@@ -339,12 +509,38 @@ stringr::str_subset(team, "Ca")
 - **change character case:** `str_to_upper()`: ALL CAPS.
 
 
+## Working on dates... and times
+
+We recommend the `lubridate`  package, and its precious [cheatsheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf).
+
 
 ## Working on dates... and times
 
 We recommend the `lubridate`  package, and its precious [cheatsheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf).
 
-### Parsing
+#### Parsing
+
+Identify the order of the year (y), month (m), day (d), hour (h), minute (m) and second (s) elements in your data
+
+
+```{r}
+#| echo: true
+#| warning: false
+
+library(lubridate)
+
+# all of these are equivalent: 
+c(ymd("20110604"), mdy("06-04-2011"), dmy("04/06/2011"), mdy("June 4th, 2011"))
+
+# date and time: you can specify the timezone:
+ ymd_hms("2017-11-28T14:02:00", tz="Pacific/Auckland")
+```
+
+## Working on dates... and times
+
+We recommend the `lubridate`  package, and its precious [cheatsheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf).
+
+#### Parsing
 
 Identify the order of the year (y), month (m), day (d), hour (h), minute (m) and second (s) elements in your data
 
@@ -363,14 +559,13 @@ c(ymd("20110604"), mdy("06-04-2011"), dmy("04/06/2011"), mdy("June 4th, 2011"))
 ```
 <br>
 
-A date-time is a point on the timeline, stored as the number of seconds since 1970-01-01 00:00:00 UTC
+> A date-time is a point on the timeline, stored as the number of seconds since 1970-01-01 00:00:00 UTC
 
 ```{r}
 #| echo: true
 as_datetime(1511870400)
 ```
 
-<br> 
 
 ```{r}
 #| echo: true
@@ -379,17 +574,3 @@ as_date(198660)
 
 ```
 
-
-
-
-## New slide
-
-- Packages `janitor`, `dplyr`, `lubridate`, `stringr`, `tidyr`
-
-<!-- new list -->
-
-- One slide on `janitor` and `dplyr` # done
-- One or two slides on `*_join()` # done
-- Long vs. tidy format w/ `tidyr` # done
-- Working on strings w/ `stringr`, `paste()`, `strsplit()`, `gsub()`
-- Working on dates w/ `lubridate`
