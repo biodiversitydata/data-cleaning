@@ -436,16 +436,8 @@ or collapse elements from a vector into a string:
 (paste(team, collapse = " - "))
 ```
 
-## Working on strings
-
-**Regular expressions**, or "regexps" : a concise language for describing patterns in strings. More [here](https://r4ds.had.co.nz/strings.html).
-
-
-
 
 ## Working on strings
-
-**Regular expressions**, or "regexps" : a concise language for describing patterns in strings. More [here](https://r4ds.had.co.nz/strings.html).
 
 The `stringr` package uses a standardized set of functions applied to strings to:
 
@@ -453,8 +445,6 @@ The `stringr` package uses a standardized set of functions applied to strings to
 
 
 ## Working on strings
-
-**Regular expressions**, or "regexps" : a concise language for describing patterns in strings. More [here](https://r4ds.had.co.nz/strings.html).
 
 The `stringr` package uses a standardized set of functions applied to strings to:
 
@@ -464,8 +454,6 @@ The `stringr` package uses a standardized set of functions applied to strings to
 
 
 ## Working on strings
-
-**Regular expressions**, or "regexps" : a concise language for describing patterns in strings. More [here](https://r4ds.had.co.nz/strings.html).
 
 The `stringr` package uses a standardized set of functions applied to strings to:
 
@@ -483,9 +471,8 @@ stringr::str_subset(team, "Ca")
 ```
 
 
-## Working on strings
 
-**Regular expressions**, or "regexps" : a concise language for describing patterns in strings. More [here](https://r4ds.had.co.nz/strings.html).
+## Working on strings
 
 The `stringr` package uses a standardized set of functions applied to strings to:
 
@@ -503,10 +490,60 @@ stringr::str_subset(team, "Ca")
 ```
 - **manipulate:** `str_flatten()` <--> same as `paste()`, `str_split(string, pattern)`: cuts a string where pattern matches.
 
-
 - **trim white spaces:** `str_trim()` : very usefull!! Good to run just in case.... 
 
 - **change character case:** `str_to_upper()`: ALL CAPS.
+
+
+
+## Working on strings
+
+The `stringr` package matches **patterns** in strings. But how can we specify generic patterns ?
+
+> **Regular expressions**, or "regexps" : a concise language for describing patterns in strings. More [here](https://r4ds.had.co.nz/strings.html).
+
+
+```{r}
+#| echo: true
+
+library(stringr)
+my_string <- "My email is: camille123@gmail.com ."
+
+# get numbers only:
+str_extract(my_string, "\\d+")  # \\d = digits; + = at least 1 time
+str_extract(my_string, "[0-9]+")
+```
+
+<br>
+
+```{r}
+#| echo: true
+
+# extract all letters:
+str_extract_all(my_string, "[A-z]")  # upper and lower case letters
+str_extract(my_string, "[A-z]+") # stops when encounters a different charater (" ")
+str_extract(my_string, "[A-z|\\s]+") # add that white spaces ("\\s")are to be extracted too
+```
+
+
+## Working on strings
+
+```{r}
+#| echo: true
+
+# are there any double "l" ?
+str_detect(my_string, "l{2}")
+
+# remove trailing whitespace and dot:
+str_replace(my_string, "\\s\\.$", "")
+
+# keep only the email:
+str_replace(my_string, "^[^c]*", "")
+```
+
+## Working on strings
+
+![](images/regex.png){width=100%}
 
 
 ## Working on dates... and times
@@ -559,6 +596,24 @@ c(ymd("20110604"), mdy("06-04-2011"), dmy("04/06/2011"), mdy("June 4th, 2011"))
 ```
 <br>
 
+Extract different elements of a date time:
+
+```{r}
+oneday <- "2029-10-24 00:02:00"
+date(oneday)
+minute(oneday)
+second(oneday)
+year(oneday)
+```
+
+
+
+
+
+## Working on dates... and times
+
+We recommend the `lubridate`  package, and its precious [cheatsheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf).
+
 > A date-time is a point on the timeline, stored as the number of seconds since 1970-01-01 00:00:00 UTC
 
 ```{r}
@@ -571,6 +626,18 @@ as_datetime(1511870400)
 #| echo: true
 
 as_date(198660)
-
 ```
+
+
+#### Different ways to deal with time!
+
+![](images/regex.png){width=100%}
+
+
+
+
+
+
+
+
 
