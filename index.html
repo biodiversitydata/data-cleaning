@@ -909,28 +909,21 @@ Author name<br/>
 </section>
 <section id="working-on-strings-3" class="slide level2">
 <h2>Working on strings</h2>
-<p><strong>Regular expressions</strong>, or “regexps” : a concise language for describing patterns in strings. More <a href="https://r4ds.had.co.nz/strings.html">here</a>.</p>
-</section>
-<section id="working-on-strings-4" class="slide level2">
-<h2>Working on strings</h2>
-<p><strong>Regular expressions</strong>, or “regexps” : a concise language for describing patterns in strings. More <a href="https://r4ds.had.co.nz/strings.html">here</a>.</p>
 <p>The <code>stringr</code> package uses a standardized set of functions applied to strings to:</p>
 <ul>
 <li><strong>detect matches:</strong> <code>str_detect(string, pattern)</code> returns TRUE/FALSE, <code>str_which()</code> returns position in string (like <code>grep()</code> in base R), <code>str_count()</code> returns # of matches</li>
 </ul>
 </section>
-<section id="working-on-strings-5" class="slide level2">
+<section id="working-on-strings-4" class="slide level2">
 <h2>Working on strings</h2>
-<p><strong>Regular expressions</strong>, or “regexps” : a concise language for describing patterns in strings. More <a href="https://r4ds.had.co.nz/strings.html">here</a>.</p>
 <p>The <code>stringr</code> package uses a standardized set of functions applied to strings to:</p>
 <ul>
 <li><p><strong>detect matches:</strong> <code>str_detect(string, pattern)</code> returns TRUE/FALSE, <code>str_which()</code> returns position in string (like <code>grep()</code> in base R), <code>str_count()</code> returns # of matches</p></li>
 <li><p><strong>replace matches:</strong> <code>str_replace_all(string, pattern, replacement)</code> &lt;–&gt; same as <code>gsub()</code> in base R, useful to replace typos</p></li>
 </ul>
 </section>
-<section id="working-on-strings-6" class="slide level2">
+<section id="working-on-strings-5" class="slide level2">
 <h2>Working on strings</h2>
-<p><strong>Regular expressions</strong>, or “regexps” : a concise language for describing patterns in strings. More <a href="https://r4ds.had.co.nz/strings.html">here</a>.</p>
 <p>The <code>stringr</code> package uses a standardized set of functions applied to strings to:</p>
 <ul>
 <li><p><strong>detect matches:</strong> <code>str_detect(string, pattern)</code> returns TRUE/FALSE, <code>str_which()</code> returns position in string (like <code>grep()</code> in base R), <code>str_count()</code> returns # of matches</p></li>
@@ -948,9 +941,8 @@ Author name<br/>
 </div>
 </div>
 </section>
-<section id="working-on-strings-7" class="slide level2">
+<section id="working-on-strings-6" class="slide level2">
 <h2>Working on strings</h2>
-<p><strong>Regular expressions</strong>, or “regexps” : a concise language for describing patterns in strings. More <a href="https://r4ds.had.co.nz/strings.html">here</a>.</p>
 <p>The <code>stringr</code> package uses a standardized set of functions applied to strings to:</p>
 <ul>
 <li><p><strong>detect matches:</strong> <code>str_detect(string, pattern)</code> returns TRUE/FALSE, <code>str_which()</code> returns position in string (like <code>grep()</code> in base R), <code>str_count()</code> returns # of matches</p></li>
@@ -973,6 +965,69 @@ Author name<br/>
 <li><p><strong>change character case:</strong> <code>str_to_upper()</code>: ALL CAPS.</p></li>
 </ul>
 </section>
+<section id="working-on-strings-7" class="slide level2">
+<h2>Working on strings</h2>
+<p>The <code>stringr</code> package matches <strong>patterns</strong> in strings. But how can we specify generic patterns ?</p>
+<blockquote>
+<p><strong>Regular expressions</strong>, or “regexps” : a concise language for describing patterns in strings. More <a href="https://r4ds.had.co.nz/strings.html">here</a>.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="fu">library</span>(stringr)</span>
+<span id="cb56-2"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span>
+<span id="cb56-3"><a href=""></a></span>
+<span id="cb56-4"><a href=""></a><span class="co"># get numbers only:</span></span>
+<span id="cb56-5"><a href=""></a><span class="fu">str_extract</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)  <span class="co"># \\d = digits; + = at least 1 time</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "123"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="fu">str_extract</span>(my_string, <span class="st">"[0-9]+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "123"</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="co"># extract all letters:</span></span>
+<span id="cb60-2"><a href=""></a><span class="fu">str_extract_all</span>(my_string, <span class="st">"[A-z]"</span>)  <span class="co"># upper and lower case letters</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+ [1] "M" "y" "e" "m" "a" "i" "l" "i" "s" "c" "a" "m" "i" "l" "l" "e" "g" "m" "a"
+[20] "i" "l" "c" "o" "m"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="fu">str_extract</span>(my_string, <span class="st">"[A-z]+"</span>) <span class="co"># stops when encounters a different charater (" ")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "My"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="fu">str_extract</span>(my_string, <span class="st">"[A-z|</span><span class="sc">\\</span><span class="st">s]+"</span>) <span class="co"># add that white spaces ("\\s")are to be extracted too</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "My email is"</code></pre>
+</div>
+</div>
+</section>
+<section id="working-on-strings-8" class="slide level2">
+<h2>Working on strings</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a><span class="co"># are there any double "l" ?</span></span>
+<span id="cb66-2"><a href=""></a><span class="fu">str_detect</span>(my_string, <span class="st">"l{2}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a><span class="co"># remove trailing whitespace and dot:</span></span>
+<span id="cb68-2"><a href=""></a><span class="fu">str_replace</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">s</span><span class="sc">\\</span><span class="st">.$"</span>, <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "My email is: camille123@gmail.com"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a><span class="co"># keep only the email:</span></span>
+<span id="cb70-2"><a href=""></a><span class="fu">str_replace</span>(my_string, <span class="st">"^[^c]*"</span>, <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "camille123@gmail.com ."</code></pre>
+</div>
+</div>
+</section>
+<section id="working-on-strings-9" class="slide level2">
+<h2>Working on strings</h2>
+<p><img data-src="images/regex.png" style="width:100.0%"></p>
+</section>
 <section id="working-on-dates-and-times" class="slide level2">
 <h2>Working on dates… and times</h2>
 <p>We recommend the <code>lubridate</code> package, and its precious <a href="https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf">cheatsheet</a>.</p>
@@ -983,15 +1038,15 @@ Author name<br/>
 <h4 id="parsing">Parsing</h4>
 <p>Identify the order of the year (y), month (m), day (d), hour (h), minute (m) and second (s) elements in your data</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb56-2"><a href=""></a></span>
-<span id="cb56-3"><a href=""></a><span class="co"># all of these are equivalent: </span></span>
-<span id="cb56-4"><a href=""></a><span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb72-2"><a href=""></a></span>
+<span id="cb72-3"><a href=""></a><span class="co"># all of these are equivalent: </span></span>
+<span id="cb72-4"><a href=""></a><span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2011-06-04" "2011-06-04" "2011-06-04" "2011-06-04"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="co"># date and time: you can specify the timezone:</span></span>
-<span id="cb58-2"><a href=""></a> <span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>, <span class="at">tz=</span><span class="st">"Pacific/Auckland"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a><span class="co"># date and time: you can specify the timezone:</span></span>
+<span id="cb74-2"><a href=""></a> <span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>, <span class="at">tz=</span><span class="st">"Pacific/Auckland"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2017-11-28 14:02:00 NZDT"</code></pre>
 </div>
@@ -1003,35 +1058,56 @@ Author name<br/>
 <h4 id="parsing-1">Parsing</h4>
 <p>Identify the order of the year (y), month (m), day (d), hour (h), minute (m) and second (s) elements in your data</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb60-2"><a href=""></a></span>
-<span id="cb60-3"><a href=""></a><span class="co"># all of these are equivalent: </span></span>
-<span id="cb60-4"><a href=""></a><span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb76-2"><a href=""></a></span>
+<span id="cb76-3"><a href=""></a><span class="co"># all of these are equivalent: </span></span>
+<span id="cb76-4"><a href=""></a><span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2011-06-04" "2011-06-04" "2011-06-04" "2011-06-04"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="co"># date and time: you can specify the timezone:</span></span>
-<span id="cb62-2"><a href=""></a> <span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>, <span class="at">tz=</span><span class="st">"Pacific/Auckland"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a><span class="co"># date and time: you can specify the timezone:</span></span>
+<span id="cb78-2"><a href=""></a> <span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>, <span class="at">tz=</span><span class="st">"Pacific/Auckland"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2017-11-28 14:02:00 NZDT"</code></pre>
 </div>
 </div>
 <p><br></p>
+<p>Extract different elements of a date time:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2029-10-24"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2029</code></pre>
+</div>
+</div>
+</section>
+<section id="working-on-dates-and-times-3" class="slide level2">
+<h2>Working on dates… and times</h2>
+<p>We recommend the <code>lubridate</code> package, and its precious <a href="https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf">cheatsheet</a>.</p>
 <blockquote>
 <p>A date-time is a point on the timeline, stored as the number of seconds since 1970-01-01 00:00:00 UTC</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="fu">as_datetime</span>(<span class="dv">1511870400</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a><span class="fu">as_datetime</span>(<span class="dv">1511870400</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2017-11-28 12:00:00 UTC"</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a><span class="fu">as_date</span>(<span class="dv">198660</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a><span class="fu">as_date</span>(<span class="dv">198660</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2513-11-30"</code></pre>
 </div>
 </div>
+<h4 id="different-ways-to-deal-with-time">Different ways to deal with time!</h4>
+<p><img data-src="images/regex.png" style="width:100.0%"></p>
 <!-- Insert section 'Data homogenization' -->
 </section></section>
 <section>
