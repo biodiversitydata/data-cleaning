@@ -32,14 +32,6 @@ engine: knitr
 #| child: "sections/data-status.qmd"
 ```
 
-
-<!-- Insert section 'Scripting' -->
-
-```{r}
-#| child: "sections/scripting.qmd"
-```
-
-
 <!-- Insert section 'Data cleaning' -->
 
 ```{r}
@@ -50,7 +42,7 @@ engine: knitr
 <!-- Insert section 'Data homogenization' -->
 
 ```{r}
-#| child: "sections/data-homogenization.qmd"
+#| child: "sections/taxonomy.qmd"
 ```
 
 

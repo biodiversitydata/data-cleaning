@@ -1,27 +1,150 @@
 # {{< fa broom size=1x >}} &nbsp;&nbsp;Data cleaning (15 min)
 
-## Column names
+## Cleaning dirty data
+
+:::: {.columns}
+
+::: {.column width=50%}
+![](images/janitor-screenshot.png)
 
 <br>
 
-R package `janitor`:
+Available at: <https://sfirke.github.io/janitor/>
+:::
 
-<br><br>
+::: {.column width=50%}
+<br>
 
+```{r}
+#| eval: false
+#| echo: true
+
+# Install 'janitor' package ----
+install.packages("janitor")
+```
+
+<br>
+
+
+| Function              | Description                               |
+|:----------------------|:------------------------------------------|
+| `clean_names()`       | Cleans names of a `data.frame`            |
+| `remove_constant()`   | Remove constant columns                   |
+| `remove_empty()`      | Remove empty rows and/or columns          |
+| `get_dupes()`         | Identify column w/ identical value        |
+| `single_value()`      | Check if a column has only a single value |
+
+: Table: Main functions of `janitor`
+:::
+::::
+
+
+## `janitor` example
+
+:::: {.columns}
+
+::: {.column width=50%}
 ```{r}
 #| echo: true
 
-# Create a data.frame with dirty names
+## Create a data.frame with dirty names ----
 
 test_df <- as.data.frame(matrix(ncol = 6))
+
 names(test_df) <- c("firstName", "ábc@!*", "% successful (2009)",
                     "REPEAT VALUE", "REPEAT VALUE", "")
 
-
-test_df |>
-  janitor::clean_names() |>
-  colnames()
+test_df
 ```
+:::
+
+::: {.column width=50%}
+:::
+
+::::
+
+
+
+## `janitor` example
+
+:::: {.columns}
+
+::: {.column width=50%}
+```{r}
+#| echo: true
+
+## Create a data.frame with dirty names ----
+
+test_df <- as.data.frame(matrix(ncol = 6))
+
+names(test_df) <- c("firstName", "ábc@!*", "% successful (2009)",
+                    "REPEAT VALUE", "REPEAT VALUE", "")
+
+test_df
+```
+:::
+
+::: {.column width=50%}
+```{r}
+#| echo: true
+
+## Clean column names ----
+
+test_df <- test_df |>
+  janitor::clean_names()
+
+
+
+test_df
+```
+:::
+
+::::
+
+
+## Manipulating data
+
+:::: {.columns}
+
+::: {.column width=50%}
+![](images/dplyr-screenshot.png)
+
+<br>
+
+Available at: <https://sfirke.github.io/dplyr/>
+:::
+
+::: {.column width=50%}
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+
+# Install 'dplyr' package ----
+install.packages("dplyr")
+```
+
+<br>
+
+
+| Function              | Description                                      |
+|:----------------------|:-------------------------------------------------|
+| `arrange()`           | Order rows using column values                   |
+| `filter()`            | Keep rows that match a condition                 |
+| `select()`            | Keep or drop columns using their names           |
+| `mutate()`            | Create, modify, and delete columns               |
+| `distinct()`          | Keep distinct/unique rows                        |
+| `slice()`             | Subset rows using their positions                |
+| `rename()`            | Rename columns                                   |
+| `pull()`              | Extract a single column                          |
+| `group_by()`          | Group by one or more variables                   |
+| `summarise()`         | Summarise each group down to one row             |
+
+: Table: Main functions of `dplyr`
+:::
+::::
+
 
 
 ## Sorting and arranging
@@ -44,64 +167,123 @@ R package `dplyr` is very useful to :
 - put it back together in a dataframe/data table etc.
 
 
-## dplyr demo
+## `dplyr` example
 
-<br><br>
+:::: {.columns}
+
+::: {.column width=50%}
 
 ```{r}
 #| echo: true
 
-# load the iris dataset implemented in base R:
+## Load the iris dataset ----
+
 data("iris")
+
 head(iris)
 ```
 
+<br>
+:::
 
-## dplyr demo
+::: {.column width=50%}
+:::
+::::
 
-<br><br>
+
+## `dplyr` example
+
+:::: {.columns}
+
+::: {.column width=50%}
 
 ```{r}
 #| echo: true
 
-# load the iris dataset implemented in base R:
+## Load the iris dataset ----
+
 data("iris")
+
 head(iris)
 ```
 
-<br><br>
+<br>
 
 ```{r}
 #| echo: true
+
+## Clean column names ----
 
 iris_nice <- janitor::clean_names(iris)
-colnames(iris_nice)
+
+head(iris_nice)
 ```
 
+:::
 
-## dplyr demo
+::: {.column width=50%}
+:::
+::::
 
-<br><br>
 
+## `dplyr` example
+
+:::: {.columns}
+
+::: {.column width=50%}
 
 ```{r}
 #| echo: true
+
+## Load the iris dataset ----
+
+data("iris")
+
+head(iris)
+```
+
+<br>
+
+```{r}
+#| echo: true
+
+## Clean column names ----
+
+iris_nice <- janitor::clean_names(iris)
+
+head(iris_nice)
+```
+
+:::
+
+::: {.column width=50%}
+```{r}
+#| echo: true
+
+## Manipulate data ----
+
 iris_nice |>
   dplyr::select(sepal_length, sepal_width, species) |>
   dplyr::filter(sepal_length <= 5) |>
   dplyr::group_by(species) |>
-  dplyr::mutate(mean_length = mean(sepal_length),
-                mean_width = mean(sepal_width))
-
+  dplyr::mutate("mean_length" = mean(sepal_length),
+                "mean_width"  = mean(sepal_width))
 ```
+:::
+::::
 
-## Merging dataframes
 
-The family of `dplyr::join_` functions can deal with all types of dataframe merges. It's the R equivalent to SQL querying. 
+
+
+## Merging data
+
+The family of **`dplyr::*_join()`** functions can deal with all types of `data.frame` merges. It's the R equivalent to SQL querying. 
 
 <br><br>
 
-Load datasets from dplyr:
+Let's load `band_instruments` and `band_members` datasets from `dplyr`.
+
+<br/>
 
 :::: {.columns}
 ::: {.column width=45%}
@@ -109,8 +291,11 @@ Load datasets from dplyr:
 ```{r}
 #| echo: true
 
+## Load 'band_instruments' data ----
+
 instruments <- dplyr::band_instruments |> 
   as.data.frame()
+
 instruments
 ```
 :::
@@ -123,73 +308,73 @@ instruments
 ```{r}
 #| echo: true
 
+## Load 'band_members' data ----
+
 members <- dplyr::band_members |>
   as.data.frame()
+
 members
 ```
 :::
 ::::
 
-## Merging dataframes
+
+
+## Merging data
 
 :::: {.columns}
 ::: {.column width=45%}
-
-
-**`left_join()`** returns all x rows.
-This is probably the most used one.
+**`left_join()`** keeps all rows in `x`.
 
 ```{r}
 #| echo: true
 #| warning: false
 
-dplyr::left_join(members, instruments) 
+dplyr::left_join(x = members, y = instruments) 
 ```
-
-<br>
-
-**`right_join()`** returns matched of x rows, followed by unmatched y rows.
-
-```{r}
-#| echo: true
-#| warning: false
-
-dplyr::right_join(members, instruments) 
-```
-
-
-
 :::
 
 ::: {.column width=10%}
 :::
 
 ::: {.column width=45%}
+:::
+::::
 
+<br>
+
+:::: {.columns}
+::: {.column width=45%}
 :::
 
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+:::
 ::::
 
 
-## Merging dataframes
+
+## Merging data
 
 :::: {.columns}
 ::: {.column width=45%}
-
-
-**`left_join()`** returns all x rows.
-This is probably the most used one.
+**`left_join()`** keeps all rows in `x`.
 
 ```{r}
 #| echo: true
 #| warning: false
 
-dplyr::left_join(members, instruments) 
+dplyr::left_join(x = members, y = instruments) 
 ```
+:::
 
-<br>
+::: {.column width=10%}
+:::
 
-**`right_join()`** returns matched of x rows, followed by unmatched y rows.
+::: {.column width=45%}
+**`right_join()`** keeps all rows in `y`.
 
 ```{r}
 #| echo: true
@@ -197,17 +382,57 @@ dplyr::left_join(members, instruments)
 
 dplyr::right_join(members, instruments) 
 ```
+:::
+::::
 
+<br>
 
-
+:::: {.columns}
+::: {.column width=45%}
 :::
 
 ::: {.column width=10%}
 :::
 
 ::: {.column width=45%}
+:::
+::::
 
-**`inner_join()`** only keeps observations from x that have a matching key in y.
+
+## Merging data
+
+:::: {.columns}
+::: {.column width=45%}
+**`left_join()`** keeps all rows in `x`.
+
+```{r}
+#| echo: true
+#| warning: false
+
+dplyr::left_join(x = members, y = instruments) 
+```
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+**`right_join()`** keeps all rows in `y`.
+
+```{r}
+#| echo: true
+#| warning: false
+
+dplyr::right_join(members, instruments) 
+```
+:::
+::::
+
+<br>
+
+:::: {.columns}
+::: {.column width=45%}
+**`inner_join()`** only keeps rows from `x` that have a matching key in `y`.
 
 ```{r}
 #| echo: true
@@ -216,13 +441,66 @@ dplyr::right_join(members, instruments)
 
 dplyr::inner_join(members, instruments) 
 ```
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+:::
+::::
 
 
+
+## Merging data
+
+:::: {.columns}
+::: {.column width=45%}
+**`left_join()`** keeps all rows in `x`.
+
+```{r}
+#| echo: true
+#| warning: false
+
+dplyr::left_join(x = members, y = instruments) 
+```
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+**`right_join()`** keeps all rows in `y`.
+
+```{r}
+#| echo: true
+#| warning: false
+
+dplyr::right_join(members, instruments) 
+```
+:::
+::::
 
 <br>
 
+:::: {.columns}
+::: {.column width=45%}
+**`inner_join()`** only keeps rows from `x` that have a matching key in `y`.
 
-**`full_join()`** returns all x rows, followed by unmatched y rows. Most conservative.
+```{r}
+#| echo: true
+#| warning: false
+
+
+dplyr::inner_join(members, instruments) 
+```
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+**`full_join()`** keeps all rows in `x` and `y` (most conservative method).
 
 ```{r}
 #| echo: true
@@ -230,76 +508,717 @@ dplyr::inner_join(members, instruments)
 
 dplyr::full_join(members, instruments) 
 ```
-
 :::
-
 ::::
 
 
 
-## Pivoting with tidyr
+## `dplyr` cheatsheet
 
-`pivot_longer()` : compiles information from multiple columns into a unique column. This is commonly needed to reformat datasets that were optimized for ease of data entry or comparison rather than ease of analysis. 
-
-<br>
-
-> This format is the one privileged by the ggplot functions.
-
-<br>
-
-```{r}
-#| echo: true
-
-relig_income <- tidyr::relig_income 
-head(relig_income)
-```
+![Source: <https://rstudio.github.io/cheatsheets/html/data-transformation.html>](images/dplyr-cheatsheet.png){width=60% fig-align='center'}
 
 
-## Pivoting with tidyr
-
-<br> 
+## Pivoting data
 
 :::: {.columns}
-::: {.column width=45%}
 
+::: {.column width=50%}
+![](images/tidyr-screenshot.png)
+
+<br>
+
+Available at: <https://tidyr.tidyverse.org/>
+:::
+
+::: {.column width=50%}
+<br>
 
 ```{r}
+#| eval: false
 #| echo: true
 
-newtab <- tidyr::pivot_longer(
-  relig_income, 
-  cols = !religion,
-  names_to = "income",
-  values_to = "count"
-)
+# Install 'httr2' package ----
+install.packages("tidyr")
 ```
 
 <br>
 
+
+| Function              | Description                              |
+|:----------------------|:-----------------------------------------|
+| `pivot_longer()`      | Pivot data from wide to long             |
+| `pivot_wider()`       | Pivot data from long to wide             |
+
+: Table: Main functions of `tidyr`
+:::
+::::
+
+
+## Wide vs Long format
+
+:::: {.columns}
+
+::: {.column .center width=50%}
+<br>
+
+**`tidyr::pivot_longer()`**
+
+<br>
+
+![](images/pivot_longer.png)
+:::
+
+::: {.column .center width=50%}
+<br>
+
+**`tidyr::pivot_wider()`**
+
+<br>
+
+![](images/pivot_wider.png)
+
+:::
+
+::::
+
+::: {.citation}
+Source: <https://rstudio.github.io/cheatsheets/html/tidyr.html>
+:::
+
+
+## Pivot to long format
+
+The function **`tidyr::pivot_longer()`** compiles information from multiple columns into a unique column. This is commonly needed to reformat datasets that were optimized for ease of data entry or comparison rather than ease of analysis. 
+
+<br>
+
+> This format is the one privileged by the `ggplot2` functions.
+
+
+:::: {.columns}
+
+::: {.column .center width=50%}
 ```{r}
 #| echo: true
-#| eval: false
-head(newtab)
+
+## Load dataset ----
+
+data("relig_income", package = "tidyr")
+
+
+
+head(relig_income)
 ```
-
 :::
 
-::: {.column width=10%}
+::: {.column .center width=50%}
+:::
+::::
+
+
+
+## Pivot to long format
+
+The function **`tidyr::pivot_longer()`** compiles information from multiple columns into a unique column. This is commonly needed to reformat datasets that were optimized for ease of data entry or comparison rather than ease of analysis. 
+
+<br>
+
+> This format is the one privileged by the `ggplot2` functions.
+
+
+:::: {.columns}
+
+::: {.column .center width=50%}
+```{r}
+#| echo: true
+
+## Load dataset ----
+
+data("relig_income", package = "tidyr")
+
+
+
+head(relig_income)
+```
 :::
 
-::: {.column width=45%}
+::: {.column .center width=50%}
+
+```{r}
+#| echo: true
+
+## Pivot to longer ----
+newtab <- relig_income |> 
+  tidyr::pivot_longer(cols      = !religion,
+                      names_to  = "income",
+                      values_to = "count")
+
+newtab
+```
+:::
+::::
 
 
-<br> <br> 
+
+
+
+
+## Pivot to wide format
+
+The function **`tidyr::pivot_wider()`** is the opposite of `tidyr::pivot_longer()`.
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width=60%}
+```{r}
+#| echo: true
+
+## Pivot to wider ----
+
+back <- newtab |> 
+  tidyr::pivot_wider(names_from  = income,
+                     values_from = count)
+
+back
+```
+:::
+
+::: {.column width=50%}
+:::
+::::
+
+
+
+## `tidyr` cheatsheet
+
+![Source: <https://rstudio.github.io/cheatsheets/html/tidyr.html>](images/tidyr-cheatsheet.png){width=60% fig-align='center'}
+
+
+
+
+## Manipulating strings
+
+:::: {.columns}
+
+::: {.column width=50%}
+```{r}
+#| eval: false
+#| echo: true
+
+## Creating strings ----
+
+string0 <- ""
+string1 <- "This is a string"
+string2 <- 'This is a string with a "quote" inside'
+string3 <- "Another string with a \"quote\" inside"
+```
+:::
+
+::: {.column width=50%}
+```{r}
+#| eval: false
+#| echo: true
+
+## Do not forget to close quotes ----
+
+> "This is a string without a closing quote
++ 
++ 
++ HELP I'M STUCK
+```
+:::
+::::
 
 
 ```{r}
+#| eval: false
 #| echo: false
-#| eval: true
 
-head(newtab |> as.data.frame(), 12)
+"
 ```
 
+<br/>
+
+. . .
+
+The function **`paste()`**
+
+:::: {.columns}
+
+::: {.column width=50%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Paste two vectors ----
+
+firstname <- "Camille"
+lastname  <- "Coux"
+
+paste(firstname, lastname)
+```
+:::
+
+::: {.column width=50%}
+
+```{r}
+#| eval: true
+#| echo: true
+
+## Collapse elements of a vector ----
+
+fullname <- c("Camille", "Coux")
+
+
+paste(fullname, collapse = ", ")
+```
+:::
+::::
+
+<br/>
+
+. . .
+
+
+The function **`strsplit()`**
+
+:::: {.columns}
+
+::: {.column width=50%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Split a string by a pattern ----
+
+fullname <- "Camille Coux"
+
+strsplit(fullname, split = " ")
+```
+:::
+
+::: {.column width=50%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Split a string by a pattern (2) ----
+
+fullname <- c("Camille Coux", "Nicolas Casajus")
+
+strsplit(fullname, split = " ")
+```
+:::
+::::
+
+
+
+## Manipulating strings
+
+:::: {.columns}
+
+::: {.column width=50%}
+![](images/stringr-screenshot.png)
+
+<br>
+
+Available at: <https://stringr.tidyverse.org/>
+:::
+
+::: {.column width=50%}
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+
+# Install 'stringr' package ----
+install.packages("stringr")
+```
+
+<br>
+
+
+| Function              | Description                              |
+|:----------------------|:-----------------------------------------|
+| `str_detect()`        | Detect the presence/absence of a pattern |
+| `str_extract()`       | Extract the first match from each string |
+| `str_extract_all()`   | Extract all match from each string       |
+| `str_replace()`       | Replace the first match by a text        |
+| `str_replace_all()`   | Replace all matches by a text            |
+| `str_remove()`        | Remove the first match                   |
+| `str_remove_all()`    | Remove all matches                       |
+| `str_split()`         | Split up a string into pieces            |
+| `str_to_upper()`      | Convert a string to upper case           |
+| `str_to_lower()`      | Convert a string to lower case           |
+
+: Table: Main functions of `stringr`
+:::
+::::
+
+
+## Manipulating strings
+
+The `stringr` package uses a standardized set of functions applied to strings
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width=40%}
+:::
+
+::: {.column width=60%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Create a string vector ----
+
+fullnames <- c("Camille", "Nicolas", "Olivier", "Yvan", "Sophie", "Anne-Sophie")
+```
+:::
+
+::::
+
+<br/>
+
+. . .
+
+
+**Detect pattern**[^grep]
+
+:::: {.columns}
+
+::: {.column width=50%}
+- `str_detect()` returns a boolean
+:::
+
+::: {.column width=50%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Detect a pattern (boolean) ----
+
+stringr::str_detect(string = fullnames, pattern = "phi")
+```
+:::
+
+::::
+
+. . .
+
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width=50%}
+- `str_which()` returns a position
+:::
+
+::: {.column width=50%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Detect pattern (position) ----
+
+stringr::str_which(string = fullnames, pattern = "phi")
+```
+:::
+
+::::
+
+. . .
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width=50%}
+- `str_count()` returns number of matches
+:::
+
+::: {.column width=50%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Count occurrences ----
+
+stringr::str_count(string = fullnames, pattern = "n")
+```
+:::
+
+::::
+
+
+[^grep]: Same as the base function `grep()`
+
+
+
+
+## Manipulating strings
+
+The `stringr` package uses a standardized set of functions applied to strings
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width=40%}
+:::
+
+::: {.column width=60%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Create a string vector ----
+
+fullnames <- c("Camille", "Nicolas", "Olivier", "Yvan", "Sophie", "Anne-Sophie")
+```
+:::
+
+::::
+
+<br/>
+
+**Subset matches**
+
+:::: {.columns}
+
+::: {.column width=50%}
+- `str_subset()`[^grep2]
+:::
+
+::: {.column width=50%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Subset matches ----
+
+stringr::str_subset(string = fullnames, pattern = "phi")
+```
+
+<br/>
+
+```{r}
+#| eval: true
+#| echo: true
+
+## Subset matches (negate) ----
+
+stringr::str_subset(string = fullnames, pattern = "phi", negate = TRUE)
+```
+:::
+
+::::
+
+[^grep2]: Same as `grep(pattern, string, value = TRUE)`
+
+
+
+
+## Manipulating strings
+
+The `stringr` package uses a standardized set of functions applied to strings
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width=40%}
+:::
+
+::: {.column width=60%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Create a string vector ----
+
+fullnames <- c("Camille", "Nicolas", "Olivier", "Yvan", "Sophie", "Anne-Sophie")
+```
+:::
+
+::::
+
+<br/>
+
+**Replace pattern**
+
+:::: {.columns}
+
+::: {.column width=50%}
+- `str_replace()`[^gsub]
+:::
+
+::: {.column width=50%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Subset matches ----
+
+stringr::str_replace(string      = fullnames, 
+                     pattern     = "i", 
+                     replacement = "u")
+```
+:::
+
+::::
+
+<br/>
+
+. . .
+
+:::: {.columns}
+
+::: {.column width=50%}
+- `str_replace_all()`
+:::
+
+::: {.column width=50%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Subset matches ----
+
+stringr::str_replace_all(string      = fullnames, 
+                         pattern     = "i", 
+                         replacement = "u")
+```
+:::
+
+::::
+
+
+[^gsub]: Same as the base function `gsub()`
+
+
+
+
+## Manipulating strings
+
+The `stringr` package uses a standardized set of functions applied to strings
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width=40%}
+:::
+
+::: {.column width=60%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Create a string vector ----
+
+fullnames <- c("Camille", "Nicolas", "Olivier", "Yvan", "Sophie", "Anne-Sophie")
+```
+:::
+
+::::
+
+<br/>
+
+**Character case**
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+- `str_to_upper()`[^upper] converts to upper case
+:::
+
+::: {.column width=50%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Subset matches ----
+
+stringr::str_to_upper(string = fullnames)
+```
+:::
+
+::::
+
+<br/>
+
+. . .
+
+:::: {.columns}
+
+::: {.column width=50%}
+- `str_to_lower()`[^lower] converts to lower case
+:::
+
+::: {.column width=50%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Subset matches ----
+
+stringr::str_to_lower(string = fullnames)
+```
+:::
+
+::::
+
+. . .
+
+And many more...
+
+[^upper]: Same as the base function `toupper()`
+[^lower]: Same as the base function `tolower()`
+
+
+
+## The wonderful world of regex
+
+**How can we specify generic patterns?**
+
+<br/>
+
+. . .
+
+{{< fa circle-right >}} &nbsp;**Regular expressions**, or **_regex_**: a concise language for describing patterns in strings. More [**here**](https://r4ds.had.co.nz/strings.html).
+
+<br/>
+
+. . .
+
+**Examples**
+
+
+
+:::: {.columns}
+
+::: {.column width=40%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Create a string ----
+
+my_string <- "My email is: camille123@gmail.com ."
+```
+
+
+:::
+
+::: {.column width=60%}
 :::
 
 ::::
@@ -308,336 +1227,469 @@ head(newtab |> as.data.frame(), 12)
 
 
 
+## The wonderful world of regex
 
-## Pivoting with tidyr
+**How can we specify generic patterns?**
 
-`pivot_wider()` is the opposite of `pivot_longer()`. <br> <br> 
-
-
-```{r}
-#| echo: true
-back <- tidyr::pivot_wider(
-  newtab,
-  names_from = income,
-  values_from = count
-)
-```
-
-<br> <br> 
-
-```{r}
-#| echo: false
-#| eval: true
-head(back)
-
-```
+<br/>
 
 
 
+{{< fa circle-right >}} &nbsp;**Regular expressions**, or **_regex_**: a concise language for describing patterns in strings. More [**here**](https://r4ds.had.co.nz/strings.html).
 
-## Working on strings
-
-```{r}
-#| eval: false
-#| echo: true
-
-string1 <- "This is a string"
-string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
-```
-
-<br>
-
-```{r}
-#| eval: false
-#| echo: true
-
-> "This is a string without a closing quote
-+ 
-+ 
-+ HELP I'M STUCK
-```
+<br/>
 
 
 
-## Working on strings
+**Examples**
 
-```{r}
-#| eval: false
-#| echo: true
 
-string1 <- "This is a string"
-string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
-```
 
-<br>
+:::: {.columns}
 
-```{r}
-#| eval: false
-#| echo: true
-
-> "This is a string without a closing quote
-+ 
-+ 
-+ HELP I'M STUCK
-```
-
-<br> 
-
-**`paste()`**: stick 2 strings together: 
-
+::: {.column width=40%}
 ```{r}
 #| eval: true
 #| echo: true
-a <- "apple"
-b <- "banana"
-paste(a, b)
-```
 
+## Create a string ----
 
-## Working on strings
-
-```{r}
-#| eval: false
-#| echo: true
-
-string1 <- "This is a string"
-string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
-```
-
-<br>
-
-```{r}
-#| eval: false
-#| echo: true
-
-> "This is a string without a closing quote
-+ 
-+ 
-+ HELP I'M STUCK
-```
-
-<br> 
-
-**`paste()`**: stick 2 strings together: 
-
-```{r}
-#| eval: true
-#| echo: true
-a <- "apple"
-b <- "banana"
-paste(a, b)
-```
-or collapse elements from a vector into a string: 
-
-```{r}
-#| eval: true
-#| echo: true
-(team <- c("Nico", "Camille", "Olivier", "Yvan", "Sophie", "Anne-Sophie"))
-(paste(team, collapse = " - "))
-```
-
-
-## Working on strings
-
-The `stringr` package uses a standardized set of functions applied to strings to:
-
-- **detect matches:** `str_detect(string, pattern)` returns TRUE/FALSE, `str_which()` returns position in string (like `grep()` in base R), `str_count()` returns # of matches
-
-
-## Working on strings
-
-The `stringr` package uses a standardized set of functions applied to strings to:
-
-- **detect matches:** `str_detect(string, pattern)` returns TRUE/FALSE, `str_which()` returns position in string (like `grep()` in base R), `str_count()` returns # of matches
-
-- **replace matches:** `str_replace_all(string, pattern, replacement)` <--> same as `gsub()` in base R, useful to replace typos
-
-
-## Working on strings
-
-The `stringr` package uses a standardized set of functions applied to strings to:
-
-- **detect matches:** `str_detect(string, pattern)` returns TRUE/FALSE, `str_which()` returns position in string (like `grep()` in base R), `str_count()` returns # of matches
-
-- **replace matches:** `str_replace_all(string, pattern, replacement)` <--> same as `gsub()` in base R, useful to replace typos
-
-- **subset matches:** `str_subset(string, pattern)` <--> same as `grep(patter, string, value=TRUE)` in base R
-
-```{r}
-#| eval: true
-#| echo: true
-stringr::str_which(team, "Ca")
-stringr::str_subset(team, "Ca")
-```
-
-
-
-## Working on strings
-
-The `stringr` package uses a standardized set of functions applied to strings to:
-
-- **detect matches:** `str_detect(string, pattern)` returns TRUE/FALSE, `str_which()` returns position in string (like `grep()` in base R), `str_count()` returns # of matches
-
-- **replace matches:** `str_replace_all(string, pattern, replacement)` <--> same as `gsub()` in base R, useful to replace typos
-
-- **subset matches:** `str_subset(string, pattern)` <--> same as `grep(patter, string, value=TRUE)` in base R
-
-```{r}
-#| eval: true
-#| echo: true
-stringr::str_which(team, "Ca")
-stringr::str_subset(team, "Ca")
-```
-- **manipulate:** `str_flatten()` <--> same as `paste()`, `str_split(string, pattern)`: cuts a string where pattern matches.
-
-- **trim white spaces:** `str_trim()` : very usefull!! Good to run just in case.... 
-
-- **change character case:** `str_to_upper()`: ALL CAPS.
-
-
-
-## Working on strings
-
-The `stringr` package matches **patterns** in strings. But how can we specify generic patterns ?
-
-> **Regular expressions**, or "regexps" : a concise language for describing patterns in strings. More [here](https://r4ds.had.co.nz/strings.html).
-
-
-```{r}
-#| echo: true
-
-library(stringr)
 my_string <- "My email is: camille123@gmail.com ."
+```
 
-# get numbers only:
-str_extract(my_string, "\\d+")  # \\d = digits; + = at least 1 time
-str_extract(my_string, "[0-9]+")
+
+:::
+
+::: {.column width=60%}
+```{r}
+#| echo: true
+
+## Extract first numbers ----
+
+stringr::str_extract(my_string, "\\d")
+```
+
+<br/>
+
+```{r}
+#| echo: true
+
+## Extract first consecutive numbers ----
+
+stringr::str_extract(my_string, "\\d+")
+```
+
+
+<br/>
+
+```{r}
+#| echo: true
+
+## Alternative ----
+
+stringr::str_extract(my_string, "[0-9]+")
+```
+:::
+
+::::
+
+
+
+## The wonderful world of regex
+
+**How can we specify generic patterns?**
+
+<br/>
+
+
+
+{{< fa circle-right >}} &nbsp;**Regular expressions**, or **_regex_**: a concise language for describing patterns in strings. More [**here**](https://r4ds.had.co.nz/strings.html).
+
+<br/>
+
+
+
+**Examples**
+
+
+
+:::: {.columns}
+
+::: {.column width=40%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Create a string ----
+
+my_string <- "My email is: camille123@gmail.com ."
+```
+
+
+:::
+
+::: {.column width=60%}
+```{r}
+#| echo: true
+
+## Extract all letters ----
+
+stringr::str_extract_all(my_string, "[A-z]")
+```
+
+<br/>
+
+```{r}
+#| echo: true
+
+## Extract first consecutive letters ----
+
+stringr::str_extract(my_string, "[A-z]+")
+```
+
+
+<br/>
+
+```{r}
+#| echo: true
+
+## Extract complex pattern ----
+
+stringr::str_extract(my_string, "[A-z|\\s]+")
+```
+:::
+
+::::
+
+
+
+## The wonderful world of regex
+
+**How can we specify generic patterns?**
+
+<br/>
+
+
+
+{{< fa circle-right >}} &nbsp;**Regular expressions**, or **_regex_**: a concise language for describing patterns in strings. More [**here**](https://r4ds.had.co.nz/strings.html).
+
+<br/>
+
+
+
+**Examples**
+
+
+
+:::: {.columns}
+
+::: {.column width=40%}
+```{r}
+#| eval: true
+#| echo: true
+
+## Create a string ----
+
+my_string <- "My email is: camille123@gmail.com ."
+```
+
+
+:::
+
+::: {.column width=60%}
+```{r}
+#| echo: true
+
+## Check for double 'l' ----
+
+stringr::str_detect(my_string, "l{2}")
+```
+
+<br/>
+
+```{r}
+#| echo: true
+
+## Remove trailing whitespace and dot ----
+
+stringr::str_remove(my_string, "\\s\\.$")
+```
+
+
+<br/>
+
+```{r}
+#| echo: true
+
+## Extract email ----
+
+stringr::str_remove(my_string, "^[^c]*")
+```
+:::
+
+::::
+
+
+
+## `stringr` cheatsheet
+
+![Source: <https://rstudio.github.io/cheatsheets/html/strings.html>](images/stringr-cheatsheet.png){width=60% fig-align='center'}
+
+
+
+## Working w/ dates
+
+:::: {.columns}
+
+::: {.column width=50%}
+![](images/lubridate-screenshot.png)
+
+<br>
+
+Available at: <https://lubridate.tidyverse.org/>
+:::
+
+::: {.column width=50%}
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+
+# Install 'lubridate' package ----
+install.packages("lubridate")
 ```
 
 <br>
 
-```{r}
-#| echo: true
 
-# extract all letters:
-str_extract_all(my_string, "[A-z]")  # upper and lower case letters
-str_extract(my_string, "[A-z]+") # stops when encounters a different charater (" ")
-str_extract(my_string, "[A-z|\\s]+") # add that white spaces ("\\s")are to be extracted too
-```
+| Function                      | Description                                 |
+|:------------------------------|:--------------------------------------------|
+| `ymd()`, `ydm()`, etc.        | Parse dates with year, month, and day       |
+|  `ms()`, `hm()`, `hms()`      | Parse periods                               |
+| `ymd_hms()`, `dmy_hm()`       | Parse date-times                            |
+| `year()`                      | Get years component of a date-time          |
+| `month()`                     | Get months component of a date-time         |
+| `hour()`                      | Get hours component of a date-time          |
+| `week()`                      | Get weeks component of a date-time          |
+| `now()`                       | Get current day and time                    |
 
-
-## Working on strings
-
-```{r}
-#| echo: true
-
-# are there any double "l" ?
-str_detect(my_string, "l{2}")
-
-# remove trailing whitespace and dot:
-str_replace(my_string, "\\s\\.$", "")
-
-# keep only the email:
-str_replace(my_string, "^[^c]*", "")
-```
-
-## Working on strings
-
-![](images/regex.png){width=100%}
+: Table: Main functions of `lubridate`
+:::
+::::
 
 
-## Working on dates... and times
 
-We recommend the `lubridate`  package, and its precious [cheatsheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf).
+## Working w/ dates
 
+:::: {.columns}
 
-## Working on dates... and times
-
-We recommend the `lubridate`  package, and its precious [cheatsheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf).
-
-#### Parsing
-
-Identify the order of the year (y), month (m), day (d), hour (h), minute (m) and second (s) elements in your data
-
-
+::: {.column width=50%}
 ```{r}
 #| echo: true
 #| warning: false
 
-library(lubridate)
+## Attach the package 'lubridate' ----
 
-# all of these are equivalent: 
-c(ymd("20110604"), mdy("06-04-2011"), dmy("04/06/2011"), mdy("June 4th, 2011"))
+library("lubridate")
+```
+:::
 
-# date and time: you can specify the timezone:
- ymd_hms("2017-11-28T14:02:00", tz="Pacific/Auckland")
+::: {.column width=50%}
+:::
+::::
+
+<br/>
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+**Parsing date**
+
+```{r}
+#| echo: true
+
+## Parse dates ----
+
+dates <- c(ymd("20110604"), mdy("06-04-2011"), dmy("04/06/2011"), 
+           mdy("June 4th, 2011"))
+
+dates
 ```
 
-## Working on dates... and times
 
-We recommend the `lubridate`  package, and its precious [cheatsheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf).
+<br/>
 
-#### Parsing
+:::
 
-Identify the order of the year (y), month (m), day (d), hour (h), minute (m) and second (s) elements in your data
+::: {.column width=50%}
+:::
+
+::::
 
 
+
+## Working w/ dates
+
+:::: {.columns}
+
+::: {.column width=50%}
 ```{r}
 #| echo: true
 #| warning: false
 
-library(lubridate)
+## Attach the package 'lubridate' ----
 
-# all of these are equivalent: 
-c(ymd("20110604"), mdy("06-04-2011"), dmy("04/06/2011"), mdy("June 4th, 2011"))
-
-# date and time: you can specify the timezone:
- ymd_hms("2017-11-28T14:02:00", tz="Pacific/Auckland")
+library("lubridate")
 ```
-<br>
+:::
 
-Extract different elements of a date time:
+::: {.column width=50%}
+:::
+::::
 
-```{r}
-oneday <- "2029-10-24 00:02:00"
-date(oneday)
-minute(oneday)
-second(oneday)
-year(oneday)
-```
+<br/>
 
 
+:::: {.columns}
 
-
-
-## Working on dates... and times
-
-We recommend the `lubridate`  package, and its precious [cheatsheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf).
-
-> A date-time is a point on the timeline, stored as the number of seconds since 1970-01-01 00:00:00 UTC
-
-```{r}
-#| echo: true
-as_datetime(1511870400)
-```
-
+::: {.column width=50%}
+**Parsing date**
 
 ```{r}
 #| echo: true
 
-as_date(198660)
+## Parse dates ----
+
+dates <- c(ymd("20110604"), mdy("06-04-2011"), dmy("04/06/2011"), 
+           mdy("June 4th, 2011"))
+
+dates
 ```
 
 
-#### Different ways to deal with time!
-
-![](images/regex.png){width=100%}
+<br/>
 
 
+**Parsing date-times**
+
+```{r}
+#| echo: true
+
+## Parse date-time (and specify timezone) ----
+
+ymd_hms("2017-11-28T14:02:00", tz="Pacific/Auckland")
+```
+
+:::
+
+::: {.column width=50%}
+:::
+
+::::
+
+
+## Working w/ dates
+
+:::: {.columns}
+
+::: {.column width=50%}
+```{r}
+#| echo: true
+#| warning: false
+
+## Attach the package 'lubridate' ----
+
+library("lubridate")
+```
+:::
+
+::: {.column width=50%}
+:::
+::::
+
+<br/>
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+**Parsing date**
+
+```{r}
+#| echo: true
+
+## Parse dates ----
+
+dates <- c(ymd("20110604"), mdy("06-04-2011"), dmy("04/06/2011"), 
+           mdy("June 4th, 2011"))
+
+dates
+```
+
+
+<br/>
+
+
+**Parsing date-times**
+
+```{r}
+#| echo: true
+
+## Parse date-time (and specify timezone) ----
+
+ymd_hms("2017-11-28T14:02:00", tz="Pacific/Auckland")
+```
+
+:::
+
+::: {.column width=50%}
+**Extract components**
+
+```{r}
+#| echo: true
+
+## Get current date-time ----
+
+x <- now()
+x
+```
+
+<br/>
+
+```{r}
+#| echo: true
+
+## Extract date ----
+
+date(x)
+```
+
+```{r}
+#| echo: true
+
+## Extract year ----
+
+year(x)
+```
+
+```{r}
+#| echo: true
+
+## Extract hour ----
+
+hour(x)
+```
+:::
+
+::::
 
 
 
 
+## `lubridate` cheatsheet
 
+![Source: <https://rstudio.github.io/cheatsheets/html/lubridate.html>](images/lubridate-cheatsheet.png){width=60% fig-align='center'}
 
 

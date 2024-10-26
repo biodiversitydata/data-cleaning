@@ -22,18 +22,18 @@ Raw vs. derived data
 :::
 
 ::: { .column .center width="20%"}
-{{< fa code-compare size=2x >}}
-<br>
-Scripting
-:::
-
-::: { .column .center width="20%"}
-:::
-
-::: { .column .center width="20%"}
 {{< fa broom size=2x >}}
 <br>
 Data cleaning
+:::
+
+::: { .column .center width="20%"}
+:::
+
+::: { .column .center width="20%"}
+{{< fa circle-check size=2x >}}
+<br>
+Working w/ taxonomy
 :::
 
 ::::
@@ -45,16 +45,7 @@ Data cleaning
 
 :::: { .columns }
 
-::: { .column .center width="20%"}
-:::
-
-::: { .column .center width="20%"}
-{{< fa circle-check size=2x >}}
-<br>
-Data homogenization
-:::
-
-::: { .column .center width="20%"}
+::: { .column .center width="40%"}
 :::
 
 ::: { .column .center width="20%"}
@@ -63,6 +54,6 @@ Data homogenization
 Exercise
 :::
 
-::: { .column .center width="20%"}
+::: { .column .center width="40%"}
 :::
 ::::

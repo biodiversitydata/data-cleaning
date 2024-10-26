@@ -1,4 +1,4 @@
-# {{< fa circle-check size=1x >}} &nbsp;&nbsp;Data homogenization (15 min)
+# {{< fa circle-check size=1x >}} &nbsp;&nbsp;Working w/ taxonomy (15 min)
 
 ## Coming soon
 
