@@ -1,5 +1,44 @@
 # {{< fa broom size=1x >}} &nbsp;&nbsp;Data cleaning (15 min)
 
+## Checklist
+
+:::: {.columns}
+
+::: {.column width=33%}
+- Clean column names
+- Check decimal point
+- Convert date format
+- Check category values
+- Inspect numeric values
+- Check for empty rows/columns
+:::
+
+::: {.column width=33%}
+- Check for constant columns
+- Check for duplicates
+- Missing values
+- Select columns
+- Filter rows
+- Pivot data
+:::
+
+::: {.column width=33%}
+- Merge data
+- Split/combine columns
+- Compute new columns
+- Check binomial names
+
+
+and many more...
+:::
+::::
+
+<br/>
+
+![Source: <https://xkcd.com/2180/>](images/xkcd-2180.png){width=65% fig-align='center'}
+
+
+
 ## Cleaning dirty data
 
 :::: {.columns}

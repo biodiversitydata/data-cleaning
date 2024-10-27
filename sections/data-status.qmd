@@ -1,5 +1,195 @@
 # {{< fa lock size=1x >}} &nbsp;&nbsp;Raw vs. derived data (05 min)
 
-## Coming soon
+## Raw data
 
-Work in progress...
+:::: { .columns }
+::: { .column width="50%"}
+**General recommendations**[^wilson]
+
+- Save and backup the raw data
+- Do not modify raw data (even for minor changes)
+- Raw data should be in a read-only mode (🔒)
+- Any modification produces an output or a derived data
+- Write code for data acquisition (when possible)
+  - Database queries
+  - API requests
+  - `download.file()`, `wget`, `curl`, etc.
+- Describe and document raw data (`README`, metadata, etc.)
+:::
+
+::: { .column width="15%"}
+:::
+
+::: { .column width="35%"}
+:::
+::::
+
+## Raw data
+
+:::: { .columns }
+::: { .column width="50%"}
+**General recommendations**[^wilson]
+
+- Save and backup the raw data
+- Do not modify raw data (even for minor changes)
+- Raw data should be in a read-only mode (🔒)
+- Any modification produces an output or a derived data
+- Write code for data acquisition (when possible)
+  - Database queries
+  - API requests
+  - `download.file()`, `wget`, `curl`, etc.
+- Describe and document raw data (`README`, metadata, etc.)
+:::
+
+::: { .column width="15%"}
+:::
+
+::: { .column width="35%"}
+{{< fa lightbulb >}} &nbsp;**Proposed files organization**
+
+```
+.
+│
+└─ data/
+   └─ raw-data/
+      ├─ raw-data-1.csv 🔒
+      ├─ ...
+      └─ README.md
+```
+:::
+::::
+
+## Derived data
+
+:::: { .columns }
+::: { .column width="50%"}
+**General recommendations**[^wilson]
+
+- Modified raw data become a derived data (or an output)
+- Record all the steps used to process data ({{< fa brands r-project >}} `|` {{< fa brands python >}} `|` {{< fa terminal >}})
+- Create the data you wish to see in the world
+- Create analysis-friendly data: `tidy` data
+:::
+
+::: { .column width="15%"}
+:::
+
+::: { .column width="35%"}
+{{< fa lightbulb >}} &nbsp;**Proposed files organization**
+
+```
+.
+│
+└─ data/
+   └─ raw-data/
+      ├─ raw-data-1.csv 🔒
+      ├─ ...
+      └─ README.md
+```
+:::
+::::
+
+
+
+## Derived data
+
+:::: { .columns }
+::: { .column width="50%"}
+**General recommendations**[^wilson]
+
+- Modified raw data become a derived data (or an output)
+- Record all the steps used to process data ({{< fa brands r-project >}} `|` {{< fa brands python >}} `|` {{< fa terminal >}})
+- Create the data you wish to see in the world
+- Create analysis-friendly data: `tidy` data
+:::
+
+::: { .column width="15%"}
+:::
+
+::: { .column width="35%"}
+{{< fa lightbulb >}} &nbsp;**Proposed files organization**
+
+```
+.
+│
+├─ data/
+│  ├─ raw-data/
+│  │  ├─ raw-data-1.csv 🔒
+│  │  ├─ ...
+│  │  └─ README.md
+│  │
+│  └─ derived-data/
+│     ├─ derived-data-1.RData
+│     └─ ...
+│
+└─ code/
+   ├─ process-raw-data-1.R
+   └─ ...
+```
+:::
+::::
+
+
+
+## Derived data
+
+:::: { .columns }
+::: { .column width="50%"}
+**General recommendations**[^wilson]
+
+- Modified raw data become a derived data (or an output)
+- Record all the steps used to process data ({{< fa brands r-project >}} `|` {{< fa brands python >}} `|` {{< fa terminal >}})
+- Create the data you wish to see in the world
+- Create analysis-friendly data: `tidy` data
+:::
+
+::: { .column width="15%"}
+:::
+
+::: { .column width="35%"}
+{{< fa lightbulb >}} &nbsp;**Proposed files organization**
+
+```
+.
+│
+├─ data/
+│  ├─ raw-data/
+│  │  ├─ raw-data-1.csv 🔒
+│  │  ├─ ...
+│  │  └─ README.md
+│  │
+│  └─ derived-data/
+│     ├─ derived-data-1.RData
+│     └─ ...
+│
+└─ code/
+   ├─ process-raw-data-1.R
+   └─ ...
+```
+
+<br/>
+
+{{< fa lightbulb >}} &nbsp;**Alternative**
+
+```
+.
+│
+├─ data/
+│  ├─ raw-data-1.csv 🔒
+│  ├─ ...
+│  └─ README.md
+│
+├─ outputs/
+│  ├─ output-1.RData
+│  └─ ...
+│
+└─ code/
+   ├─ process-raw-data-1.R
+   └─ ...
+```
+:::
+::::
+
+
+[^wilson]: Wilson _et al._ (2017) <https://doi.org/10.1371/journal.pcbi.1005510>
+

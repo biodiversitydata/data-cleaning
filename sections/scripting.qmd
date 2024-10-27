@@ -1,5 +1,0 @@
-# {{< fa code-compare size=1x >}} &nbsp;&nbsp;Scripting (05 min)
-
-## Coming soon
-
-Work in progress...
