@@ -1056,7 +1056,7 @@ fullnames <- c("Camille", "Nicolas", "Olivier", "Yvan", "Sophie", "Anne-Sophie")
 :::: {.columns}
 
 ::: {.column width=50%}
-- `str_replace()`[^gsub]
+- `str_replace()`[^gsub] replaces first occurrence
 :::
 
 ::: {.column width=50%}
@@ -1064,7 +1064,7 @@ fullnames <- c("Camille", "Nicolas", "Olivier", "Yvan", "Sophie", "Anne-Sophie")
 #| eval: true
 #| echo: true
 
-## Subset matches ----
+## Replace first occurrence of a pattern ----
 
 stringr::str_replace(string      = fullnames, 
                      pattern     = "i", 
@@ -1081,7 +1081,7 @@ stringr::str_replace(string      = fullnames,
 :::: {.columns}
 
 ::: {.column width=50%}
-- `str_replace_all()`
+- `str_replace_all()` replaces all occurrences
 :::
 
 ::: {.column width=50%}
@@ -1089,7 +1089,7 @@ stringr::str_replace(string      = fullnames,
 #| eval: true
 #| echo: true
 
-## Subset matches ----
+## Replace all occurrences of a pattern ----
 
 stringr::str_replace_all(string      = fullnames, 
                          pattern     = "i", 
@@ -1145,7 +1145,7 @@ fullnames <- c("Camille", "Nicolas", "Olivier", "Yvan", "Sophie", "Anne-Sophie")
 #| eval: true
 #| echo: true
 
-## Subset matches ----
+## Convert to upper case ----
 
 stringr::str_to_upper(string = fullnames)
 ```
@@ -1168,7 +1168,7 @@ stringr::str_to_upper(string = fullnames)
 #| eval: true
 #| echo: true
 
-## Subset matches ----
+## Convert to lower case ----
 
 stringr::str_to_lower(string = fullnames)
 ```
@@ -1264,7 +1264,7 @@ my_string <- "My email is: camille123@gmail.com ."
 ```{r}
 #| echo: true
 
-## Extract first numbers ----
+## Extract first number ----
 
 stringr::str_extract(my_string, "\\d")
 ```
