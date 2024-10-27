@@ -491,15 +491,208 @@ Author name<br/>
 <h1><i class="fa-solid fa-lock fa-1x" aria-label="lock"></i> &nbsp;&nbsp;Raw vs.&nbsp;derived data (05 min)</h1>
 
 </section>
-<section id="coming-soon" class="slide level2">
-<h2>Coming soon</h2>
-<p>Work in progress…</p>
+<section id="raw-data" class="slide level2">
+<h2>Raw data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>General recommendations</strong><sup>1</sup></p>
+<ul>
+<li>Save and backup the raw data</li>
+<li>Do not modify raw data (even for minor changes)</li>
+<li>Raw data should be in a read-only mode (🔒)</li>
+<li>Any modification produces an output or a derived data</li>
+<li>Write code for data acquisition (when possible)
+<ul>
+<li>Database queries</li>
+<li>API requests</li>
+<li><code>download.file()</code>, <code>wget</code>, <code>curl</code>, etc.</li>
+</ul></li>
+<li>Describe and document raw data (<code>README</code>, metadata, etc.)</li>
+</ul>
+</div><div class="column" style="width:15%;">
+
+</div><div class="column" style="width:35%;">
+
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Wilson <em>et al.</em> (2017) <a href="https://doi.org/10.1371/journal.pcbi.1005510" class="uri">https://doi.org/10.1371/journal.pcbi.1005510</a></p></li></ol></aside></section>
+<section id="raw-data-1" class="slide level2">
+<h2>Raw data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>General recommendations</strong><sup>1</sup></p>
+<ul>
+<li>Save and backup the raw data</li>
+<li>Do not modify raw data (even for minor changes)</li>
+<li>Raw data should be in a read-only mode (🔒)</li>
+<li>Any modification produces an output or a derived data</li>
+<li>Write code for data acquisition (when possible)
+<ul>
+<li>Database queries</li>
+<li>API requests</li>
+<li><code>download.file()</code>, <code>wget</code>, <code>curl</code>, etc.</li>
+</ul></li>
+<li>Describe and document raw data (<code>README</code>, metadata, etc.)</li>
+</ul>
+</div><div class="column" style="width:15%;">
+
+</div><div class="column" style="width:35%;">
+<p><i class="fa-solid fa-lightbulb" aria-label="lightbulb"></i> &nbsp;<strong>Proposed files organization</strong></p>
+<pre><code>.
+│
+└─ data/
+   └─ raw-data/
+      ├─ raw-data-1.csv 🔒
+      ├─ ...
+      └─ README.md</code></pre>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>Wilson <em>et al.</em> (2017) <a href="https://doi.org/10.1371/journal.pcbi.1005510" class="uri">https://doi.org/10.1371/journal.pcbi.1005510</a></p></li></ol></aside></section>
+<section id="derived-data" class="slide level2">
+<h2>Derived data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>General recommendations</strong><sup>1</sup></p>
+<ul>
+<li>Modified raw data become a derived data (or an output)</li>
+<li>Record all the steps used to process data (<i class="fa-brands fa-r-project" aria-label="r-project"></i> <code>|</code> <i class="fa-brands fa-python" aria-label="python"></i> <code>|</code> <i class="fa-solid fa-terminal" aria-label="terminal"></i>)</li>
+<li>Create the data you wish to see in the world</li>
+<li>Create analysis-friendly data: <code>tidy</code> data</li>
+</ul>
+</div><div class="column" style="width:15%;">
+
+</div><div class="column" style="width:35%;">
+<p><i class="fa-solid fa-lightbulb" aria-label="lightbulb"></i> &nbsp;<strong>Proposed files organization</strong></p>
+<pre><code>.
+│
+└─ data/
+   └─ raw-data/
+      ├─ raw-data-1.csv 🔒
+      ├─ ...
+      └─ README.md</code></pre>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Wilson <em>et al.</em> (2017) <a href="https://doi.org/10.1371/journal.pcbi.1005510" class="uri">https://doi.org/10.1371/journal.pcbi.1005510</a></p></li></ol></aside></section>
+<section id="derived-data-1" class="slide level2">
+<h2>Derived data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>General recommendations</strong><sup>1</sup></p>
+<ul>
+<li>Modified raw data become a derived data (or an output)</li>
+<li>Record all the steps used to process data (<i class="fa-brands fa-r-project" aria-label="r-project"></i> <code>|</code> <i class="fa-brands fa-python" aria-label="python"></i> <code>|</code> <i class="fa-solid fa-terminal" aria-label="terminal"></i>)</li>
+<li>Create the data you wish to see in the world</li>
+<li>Create analysis-friendly data: <code>tidy</code> data</li>
+</ul>
+</div><div class="column" style="width:15%;">
+
+</div><div class="column" style="width:35%;">
+<p><i class="fa-solid fa-lightbulb" aria-label="lightbulb"></i> &nbsp;<strong>Proposed files organization</strong></p>
+<pre><code>.
+│
+├─ data/
+│  ├─ raw-data/
+│  │  ├─ raw-data-1.csv 🔒
+│  │  ├─ ...
+│  │  └─ README.md
+│  │
+│  └─ derived-data/
+│     ├─ derived-data-1.RData
+│     └─ ...
+│
+└─ code/
+   ├─ process-raw-data-1.R
+   └─ ...</code></pre>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn4"><p>Wilson <em>et al.</em> (2017) <a href="https://doi.org/10.1371/journal.pcbi.1005510" class="uri">https://doi.org/10.1371/journal.pcbi.1005510</a></p></li></ol></aside></section>
+<section id="derived-data-2" class="slide level2">
+<h2>Derived data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>General recommendations</strong><sup>1</sup></p>
+<ul>
+<li>Modified raw data become a derived data (or an output)</li>
+<li>Record all the steps used to process data (<i class="fa-brands fa-r-project" aria-label="r-project"></i> <code>|</code> <i class="fa-brands fa-python" aria-label="python"></i> <code>|</code> <i class="fa-solid fa-terminal" aria-label="terminal"></i>)</li>
+<li>Create the data you wish to see in the world</li>
+<li>Create analysis-friendly data: <code>tidy</code> data</li>
+</ul>
+</div><div class="column" style="width:15%;">
+
+</div><div class="column" style="width:35%;">
+<p><i class="fa-solid fa-lightbulb" aria-label="lightbulb"></i> &nbsp;<strong>Proposed files organization</strong></p>
+<pre><code>.
+│
+├─ data/
+│  ├─ raw-data/
+│  │  ├─ raw-data-1.csv 🔒
+│  │  ├─ ...
+│  │  └─ README.md
+│  │
+│  └─ derived-data/
+│     ├─ derived-data-1.RData
+│     └─ ...
+│
+└─ code/
+   ├─ process-raw-data-1.R
+   └─ ...</code></pre>
+<p><br></p>
+<p><i class="fa-solid fa-lightbulb" aria-label="lightbulb"></i> &nbsp;<strong>Alternative</strong></p>
+<pre><code>.
+│
+├─ data/
+│  ├─ raw-data-1.csv 🔒
+│  ├─ ...
+│  └─ README.md
+│
+├─ outputs/
+│  ├─ output-1.RData
+│  └─ ...
+│
+└─ code/
+   ├─ process-raw-data-1.R
+   └─ ...</code></pre>
+</div></div>
 <!-- Insert section 'Data cleaning' -->
-</section></section>
+<aside><ol class="aside-footnotes"><li id="fn5"><p>Wilson <em>et al.</em> (2017) <a href="https://doi.org/10.1371/journal.pcbi.1005510" class="uri">https://doi.org/10.1371/journal.pcbi.1005510</a></p></li></ol></aside></section></section>
 <section>
 <section id="data-cleaning-15-min" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-broom fa-1x" aria-label="broom"></i> &nbsp;&nbsp;Data cleaning (15 min)</h1>
 
+</section>
+<section id="checklist" class="slide level2">
+<h2>Checklist</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<ul>
+<li>Clean column names</li>
+<li>Check decimal point</li>
+<li>Convert date format</li>
+<li>Check category values</li>
+<li>Inspect numeric values</li>
+<li>Check for empty rows/columns</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<ul>
+<li>Check for constant columns</li>
+<li>Check for duplicates</li>
+<li>Missing values</li>
+<li>Select columns</li>
+<li>Filter rows</li>
+<li>Pivot data</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<ul>
+<li>Merge data</li>
+<li>Split/combine columns</li>
+<li>Compute new columns</li>
+<li>Check binomial names</li>
+</ul>
+<p>and many more…</p>
+</div></div>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/xkcd-2180.png" style="width:65.0%"></p>
+<figcaption>Source: <a href="https://xkcd.com/2180/" class="uri">https://xkcd.com/2180/</a></figcaption>
+</figure>
+</div>
 </section>
 <section id="cleaning-dirty-data" class="slide level2">
 <h2>Cleaning dirty data</h2>
@@ -511,8 +704,8 @@ Author name<br/>
 </div><div class="column" style="width:50%;">
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Install 'janitor' package ----</span></span>
-<span id="cb1-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"janitor"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Install 'janitor' package ----</span></span>
+<span id="cb6-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"janitor"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <table class="caption-top">
@@ -553,14 +746,14 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="do">## Create a data.frame with dirty names ----</span></span>
-<span id="cb2-2"><a href=""></a></span>
-<span id="cb2-3"><a href=""></a>test_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">6</span>))</span>
-<span id="cb2-4"><a href=""></a></span>
-<span id="cb2-5"><a href=""></a><span class="fu">names</span>(test_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"firstName"</span>, <span class="st">"ábc@!*"</span>, <span class="st">"% successful (2009)"</span>,</span>
-<span id="cb2-6"><a href=""></a>                    <span class="st">"REPEAT VALUE"</span>, <span class="st">"REPEAT VALUE"</span>, <span class="st">""</span>)</span>
-<span id="cb2-7"><a href=""></a></span>
-<span id="cb2-8"><a href=""></a>test_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="do">## Create a data.frame with dirty names ----</span></span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a>test_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">6</span>))</span>
+<span id="cb7-4"><a href=""></a></span>
+<span id="cb7-5"><a href=""></a><span class="fu">names</span>(test_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"firstName"</span>, <span class="st">"ábc@!*"</span>, <span class="st">"% successful (2009)"</span>,</span>
+<span id="cb7-6"><a href=""></a>                    <span class="st">"REPEAT VALUE"</span>, <span class="st">"REPEAT VALUE"</span>, <span class="st">""</span>)</span>
+<span id="cb7-7"><a href=""></a></span>
+<span id="cb7-8"><a href=""></a>test_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  firstName ábc@!* % successful (2009) REPEAT VALUE REPEAT VALUE   
 1        NA     NA                  NA           NA           NA NA</code></pre>
@@ -575,14 +768,14 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="do">## Create a data.frame with dirty names ----</span></span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a>test_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">6</span>))</span>
-<span id="cb4-4"><a href=""></a></span>
-<span id="cb4-5"><a href=""></a><span class="fu">names</span>(test_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"firstName"</span>, <span class="st">"ábc@!*"</span>, <span class="st">"% successful (2009)"</span>,</span>
-<span id="cb4-6"><a href=""></a>                    <span class="st">"REPEAT VALUE"</span>, <span class="st">"REPEAT VALUE"</span>, <span class="st">""</span>)</span>
-<span id="cb4-7"><a href=""></a></span>
-<span id="cb4-8"><a href=""></a>test_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="do">## Create a data.frame with dirty names ----</span></span>
+<span id="cb9-2"><a href=""></a></span>
+<span id="cb9-3"><a href=""></a>test_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">6</span>))</span>
+<span id="cb9-4"><a href=""></a></span>
+<span id="cb9-5"><a href=""></a><span class="fu">names</span>(test_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"firstName"</span>, <span class="st">"ábc@!*"</span>, <span class="st">"% successful (2009)"</span>,</span>
+<span id="cb9-6"><a href=""></a>                    <span class="st">"REPEAT VALUE"</span>, <span class="st">"REPEAT VALUE"</span>, <span class="st">""</span>)</span>
+<span id="cb9-7"><a href=""></a></span>
+<span id="cb9-8"><a href=""></a>test_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  firstName ábc@!* % successful (2009) REPEAT VALUE REPEAT VALUE   
 1        NA     NA                  NA           NA           NA NA</code></pre>
@@ -590,14 +783,14 @@ Author name<br/>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="do">## Clean column names ----</span></span>
-<span id="cb6-2"><a href=""></a></span>
-<span id="cb6-3"><a href=""></a>test_df <span class="ot">&lt;-</span> test_df <span class="sc">|&gt;</span></span>
-<span id="cb6-4"><a href=""></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
-<span id="cb6-5"><a href=""></a></span>
-<span id="cb6-6"><a href=""></a></span>
-<span id="cb6-7"><a href=""></a></span>
-<span id="cb6-8"><a href=""></a>test_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="do">## Clean column names ----</span></span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a>test_df <span class="ot">&lt;-</span> test_df <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href=""></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
+<span id="cb11-5"><a href=""></a></span>
+<span id="cb11-6"><a href=""></a></span>
+<span id="cb11-7"><a href=""></a></span>
+<span id="cb11-8"><a href=""></a>test_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  first_name abc percent_successful_2009 repeat_value repeat_value_2  x
 1         NA  NA                      NA           NA             NA NA</code></pre>
@@ -615,8 +808,8 @@ Author name<br/>
 </div><div class="column" style="width:50%;">
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Install 'dplyr' package ----</span></span>
-<span id="cb8-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># Install 'dplyr' package ----</span></span>
+<span id="cb13-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <table class="caption-top">
@@ -693,11 +886,11 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="do">## Load the iris dataset ----</span></span>
-<span id="cb9-2"><a href=""></a></span>
-<span id="cb9-3"><a href=""></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
-<span id="cb9-4"><a href=""></a></span>
-<span id="cb9-5"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="do">## Load the iris dataset ----</span></span>
+<span id="cb14-2"><a href=""></a></span>
+<span id="cb14-3"><a href=""></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
+<span id="cb14-4"><a href=""></a></span>
+<span id="cb14-5"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 1          5.1         3.5          1.4         0.2  setosa
@@ -718,11 +911,11 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="do">## Load the iris dataset ----</span></span>
-<span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
-<span id="cb11-4"><a href=""></a></span>
-<span id="cb11-5"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="do">## Load the iris dataset ----</span></span>
+<span id="cb16-2"><a href=""></a></span>
+<span id="cb16-3"><a href=""></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
+<span id="cb16-4"><a href=""></a></span>
+<span id="cb16-5"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 1          5.1         3.5          1.4         0.2  setosa
@@ -735,11 +928,11 @@ Author name<br/>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="do">## Clean column names ----</span></span>
-<span id="cb13-2"><a href=""></a></span>
-<span id="cb13-3"><a href=""></a>iris_nice <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(iris)</span>
-<span id="cb13-4"><a href=""></a></span>
-<span id="cb13-5"><a href=""></a><span class="fu">head</span>(iris_nice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="do">## Clean column names ----</span></span>
+<span id="cb18-2"><a href=""></a></span>
+<span id="cb18-3"><a href=""></a>iris_nice <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(iris)</span>
+<span id="cb18-4"><a href=""></a></span>
+<span id="cb18-5"><a href=""></a><span class="fu">head</span>(iris_nice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  sepal_length sepal_width petal_length petal_width species
 1          5.1         3.5          1.4         0.2  setosa
@@ -759,11 +952,11 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="do">## Load the iris dataset ----</span></span>
-<span id="cb15-2"><a href=""></a></span>
-<span id="cb15-3"><a href=""></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
-<span id="cb15-4"><a href=""></a></span>
-<span id="cb15-5"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="do">## Load the iris dataset ----</span></span>
+<span id="cb20-2"><a href=""></a></span>
+<span id="cb20-3"><a href=""></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
+<span id="cb20-4"><a href=""></a></span>
+<span id="cb20-5"><a href=""></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 1          5.1         3.5          1.4         0.2  setosa
@@ -776,11 +969,11 @@ Author name<br/>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="do">## Clean column names ----</span></span>
-<span id="cb17-2"><a href=""></a></span>
-<span id="cb17-3"><a href=""></a>iris_nice <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(iris)</span>
-<span id="cb17-4"><a href=""></a></span>
-<span id="cb17-5"><a href=""></a><span class="fu">head</span>(iris_nice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="do">## Clean column names ----</span></span>
+<span id="cb22-2"><a href=""></a></span>
+<span id="cb22-3"><a href=""></a>iris_nice <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(iris)</span>
+<span id="cb22-4"><a href=""></a></span>
+<span id="cb22-5"><a href=""></a><span class="fu">head</span>(iris_nice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  sepal_length sepal_width petal_length petal_width species
 1          5.1         3.5          1.4         0.2  setosa
@@ -793,14 +986,14 @@ Author name<br/>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="do">## Manipulate data ----</span></span>
-<span id="cb19-2"><a href=""></a></span>
-<span id="cb19-3"><a href=""></a>iris_nice <span class="sc">|&gt;</span></span>
-<span id="cb19-4"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(sepal_length, sepal_width, species) <span class="sc">|&gt;</span></span>
-<span id="cb19-5"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(sepal_length <span class="sc">&lt;=</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
-<span id="cb19-6"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
-<span id="cb19-7"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="st">"mean_length"</span> <span class="ot">=</span> <span class="fu">mean</span>(sepal_length),</span>
-<span id="cb19-8"><a href=""></a>                <span class="st">"mean_width"</span>  <span class="ot">=</span> <span class="fu">mean</span>(sepal_width))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="do">## Manipulate data ----</span></span>
+<span id="cb24-2"><a href=""></a></span>
+<span id="cb24-3"><a href=""></a>iris_nice <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(sepal_length, sepal_width, species) <span class="sc">|&gt;</span></span>
+<span id="cb24-5"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(sepal_length <span class="sc">&lt;=</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-6"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
+<span id="cb24-7"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="st">"mean_length"</span> <span class="ot">=</span> <span class="fu">mean</span>(sepal_length),</span>
+<span id="cb24-8"><a href=""></a>                <span class="st">"mean_width"</span>  <span class="ot">=</span> <span class="fu">mean</span>(sepal_width))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 32 × 5
 # Groups:   species [3]
@@ -830,12 +1023,12 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="do">## Load 'band_instruments' data ----</span></span>
-<span id="cb21-2"><a href=""></a></span>
-<span id="cb21-3"><a href=""></a>instruments <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>band_instruments <span class="sc">|&gt;</span> </span>
-<span id="cb21-4"><a href=""></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb21-5"><a href=""></a></span>
-<span id="cb21-6"><a href=""></a>instruments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="do">## Load 'band_instruments' data ----</span></span>
+<span id="cb26-2"><a href=""></a></span>
+<span id="cb26-3"><a href=""></a>instruments <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>band_instruments <span class="sc">|&gt;</span> </span>
+<span id="cb26-4"><a href=""></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb26-5"><a href=""></a></span>
+<span id="cb26-6"><a href=""></a>instruments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   name  plays
 1  John guitar
@@ -847,12 +1040,12 @@ Author name<br/>
 
 </div><div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="do">## Load 'band_members' data ----</span></span>
-<span id="cb23-2"><a href=""></a></span>
-<span id="cb23-3"><a href=""></a>members <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>band_members <span class="sc">|&gt;</span></span>
-<span id="cb23-4"><a href=""></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb23-5"><a href=""></a></span>
-<span id="cb23-6"><a href=""></a>members</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="do">## Load 'band_members' data ----</span></span>
+<span id="cb28-2"><a href=""></a></span>
+<span id="cb28-3"><a href=""></a>members <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>band_members <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a href=""></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb28-5"><a href=""></a></span>
+<span id="cb28-6"><a href=""></a>members</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band
 1 Mick  Stones
@@ -868,7 +1061,7 @@ Author name<br/>
 <div class="column" style="width:45%;">
 <p><strong><code>left_join()</code></strong> keeps all rows in <code>x</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band  plays
 1 Mick  Stones   &lt;NA&gt;
@@ -897,7 +1090,7 @@ Author name<br/>
 <div class="column" style="width:45%;">
 <p><strong><code>left_join()</code></strong> keeps all rows in <code>x</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band  plays
 1 Mick  Stones   &lt;NA&gt;
@@ -910,7 +1103,7 @@ Author name<br/>
 </div><div class="column" style="width:45%;">
 <p><strong><code>right_join()</code></strong> keeps all rows in <code>y</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   name    band  plays
 1  John Beatles guitar
@@ -935,7 +1128,7 @@ Author name<br/>
 <div class="column" style="width:45%;">
 <p><strong><code>left_join()</code></strong> keeps all rows in <code>x</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band  plays
 1 Mick  Stones   &lt;NA&gt;
@@ -948,7 +1141,7 @@ Author name<br/>
 </div><div class="column" style="width:45%;">
 <p><strong><code>right_join()</code></strong> keeps all rows in <code>y</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   name    band  plays
 1  John Beatles guitar
@@ -962,7 +1155,7 @@ Author name<br/>
 <div class="column" style="width:45%;">
 <p><strong><code>inner_join()</code></strong> only keeps rows from <code>x</code> that have a matching key in <code>y</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band  plays
 1 John Beatles guitar
@@ -981,7 +1174,7 @@ Author name<br/>
 <div class="column" style="width:45%;">
 <p><strong><code>left_join()</code></strong> keeps all rows in <code>x</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band  plays
 1 Mick  Stones   &lt;NA&gt;
@@ -994,7 +1187,7 @@ Author name<br/>
 </div><div class="column" style="width:45%;">
 <p><strong><code>right_join()</code></strong> keeps all rows in <code>y</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   name    band  plays
 1  John Beatles guitar
@@ -1008,7 +1201,7 @@ Author name<br/>
 <div class="column" style="width:45%;">
 <p><strong><code>inner_join()</code></strong> only keeps rows from <code>x</code> that have a matching key in <code>y</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band  plays
 1 John Beatles guitar
@@ -1020,7 +1213,7 @@ Author name<br/>
 </div><div class="column" style="width:45%;">
 <p><strong><code>full_join()</code></strong> keeps all rows in <code>x</code> and <code>y</code> (most conservative method).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">full_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">full_join</span>(members, instruments) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   name    band  plays
 1  Mick  Stones   &lt;NA&gt;
@@ -1050,8 +1243,8 @@ Author name<br/>
 </div><div class="column" style="width:50%;">
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="co"># Install 'httr2' package ----</span></span>
-<span id="cb45-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="co"># Install 'httr2' package ----</span></span>
+<span id="cb50-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <table class="caption-top">
@@ -1103,13 +1296,13 @@ Author name<br/>
 <div class="columns">
 <div class="column center" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="do">## Load dataset ----</span></span>
-<span id="cb46-2"><a href=""></a></span>
-<span id="cb46-3"><a href=""></a><span class="fu">data</span>(<span class="st">"relig_income"</span>, <span class="at">package =</span> <span class="st">"tidyr"</span>)</span>
-<span id="cb46-4"><a href=""></a></span>
-<span id="cb46-5"><a href=""></a></span>
-<span id="cb46-6"><a href=""></a></span>
-<span id="cb46-7"><a href=""></a><span class="fu">head</span>(relig_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="do">## Load dataset ----</span></span>
+<span id="cb51-2"><a href=""></a></span>
+<span id="cb51-3"><a href=""></a><span class="fu">data</span>(<span class="st">"relig_income"</span>, <span class="at">package =</span> <span class="st">"tidyr"</span>)</span>
+<span id="cb51-4"><a href=""></a></span>
+<span id="cb51-5"><a href=""></a></span>
+<span id="cb51-6"><a href=""></a></span>
+<span id="cb51-7"><a href=""></a><span class="fu">head</span>(relig_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 11
   religion  `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`
@@ -1138,13 +1331,13 @@ Author name<br/>
 <div class="columns">
 <div class="column center" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a><span class="do">## Load dataset ----</span></span>
-<span id="cb48-2"><a href=""></a></span>
-<span id="cb48-3"><a href=""></a><span class="fu">data</span>(<span class="st">"relig_income"</span>, <span class="at">package =</span> <span class="st">"tidyr"</span>)</span>
-<span id="cb48-4"><a href=""></a></span>
-<span id="cb48-5"><a href=""></a></span>
-<span id="cb48-6"><a href=""></a></span>
-<span id="cb48-7"><a href=""></a><span class="fu">head</span>(relig_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="do">## Load dataset ----</span></span>
+<span id="cb53-2"><a href=""></a></span>
+<span id="cb53-3"><a href=""></a><span class="fu">data</span>(<span class="st">"relig_income"</span>, <span class="at">package =</span> <span class="st">"tidyr"</span>)</span>
+<span id="cb53-4"><a href=""></a></span>
+<span id="cb53-5"><a href=""></a></span>
+<span id="cb53-6"><a href=""></a></span>
+<span id="cb53-7"><a href=""></a><span class="fu">head</span>(relig_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 11
   religion  `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`
@@ -1161,13 +1354,13 @@ Author name<br/>
 </div>
 </div><div class="column center" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="do">## Pivot to longer ----</span></span>
-<span id="cb50-2"><a href=""></a>newtab <span class="ot">&lt;-</span> relig_income <span class="sc">|&gt;</span> </span>
-<span id="cb50-3"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols      =</span> <span class="sc">!</span>religion,</span>
-<span id="cb50-4"><a href=""></a>                      <span class="at">names_to  =</span> <span class="st">"income"</span>,</span>
-<span id="cb50-5"><a href=""></a>                      <span class="at">values_to =</span> <span class="st">"count"</span>)</span>
-<span id="cb50-6"><a href=""></a></span>
-<span id="cb50-7"><a href=""></a>newtab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="do">## Pivot to longer ----</span></span>
+<span id="cb55-2"><a href=""></a>newtab <span class="ot">&lt;-</span> relig_income <span class="sc">|&gt;</span> </span>
+<span id="cb55-3"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols      =</span> <span class="sc">!</span>religion,</span>
+<span id="cb55-4"><a href=""></a>                      <span class="at">names_to  =</span> <span class="st">"income"</span>,</span>
+<span id="cb55-5"><a href=""></a>                      <span class="at">values_to =</span> <span class="st">"count"</span>)</span>
+<span id="cb55-6"><a href=""></a></span>
+<span id="cb55-7"><a href=""></a>newtab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 180 × 3
    religion income             count
@@ -1194,13 +1387,13 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a><span class="do">## Pivot to wider ----</span></span>
-<span id="cb52-2"><a href=""></a></span>
-<span id="cb52-3"><a href=""></a>back <span class="ot">&lt;-</span> newtab <span class="sc">|&gt;</span> </span>
-<span id="cb52-4"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from  =</span> income,</span>
-<span id="cb52-5"><a href=""></a>                     <span class="at">values_from =</span> count)</span>
-<span id="cb52-6"><a href=""></a></span>
-<span id="cb52-7"><a href=""></a>back</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="do">## Pivot to wider ----</span></span>
+<span id="cb57-2"><a href=""></a></span>
+<span id="cb57-3"><a href=""></a>back <span class="ot">&lt;-</span> newtab <span class="sc">|&gt;</span> </span>
+<span id="cb57-4"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from  =</span> income,</span>
+<span id="cb57-5"><a href=""></a>                     <span class="at">values_from =</span> count)</span>
+<span id="cb57-6"><a href=""></a></span>
+<span id="cb57-7"><a href=""></a>back</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 18 × 11
    religion `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`
@@ -1245,21 +1438,21 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="do">## Creating strings ----</span></span>
-<span id="cb54-2"><a href=""></a></span>
-<span id="cb54-3"><a href=""></a>string0 <span class="ot">&lt;-</span> <span class="st">""</span></span>
-<span id="cb54-4"><a href=""></a>string1 <span class="ot">&lt;-</span> <span class="st">"This is a string"</span></span>
-<span id="cb54-5"><a href=""></a>string2 <span class="ot">&lt;-</span> <span class="st">'This is a string with a "quote" inside'</span></span>
-<span id="cb54-6"><a href=""></a>string3 <span class="ot">&lt;-</span> <span class="st">"Another string with a </span><span class="sc">\"</span><span class="st">quote</span><span class="sc">\"</span><span class="st"> inside"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="do">## Creating strings ----</span></span>
+<span id="cb59-2"><a href=""></a></span>
+<span id="cb59-3"><a href=""></a>string0 <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb59-4"><a href=""></a>string1 <span class="ot">&lt;-</span> <span class="st">"This is a string"</span></span>
+<span id="cb59-5"><a href=""></a>string2 <span class="ot">&lt;-</span> <span class="st">'This is a string with a "quote" inside'</span></span>
+<span id="cb59-6"><a href=""></a>string3 <span class="ot">&lt;-</span> <span class="st">"Another string with a </span><span class="sc">\"</span><span class="st">quote</span><span class="sc">\"</span><span class="st"> inside"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="do">## Do not forget to close quotes ----</span></span>
-<span id="cb55-2"><a href=""></a></span>
-<span id="cb55-3"><a href=""></a><span class="sc">&gt;</span> <span class="st">"This is a string without a closing quote</span></span>
-<span id="cb55-4"><a href=""></a><span class="st">+ </span></span>
-<span id="cb55-5"><a href=""></a><span class="st">+ </span></span>
-<span id="cb55-6"><a href=""></a><span class="st">+ HELP I'M STUCK</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="do">## Do not forget to close quotes ----</span></span>
+<span id="cb60-2"><a href=""></a></span>
+<span id="cb60-3"><a href=""></a><span class="sc">&gt;</span> <span class="st">"This is a string without a closing quote</span></span>
+<span id="cb60-4"><a href=""></a><span class="st">+ </span></span>
+<span id="cb60-5"><a href=""></a><span class="st">+ </span></span>
+<span id="cb60-6"><a href=""></a><span class="st">+ HELP I'M STUCK</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div></div>
 <p><br></p>
@@ -1268,24 +1461,24 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="do">## Paste two vectors ----</span></span>
-<span id="cb56-2"><a href=""></a></span>
-<span id="cb56-3"><a href=""></a>firstname <span class="ot">&lt;-</span> <span class="st">"Camille"</span></span>
-<span id="cb56-4"><a href=""></a>lastname  <span class="ot">&lt;-</span> <span class="st">"Coux"</span></span>
-<span id="cb56-5"><a href=""></a></span>
-<span id="cb56-6"><a href=""></a><span class="fu">paste</span>(firstname, lastname)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="do">## Paste two vectors ----</span></span>
+<span id="cb61-2"><a href=""></a></span>
+<span id="cb61-3"><a href=""></a>firstname <span class="ot">&lt;-</span> <span class="st">"Camille"</span></span>
+<span id="cb61-4"><a href=""></a>lastname  <span class="ot">&lt;-</span> <span class="st">"Coux"</span></span>
+<span id="cb61-5"><a href=""></a></span>
+<span id="cb61-6"><a href=""></a><span class="fu">paste</span>(firstname, lastname)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Camille Coux"</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="do">## Collapse elements of a vector ----</span></span>
-<span id="cb58-2"><a href=""></a></span>
-<span id="cb58-3"><a href=""></a>fullname <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Coux"</span>)</span>
-<span id="cb58-4"><a href=""></a></span>
-<span id="cb58-5"><a href=""></a></span>
-<span id="cb58-6"><a href=""></a><span class="fu">paste</span>(fullname, <span class="at">collapse =</span> <span class="st">", "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="do">## Collapse elements of a vector ----</span></span>
+<span id="cb63-2"><a href=""></a></span>
+<span id="cb63-3"><a href=""></a>fullname <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Coux"</span>)</span>
+<span id="cb63-4"><a href=""></a></span>
+<span id="cb63-5"><a href=""></a></span>
+<span id="cb63-6"><a href=""></a><span class="fu">paste</span>(fullname, <span class="at">collapse =</span> <span class="st">", "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Camille, Coux"</code></pre>
 </div>
@@ -1298,11 +1491,11 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="do">## Split a string by a pattern ----</span></span>
-<span id="cb60-2"><a href=""></a></span>
-<span id="cb60-3"><a href=""></a>fullname <span class="ot">&lt;-</span> <span class="st">"Camille Coux"</span></span>
-<span id="cb60-4"><a href=""></a></span>
-<span id="cb60-5"><a href=""></a><span class="fu">strsplit</span>(fullname, <span class="at">split =</span> <span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="do">## Split a string by a pattern ----</span></span>
+<span id="cb65-2"><a href=""></a></span>
+<span id="cb65-3"><a href=""></a>fullname <span class="ot">&lt;-</span> <span class="st">"Camille Coux"</span></span>
+<span id="cb65-4"><a href=""></a></span>
+<span id="cb65-5"><a href=""></a><span class="fu">strsplit</span>(fullname, <span class="at">split =</span> <span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "Camille" "Coux"   </code></pre>
@@ -1310,11 +1503,11 @@ Author name<br/>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="do">## Split a string by a pattern (2) ----</span></span>
-<span id="cb62-2"><a href=""></a></span>
-<span id="cb62-3"><a href=""></a>fullname <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille Coux"</span>, <span class="st">"Nicolas Casajus"</span>)</span>
-<span id="cb62-4"><a href=""></a></span>
-<span id="cb62-5"><a href=""></a><span class="fu">strsplit</span>(fullname, <span class="at">split =</span> <span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="do">## Split a string by a pattern (2) ----</span></span>
+<span id="cb67-2"><a href=""></a></span>
+<span id="cb67-3"><a href=""></a>fullname <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille Coux"</span>, <span class="st">"Nicolas Casajus"</span>)</span>
+<span id="cb67-4"><a href=""></a></span>
+<span id="cb67-5"><a href=""></a><span class="fu">strsplit</span>(fullname, <span class="at">split =</span> <span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "Camille" "Coux"   
@@ -1336,8 +1529,8 @@ Author name<br/>
 </div><div class="column" style="width:50%;">
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="co"># Install 'stringr' package ----</span></span>
-<span id="cb64-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="co"># Install 'stringr' package ----</span></span>
+<span id="cb69-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <table class="caption-top">
@@ -1402,9 +1595,9 @@ Author name<br/>
 
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="do">## Create a string vector ----</span></span>
-<span id="cb65-2"><a href=""></a></span>
-<span id="cb65-3"><a href=""></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a><span class="do">## Create a string vector ----</span></span>
+<span id="cb70-2"><a href=""></a></span>
+<span id="cb70-3"><a href=""></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div></div>
 <p><br></p>
@@ -1417,9 +1610,9 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a><span class="do">## Detect a pattern (boolean) ----</span></span>
-<span id="cb66-2"><a href=""></a></span>
-<span id="cb66-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_detect</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="do">## Detect a pattern (boolean) ----</span></span>
+<span id="cb71-2"><a href=""></a></span>
+<span id="cb71-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_detect</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE FALSE FALSE FALSE  TRUE  TRUE</code></pre>
 </div>
@@ -1435,9 +1628,9 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a><span class="do">## Detect pattern (position) ----</span></span>
-<span id="cb68-2"><a href=""></a></span>
-<span id="cb68-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_which</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a><span class="do">## Detect pattern (position) ----</span></span>
+<span id="cb73-2"><a href=""></a></span>
+<span id="cb73-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_which</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5 6</code></pre>
 </div>
@@ -1453,58 +1646,17 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a><span class="do">## Count occurrences ----</span></span>
-<span id="cb70-2"><a href=""></a></span>
-<span id="cb70-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_count</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="do">## Count occurrences ----</span></span>
+<span id="cb75-2"><a href=""></a></span>
+<span id="cb75-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_count</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0 0 0 1 0 2</code></pre>
 </div>
 </div>
 </div></div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Same as the base function <code>grep()</code></p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn6"><p>Same as the base function <code>grep()</code></p></li></ol></aside></section>
 <section id="manipulating-strings-3" class="slide level2">
-<h2>Manipulating strings</h2>
-<p>The <code>stringr</code> package uses a standardized set of functions applied to strings</p>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:40%;">
-
-</div><div class="column" style="width:60%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a><span class="do">## Create a string vector ----</span></span>
-<span id="cb72-2"><a href=""></a></span>
-<span id="cb72-3"><a href=""></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div></div>
-<p><br></p>
-<p><strong>Subset matches</strong></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><code>str_subset()</code><sup>1</sup></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a><span class="do">## Subset matches ----</span></span>
-<span id="cb73-2"><a href=""></a></span>
-<span id="cb73-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_subset</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Sophie"      "Anne-Sophie"</code></pre>
-</div>
-</div>
-<p><br></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="do">## Subset matches (negate) ----</span></span>
-<span id="cb75-2"><a href=""></a></span>
-<span id="cb75-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_subset</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>, <span class="at">negate =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Camille" "Nicolas" "Olivier" "Yvan"   </code></pre>
-</div>
-</div>
-</div></div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Same as <code>grep(pattern, string, value = TRUE)</code></p></li></ol></aside></section>
-<section id="manipulating-strings-4" class="slide level2">
 <h2>Manipulating strings</h2>
 <p>The <code>stringr</code> package uses a standardized set of functions applied to strings</p>
 <p><br></p>
@@ -1519,48 +1671,33 @@ Author name<br/>
 </div>
 </div></div>
 <p><br></p>
-<p><strong>Replace pattern</strong></p>
+<p><strong>Subset matches</strong></p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li><code>str_replace()</code><sup>1</sup></li>
+<li><code>str_subset()</code><sup>1</sup></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a><span class="do">## Subset matches ----</span></span>
 <span id="cb78-2"><a href=""></a></span>
-<span id="cb78-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_replace</span>(<span class="at">string      =</span> fullnames, </span>
-<span id="cb78-4"><a href=""></a>                     <span class="at">pattern     =</span> <span class="st">"i"</span>, </span>
-<span id="cb78-5"><a href=""></a>                     <span class="at">replacement =</span> <span class="st">"u"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb78-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_subset</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Camulle"     "Nucolas"     "Oluvier"     "Yvan"        "Sophue"     
-[6] "Anne-Sophue"</code></pre>
+<pre><code>[1] "Sophie"      "Anne-Sophie"</code></pre>
 </div>
 </div>
-</div></div>
 <p><br></p>
-<div class="fragment">
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><code>str_replace_all()</code></li>
-</ul>
-</div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="do">## Subset matches ----</span></span>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="do">## Subset matches (negate) ----</span></span>
 <span id="cb80-2"><a href=""></a></span>
-<span id="cb80-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_replace_all</span>(<span class="at">string      =</span> fullnames, </span>
-<span id="cb80-4"><a href=""></a>                         <span class="at">pattern     =</span> <span class="st">"i"</span>, </span>
-<span id="cb80-5"><a href=""></a>                         <span class="at">replacement =</span> <span class="st">"u"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb80-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_subset</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>, <span class="at">negate =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Camulle"     "Nucolas"     "Oluvuer"     "Yvan"        "Sophue"     
-[6] "Anne-Sophue"</code></pre>
+<pre><code>[1] "Camille" "Nicolas" "Olivier" "Yvan"   </code></pre>
 </div>
 </div>
 </div></div>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>Same as the base function <code>gsub()</code></p></li></ol></aside></section>
-<section id="manipulating-strings-5" class="slide level2">
+<aside><ol class="aside-footnotes"><li id="fn7"><p>Same as <code>grep(pattern, string, value = TRUE)</code></p></li></ol></aside></section>
+<section id="manipulating-strings-4" class="slide level2">
 <h2>Manipulating strings</h2>
 <p>The <code>stringr</code> package uses a standardized set of functions applied to strings</p>
 <p><br></p>
@@ -1575,6 +1712,62 @@ Author name<br/>
 </div>
 </div></div>
 <p><br></p>
+<p><strong>Replace pattern</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>str_replace()</code><sup>1</sup> replaces first occurrence</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a><span class="do">## Replace first occurrence of a pattern ----</span></span>
+<span id="cb83-2"><a href=""></a></span>
+<span id="cb83-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_replace</span>(<span class="at">string      =</span> fullnames, </span>
+<span id="cb83-4"><a href=""></a>                     <span class="at">pattern     =</span> <span class="st">"i"</span>, </span>
+<span id="cb83-5"><a href=""></a>                     <span class="at">replacement =</span> <span class="st">"u"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Camulle"     "Nucolas"     "Oluvier"     "Yvan"        "Sophue"     
+[6] "Anne-Sophue"</code></pre>
+</div>
+</div>
+</div></div>
+<p><br></p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>str_replace_all()</code> replaces all occurrences</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a><span class="do">## Replace all occurrences of a pattern ----</span></span>
+<span id="cb85-2"><a href=""></a></span>
+<span id="cb85-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_replace_all</span>(<span class="at">string      =</span> fullnames, </span>
+<span id="cb85-4"><a href=""></a>                         <span class="at">pattern     =</span> <span class="st">"i"</span>, </span>
+<span id="cb85-5"><a href=""></a>                         <span class="at">replacement =</span> <span class="st">"u"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Camulle"     "Nucolas"     "Oluvuer"     "Yvan"        "Sophue"     
+[6] "Anne-Sophue"</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn8"><p>Same as the base function <code>gsub()</code></p></li></ol></aside></section>
+<section id="manipulating-strings-5" class="slide level2">
+<h2>Manipulating strings</h2>
+<p>The <code>stringr</code> package uses a standardized set of functions applied to strings</p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a><span class="do">## Create a string vector ----</span></span>
+<span id="cb87-2"><a href=""></a></span>
+<span id="cb87-3"><a href=""></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+<p><br></p>
 <p><strong>Character case</strong></p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1583,9 +1776,9 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a><span class="do">## Subset matches ----</span></span>
-<span id="cb83-2"><a href=""></a></span>
-<span id="cb83-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_to_upper</span>(<span class="at">string =</span> fullnames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a><span class="do">## Convert to upper case ----</span></span>
+<span id="cb88-2"><a href=""></a></span>
+<span id="cb88-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_to_upper</span>(<span class="at">string =</span> fullnames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "CAMILLE"     "NICOLAS"     "OLIVIER"     "YVAN"        "SOPHIE"     
 [6] "ANNE-SOPHIE"</code></pre>
@@ -1601,9 +1794,9 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a><span class="do">## Subset matches ----</span></span>
-<span id="cb85-2"><a href=""></a></span>
-<span id="cb85-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(<span class="at">string =</span> fullnames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a><span class="do">## Convert to lower case ----</span></span>
+<span id="cb90-2"><a href=""></a></span>
+<span id="cb90-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(<span class="at">string =</span> fullnames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "camille"     "nicolas"     "olivier"     "yvan"        "sophie"     
 [6] "anne-sophie"</code></pre>
@@ -1614,7 +1807,7 @@ Author name<br/>
 <div class="fragment">
 <p>And many more…</p>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn4"><p>Same as the base function <code>toupper()</code></p></li><li id="fn5"><p>Same as the base function <code>tolower()</code></p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn9"><p>Same as the base function <code>toupper()</code></p></li><li id="fn10"><p>Same as the base function <code>tolower()</code></p></li></ol></aside></section>
 <section id="the-wonderful-world-of-regex" class="slide level2">
 <h2>The wonderful world of regex</h2>
 <p><strong>How can we specify generic patterns?</strong></p>
@@ -1628,9 +1821,9 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a><span class="do">## Create a string ----</span></span>
-<span id="cb87-2"><a href=""></a></span>
-<span id="cb87-3"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a><span class="do">## Create a string ----</span></span>
+<span id="cb92-2"><a href=""></a></span>
+<span id="cb92-3"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 
@@ -1647,33 +1840,33 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a><span class="do">## Create a string ----</span></span>
-<span id="cb88-2"><a href=""></a></span>
-<span id="cb88-3"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a><span class="do">## Create a string ----</span></span>
+<span id="cb93-2"><a href=""></a></span>
+<span id="cb93-3"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a><span class="do">## Extract first numbers ----</span></span>
-<span id="cb89-2"><a href=""></a></span>
-<span id="cb89-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a><span class="do">## Extract first number ----</span></span>
+<span id="cb94-2"><a href=""></a></span>
+<span id="cb94-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1"</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a><span class="do">## Extract first consecutive numbers ----</span></span>
-<span id="cb91-2"><a href=""></a></span>
-<span id="cb91-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a><span class="do">## Extract first consecutive numbers ----</span></span>
+<span id="cb96-2"><a href=""></a></span>
+<span id="cb96-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "123"</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a><span class="do">## Alternative ----</span></span>
-<span id="cb93-2"><a href=""></a></span>
-<span id="cb93-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"[0-9]+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a><span class="do">## Alternative ----</span></span>
+<span id="cb98-2"><a href=""></a></span>
+<span id="cb98-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"[0-9]+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "123"</code></pre>
 </div>
@@ -1690,15 +1883,15 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href=""></a><span class="do">## Create a string ----</span></span>
-<span id="cb95-2"><a href=""></a></span>
-<span id="cb95-3"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a><span class="do">## Create a string ----</span></span>
+<span id="cb100-2"><a href=""></a></span>
+<span id="cb100-3"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a><span class="do">## Extract all letters ----</span></span>
-<span id="cb96-2"><a href=""></a></span>
-<span id="cb96-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract_all</span>(my_string, <span class="st">"[A-z]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href=""></a><span class="do">## Extract all letters ----</span></span>
+<span id="cb101-2"><a href=""></a></span>
+<span id="cb101-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract_all</span>(my_string, <span class="st">"[A-z]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
  [1] "M" "y" "e" "m" "a" "i" "l" "i" "s" "c" "a" "m" "i" "l" "l" "e" "g" "m" "a"
@@ -1707,18 +1900,18 @@ Author name<br/>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a><span class="do">## Extract first consecutive letters ----</span></span>
-<span id="cb98-2"><a href=""></a></span>
-<span id="cb98-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"[A-z]+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href=""></a><span class="do">## Extract first consecutive letters ----</span></span>
+<span id="cb103-2"><a href=""></a></span>
+<span id="cb103-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"[A-z]+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "My"</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a><span class="do">## Extract complex pattern ----</span></span>
-<span id="cb100-2"><a href=""></a></span>
-<span id="cb100-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"[A-z|</span><span class="sc">\\</span><span class="st">s]+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href=""></a><span class="do">## Extract complex pattern ----</span></span>
+<span id="cb105-2"><a href=""></a></span>
+<span id="cb105-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"[A-z|</span><span class="sc">\\</span><span class="st">s]+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "My email is"</code></pre>
 </div>
@@ -1735,33 +1928,33 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a><span class="do">## Create a string ----</span></span>
-<span id="cb102-2"><a href=""></a></span>
-<span id="cb102-3"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a><span class="do">## Create a string ----</span></span>
+<span id="cb107-2"><a href=""></a></span>
+<span id="cb107-3"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href=""></a><span class="do">## Check for double 'l' ----</span></span>
-<span id="cb103-2"><a href=""></a></span>
-<span id="cb103-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_detect</span>(my_string, <span class="st">"l{2}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href=""></a><span class="do">## Check for double 'l' ----</span></span>
+<span id="cb108-2"><a href=""></a></span>
+<span id="cb108-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_detect</span>(my_string, <span class="st">"l{2}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href=""></a><span class="do">## Remove trailing whitespace and dot ----</span></span>
-<span id="cb105-2"><a href=""></a></span>
-<span id="cb105-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_remove</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">s</span><span class="sc">\\</span><span class="st">.$"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href=""></a><span class="do">## Remove trailing whitespace and dot ----</span></span>
+<span id="cb110-2"><a href=""></a></span>
+<span id="cb110-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_remove</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">s</span><span class="sc">\\</span><span class="st">.$"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "My email is: camille123@gmail.com"</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a><span class="do">## Extract email ----</span></span>
-<span id="cb107-2"><a href=""></a></span>
-<span id="cb107-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_remove</span>(my_string, <span class="st">"^[^c]*"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href=""></a><span class="do">## Extract email ----</span></span>
+<span id="cb112-2"><a href=""></a></span>
+<span id="cb112-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_remove</span>(my_string, <span class="st">"^[^c]*"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "camille123@gmail.com ."</code></pre>
 </div>
@@ -1787,8 +1980,8 @@ Author name<br/>
 </div><div class="column" style="width:50%;">
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href=""></a><span class="co"># Install 'lubridate' package ----</span></span>
-<span id="cb109-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"lubridate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href=""></a><span class="co"># Install 'lubridate' package ----</span></span>
+<span id="cb114-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"lubridate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <table class="caption-top">
@@ -1845,9 +2038,9 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href=""></a><span class="do">## Attach the package 'lubridate' ----</span></span>
-<span id="cb110-2"><a href=""></a></span>
-<span id="cb110-3"><a href=""></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href=""></a><span class="do">## Attach the package 'lubridate' ----</span></span>
+<span id="cb115-2"><a href=""></a></span>
+<span id="cb115-3"><a href=""></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 
@@ -1857,12 +2050,12 @@ Author name<br/>
 <div class="column" style="width:50%;">
 <p><strong>Parsing date</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href=""></a><span class="do">## Parse dates ----</span></span>
-<span id="cb111-2"><a href=""></a></span>
-<span id="cb111-3"><a href=""></a>dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), </span>
-<span id="cb111-4"><a href=""></a>           <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span>
-<span id="cb111-5"><a href=""></a></span>
-<span id="cb111-6"><a href=""></a>dates</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href=""></a><span class="do">## Parse dates ----</span></span>
+<span id="cb116-2"><a href=""></a></span>
+<span id="cb116-3"><a href=""></a>dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), </span>
+<span id="cb116-4"><a href=""></a>           <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span>
+<span id="cb116-5"><a href=""></a></span>
+<span id="cb116-6"><a href=""></a>dates</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2011-06-04" "2011-06-04" "2011-06-04" "2011-06-04"</code></pre>
 </div>
@@ -1873,47 +2066,6 @@ Author name<br/>
 </div></div>
 </section>
 <section id="working-w-dates-2" class="slide level2">
-<h2>Working w/ dates</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href=""></a><span class="do">## Attach the package 'lubridate' ----</span></span>
-<span id="cb113-2"><a href=""></a></span>
-<span id="cb113-3"><a href=""></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-
-</div></div>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Parsing date</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href=""></a><span class="do">## Parse dates ----</span></span>
-<span id="cb114-2"><a href=""></a></span>
-<span id="cb114-3"><a href=""></a>dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), </span>
-<span id="cb114-4"><a href=""></a>           <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span>
-<span id="cb114-5"><a href=""></a></span>
-<span id="cb114-6"><a href=""></a>dates</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "2011-06-04" "2011-06-04" "2011-06-04" "2011-06-04"</code></pre>
-</div>
-</div>
-<p><br></p>
-<p><strong>Parsing date-times</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href=""></a><span class="do">## Parse date-time (and specify timezone) ----</span></span>
-<span id="cb116-2"><a href=""></a></span>
-<span id="cb116-3"><a href=""></a><span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>, <span class="at">tz=</span><span class="st">"Pacific/Auckland"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "2017-11-28 14:02:00 NZDT"</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-
-</div></div>
-</section>
-<section id="working-w-dates-3" class="slide level2">
 <h2>Working w/ dates</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1951,39 +2103,80 @@ Author name<br/>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
+
+</div></div>
+</section>
+<section id="working-w-dates-3" class="slide level2">
+<h2>Working w/ dates</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href=""></a><span class="do">## Attach the package 'lubridate' ----</span></span>
+<span id="cb123-2"><a href=""></a></span>
+<span id="cb123-3"><a href=""></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+
+</div></div>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Parsing date</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href=""></a><span class="do">## Parse dates ----</span></span>
+<span id="cb124-2"><a href=""></a></span>
+<span id="cb124-3"><a href=""></a>dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), </span>
+<span id="cb124-4"><a href=""></a>           <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span>
+<span id="cb124-5"><a href=""></a></span>
+<span id="cb124-6"><a href=""></a>dates</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2011-06-04" "2011-06-04" "2011-06-04" "2011-06-04"</code></pre>
+</div>
+</div>
+<p><br></p>
+<p><strong>Parsing date-times</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href=""></a><span class="do">## Parse date-time (and specify timezone) ----</span></span>
+<span id="cb126-2"><a href=""></a></span>
+<span id="cb126-3"><a href=""></a><span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>, <span class="at">tz=</span><span class="st">"Pacific/Auckland"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2017-11-28 14:02:00 NZDT"</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
 <p><strong>Extract components</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href=""></a><span class="do">## Get current date-time ----</span></span>
-<span id="cb123-2"><a href=""></a></span>
-<span id="cb123-3"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">now</span>()</span>
-<span id="cb123-4"><a href=""></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href=""></a><span class="do">## Get current date-time ----</span></span>
+<span id="cb128-2"><a href=""></a></span>
+<span id="cb128-3"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">now</span>()</span>
+<span id="cb128-4"><a href=""></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-10-26 16:10:40 UTC"</code></pre>
+<pre><code>[1] "2024-10-27 08:46:02 UTC"</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href=""></a><span class="do">## Extract date ----</span></span>
-<span id="cb125-2"><a href=""></a></span>
-<span id="cb125-3"><a href=""></a><span class="fu">date</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href=""></a><span class="do">## Extract date ----</span></span>
+<span id="cb130-2"><a href=""></a></span>
+<span id="cb130-3"><a href=""></a><span class="fu">date</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-10-26"</code></pre>
+<pre><code>[1] "2024-10-27"</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href=""></a><span class="do">## Extract year ----</span></span>
-<span id="cb127-2"><a href=""></a></span>
-<span id="cb127-3"><a href=""></a><span class="fu">year</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href=""></a><span class="do">## Extract year ----</span></span>
+<span id="cb132-2"><a href=""></a></span>
+<span id="cb132-3"><a href=""></a><span class="fu">year</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2024</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href=""></a><span class="do">## Extract hour ----</span></span>
-<span id="cb129-2"><a href=""></a></span>
-<span id="cb129-3"><a href=""></a><span class="fu">hour</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href=""></a><span class="do">## Extract hour ----</span></span>
+<span id="cb134-2"><a href=""></a></span>
+<span id="cb134-3"><a href=""></a><span class="fu">hour</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 16</code></pre>
+<pre><code>[1] 8</code></pre>
 </div>
 </div>
 </div></div>
@@ -2003,7 +2196,7 @@ Author name<br/>
 <h1><i class="fa-solid fa-circle-check fa-1x" aria-label="circle-check"></i> &nbsp;&nbsp;Working w/ taxonomy (15 min)</h1>
 
 </section>
-<section id="coming-soon-1" class="slide level2">
+<section id="coming-soon" class="slide level2">
 <h2>Coming soon</h2>
 <p>Work in progress…</p>
 <p><br></p>
@@ -2017,7 +2210,7 @@ Author name<br/>
 <h1><i class="fa-solid fa-user-clock fa-1x" aria-label="user-clock"></i> &nbsp;&nbsp;Exercise (20 min)</h1>
 
 </section>
-<section id="coming-soon-2" class="slide level2">
+<section id="coming-soon-1" class="slide level2">
 <h2>Coming soon</h2>
 <p>Work in progress…</p>
 <div class="quarto-auto-generated-content">
