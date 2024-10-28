@@ -2151,7 +2151,7 @@ Author name<br/>
 <span id="cb128-3"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">now</span>()</span>
 <span id="cb128-4"><a href=""></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-10-27 08:46:02 UTC"</code></pre>
+<pre><code>[1] "2024-10-28 08:31:13 UTC"</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -2160,7 +2160,7 @@ Author name<br/>
 <span id="cb130-2"><a href=""></a></span>
 <span id="cb130-3"><a href=""></a><span class="fu">date</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-10-27"</code></pre>
+<pre><code>[1] "2024-10-28"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -2196,13 +2196,871 @@ Author name<br/>
 <h1><i class="fa-solid fa-circle-check fa-1x" aria-label="circle-check"></i> &nbsp;&nbsp;Working w/ taxonomy (15 min)</h1>
 
 </section>
-<section id="coming-soon" class="slide level2">
-<h2>Coming soon</h2>
-<p>Work in progress…</p>
-<p><br></p>
+<section id="the-eternal-problem-of-taxonomy" class="slide level2">
+<h2>The Eternal problem of taxonomy</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><br> <br> <br> <br></p>
 <ul>
-<li>Example of taxonomy homogenization</li>
+<li>Species names regularly change (genetics)</li>
+<li>Species names can be different between countries</li>
+<li>Species names can have different synonyms</li>
 </ul>
+<p><br></p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Many taxonomic data sources available</p>
+</div><div class="column center" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/systema-naturae.jpg" style="width:80.0%"></p>
+<figcaption>Source: <a href="https://www.bnf.fr/fr/mediatheque/carl-von-linne">BnF</a></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="taxonomic-data-sources" class="slide level2">
+<h2>Taxonomic data sources</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>National Inventory of Natural Heritage (INPN) &nbsp;&nbsp;<a href="https://inpn.mnhn.fr/accueil/index?lg=en"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
+<li>IUCN Red List &nbsp;&nbsp;<a href="https://www.iucnredlist.org/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
+<li>Global Biodiversity Information Facility (GBIF) &nbsp;&nbsp;<a href="https://gbif.org"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
+<li>Encyclopedia of Life (EOL) &nbsp;&nbsp;<a href="https://eol.org/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
+<li>Open Tree of Life (OTL) &nbsp;&nbsp;<a href="https://tree.opentreeoflife.org/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>FishBase &nbsp;&nbsp;<a href="https://fishbase.se/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
+<li>World Register of Marine Species (WoRMS) &nbsp;&nbsp;<a href="https://www.marinespecies.org/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
+<li>Integrated Taxonomic Information Service (ITIS) &nbsp;&nbsp;<a href="https://www.usgs.gov/tools/integrated-taxonomic-information-system-itis"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
+<li>World Flora &nbsp;&nbsp;<a href="https://www.worldfloraonline.org/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
+<li>Barcode of Life Data Systems (BOLD) &nbsp;&nbsp;<a href="https://v3.boldsystems.org/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
+</ul>
+</div></div>
+<div class="fragment">
+<p><br></p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Most of these taxonomic databases provide an <strong>API</strong></p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Most of these taxonomic databases provide an <i class="fa-brands fa-r-project" aria-label="r-project"></i> package &nbsp;<span class="emoji" data-emoji="tada">🎉</span></p>
+</div>
+</section>
+<section id="rgbif-example" class="slide level2">
+<h2><code>rgbif</code> example</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/rgbif-screenshot.png"></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p>Available at: <a href="https://docs.ropensci.org/rgbif/" class="uri">https://docs.ropensci.org/rgbif/</a></p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href=""></a><span class="co"># Install 'rgbif' package ----</span></span>
+<span id="cb136-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"rgbif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+<p><br></p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Dedicated vignette on <a href="https://docs.ropensci.org/rgbif/articles/taxonomic_names.html"><strong>Working with taxonomic names</strong></a></p>
+</section>
+<section id="rgbif-example-1" class="slide level2">
+<h2><code>rgbif</code> example</h2>
+<p><strong>Accepted name</strong></p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
+<span id="cb137-2"><a href=""></a></span>
+<span id="cb137-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Acanthurus lineatus"</span></span>
+<span id="cb137-4"><a href=""></a></span>
+<span id="cb137-5"><a href=""></a></span>
+<span id="cb137-6"><a href=""></a><span class="do">## Check name in GBIF database ----</span></span>
+<span id="cb137-7"><a href=""></a></span>
+<span id="cb137-8"><a href=""></a>rgbif<span class="sc">::</span><span class="fu">name_backbone</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 13%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">usageKey</th>
+<th style="text-align: left;">scientificName</th>
+<th style="text-align: left;">canonicalName</th>
+<th style="text-align: left;">rank</th>
+<th style="text-align: left;">status</th>
+<th style="text-align: right;">confidence</th>
+<th style="text-align: left;">matchType</th>
+<th style="text-align: left;">kingdom</th>
+<th style="text-align: left;">phylum</th>
+<th style="text-align: left;">order</th>
+<th style="text-align: left;">family</th>
+<th style="text-align: left;">genus</th>
+<th style="text-align: left;">species</th>
+<th style="text-align: right;">kingdomKey</th>
+<th style="text-align: right;">phylumKey</th>
+<th style="text-align: right;">orderKey</th>
+<th style="text-align: right;">familyKey</th>
+<th style="text-align: right;">genusKey</th>
+<th style="text-align: right;">speciesKey</th>
+<th style="text-align: left;">synonym</th>
+<th style="text-align: left;">verbatim_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">5209244</td>
+<td style="text-align: left;">Acanthurus lineatus (Linnaeus, 1758)</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: left;">SPECIES</td>
+<td style="text-align: left;">ACCEPTED</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: left;">EXACT</td>
+<td style="text-align: left;">Animalia</td>
+<td style="text-align: left;">Chordata</td>
+<td style="text-align: left;">Perciformes</td>
+<td style="text-align: left;">Acanthuridae</td>
+<td style="text-align: left;">Acanthurus</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">587</td>
+<td style="text-align: right;">4233</td>
+<td style="text-align: right;">2379647</td>
+<td style="text-align: right;">5209244</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div>
+<div class="fragment">
+<p><br></p>
+<p><strong>Synonym name</strong></p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
+<span id="cb138-2"><a href=""></a></span>
+<span id="cb138-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
+<span id="cb138-4"><a href=""></a></span>
+<span id="cb138-5"><a href=""></a></span>
+<span id="cb138-6"><a href=""></a><span class="do">## Check name in GBIF database ----</span></span>
+<span id="cb138-7"><a href=""></a></span>
+<span id="cb138-8"><a href=""></a>rgbif<span class="sc">::</span><span class="fu">name_backbone</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 6%">
+<col style="width: 12%">
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">usageKey</th>
+<th style="text-align: right;">acceptedUsageKey</th>
+<th style="text-align: left;">scientificName</th>
+<th style="text-align: left;">canonicalName</th>
+<th style="text-align: left;">rank</th>
+<th style="text-align: left;">status</th>
+<th style="text-align: right;">confidence</th>
+<th style="text-align: left;">matchType</th>
+<th style="text-align: left;">kingdom</th>
+<th style="text-align: left;">phylum</th>
+<th style="text-align: left;">order</th>
+<th style="text-align: left;">family</th>
+<th style="text-align: left;">genus</th>
+<th style="text-align: left;">species</th>
+<th style="text-align: right;">kingdomKey</th>
+<th style="text-align: right;">phylumKey</th>
+<th style="text-align: right;">orderKey</th>
+<th style="text-align: right;">familyKey</th>
+<th style="text-align: right;">genusKey</th>
+<th style="text-align: right;">speciesKey</th>
+<th style="text-align: left;">synonym</th>
+<th style="text-align: left;">verbatim_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">5209245</td>
+<td style="text-align: right;">5209244</td>
+<td style="text-align: left;">Ctenodon lineatus (Linnaeus, 1758)</td>
+<td style="text-align: left;">Ctenodon lineatus</td>
+<td style="text-align: left;">SPECIES</td>
+<td style="text-align: left;">SYNONYM</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: left;">EXACT</td>
+<td style="text-align: left;">Animalia</td>
+<td style="text-align: left;">Chordata</td>
+<td style="text-align: left;">Perciformes</td>
+<td style="text-align: left;">Acanthuridae</td>
+<td style="text-align: left;">Acanthurus</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">587</td>
+<td style="text-align: right;">4233</td>
+<td style="text-align: right;">2379647</td>
+<td style="text-align: right;">5209244</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Ctenodon lineatus</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div>
+</div>
+<div class="fragment">
+<p><br></p>
+<p><strong>Mispelled name</strong></p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
+<span id="cb139-2"><a href=""></a></span>
+<span id="cb139-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineat"</span></span>
+<span id="cb139-4"><a href=""></a></span>
+<span id="cb139-5"><a href=""></a></span>
+<span id="cb139-6"><a href=""></a><span class="do">## Check name in GBIF database ----</span></span>
+<span id="cb139-7"><a href=""></a></span>
+<span id="cb139-8"><a href=""></a>rgbif<span class="sc">::</span><span class="fu">name_suggest</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">key</th>
+<th style="text-align: left;">canonicalName</th>
+<th style="text-align: left;">rank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">11237552</td>
+<td style="text-align: left;">Ctenodonta lineata</td>
+<td style="text-align: left;">SPECIES</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5209245</td>
+<td style="text-align: left;">Ctenodon lineatus</td>
+<td style="text-align: left;">SPECIES</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="worrms-example" class="slide level2">
+<h2><code>worrms</code> example</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/worrms-screenshot.png"></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p>Available at: <a href="https://docs.ropensci.org/worrms/index.html" class="uri">https://docs.ropensci.org/worrms/index.html</a></p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href=""></a><span class="co"># Install 'worrms' package ----</span></span>
+<span id="cb140-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"worrms"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="worrms-example-1" class="slide level2">
+<h2><code>worrms</code> example</h2>
+<p><strong>Accepted name</strong></p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
+<span id="cb141-2"><a href=""></a></span>
+<span id="cb141-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Acanthurus lineatus"</span></span>
+<span id="cb141-4"><a href=""></a></span>
+<span id="cb141-5"><a href=""></a></span>
+<span id="cb141-6"><a href=""></a><span class="do">## Check name in WORMS database ----</span></span>
+<span id="cb141-7"><a href=""></a></span>
+<span id="cb141-8"><a href=""></a>worrms<span class="sc">::</span><span class="fu">wm_records_name</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 1%">
+<col style="width: 9%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 34%">
+<col style="width: 6%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">AphiaID</th>
+<th style="text-align: left;">url</th>
+<th style="text-align: left;">scientificname</th>
+<th style="text-align: left;">authority</th>
+<th style="text-align: left;">status</th>
+<th style="text-align: left;">unacceptreason</th>
+<th style="text-align: right;">taxonRankID</th>
+<th style="text-align: left;">rank</th>
+<th style="text-align: right;">valid_AphiaID</th>
+<th style="text-align: left;">valid_name</th>
+<th style="text-align: left;">valid_authority</th>
+<th style="text-align: right;">parentNameUsageID</th>
+<th style="text-align: left;">kingdom</th>
+<th style="text-align: left;">phylum</th>
+<th style="text-align: left;">class</th>
+<th style="text-align: left;">order</th>
+<th style="text-align: left;">family</th>
+<th style="text-align: left;">genus</th>
+<th style="text-align: left;">citation</th>
+<th style="text-align: left;">lsid</th>
+<th style="text-align: right;">isMarine</th>
+<th style="text-align: right;">isBrackish</th>
+<th style="text-align: right;">isFreshwater</th>
+<th style="text-align: right;">isTerrestrial</th>
+<th style="text-align: left;">isExtinct</th>
+<th style="text-align: left;">match_type</th>
+<th style="text-align: left;">modified</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">159582</td>
+<td style="text-align: left;">https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=159582</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: left;">(Linnaeus, 1758)</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">220</td>
+<td style="text-align: left;">Species</td>
+<td style="text-align: right;">159582</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: left;">(Linnaeus, 1758)</td>
+<td style="text-align: right;">125908</td>
+<td style="text-align: left;">Animalia</td>
+<td style="text-align: left;">Chordata</td>
+<td style="text-align: left;">Teleostei</td>
+<td style="text-align: left;">Acanthuriformes</td>
+<td style="text-align: left;">Acanthuridae</td>
+<td style="text-align: left;">Acanthurus</td>
+<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2024). FishBase. Acanthurus lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=159582 on 2024-10-28</td>
+<td style="text-align: left;">urn:lsid:marinespecies.org:taxname:159582</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">like</td>
+<td style="text-align: left;">2008-01-15T17:27:08.177Z</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div>
+<div class="fragment">
+<p><br></p>
+<p><strong>Synonym name</strong></p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
+<span id="cb142-2"><a href=""></a></span>
+<span id="cb142-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
+<span id="cb142-4"><a href=""></a></span>
+<span id="cb142-5"><a href=""></a></span>
+<span id="cb142-6"><a href=""></a><span class="do">## Check name in WORMS database ----</span></span>
+<span id="cb142-7"><a href=""></a></span>
+<span id="cb142-8"><a href=""></a>worrms<span class="sc">::</span><span class="fu">wm_records_name</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 1%">
+<col style="width: 9%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 34%">
+<col style="width: 6%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">AphiaID</th>
+<th style="text-align: left;">url</th>
+<th style="text-align: left;">scientificname</th>
+<th style="text-align: left;">authority</th>
+<th style="text-align: left;">status</th>
+<th style="text-align: left;">unacceptreason</th>
+<th style="text-align: right;">taxonRankID</th>
+<th style="text-align: left;">rank</th>
+<th style="text-align: right;">valid_AphiaID</th>
+<th style="text-align: left;">valid_name</th>
+<th style="text-align: left;">valid_authority</th>
+<th style="text-align: right;">parentNameUsageID</th>
+<th style="text-align: left;">kingdom</th>
+<th style="text-align: left;">phylum</th>
+<th style="text-align: left;">class</th>
+<th style="text-align: left;">order</th>
+<th style="text-align: left;">family</th>
+<th style="text-align: left;">genus</th>
+<th style="text-align: left;">citation</th>
+<th style="text-align: left;">lsid</th>
+<th style="text-align: right;">isMarine</th>
+<th style="text-align: right;">isBrackish</th>
+<th style="text-align: right;">isFreshwater</th>
+<th style="text-align: right;">isTerrestrial</th>
+<th style="text-align: left;">isExtinct</th>
+<th style="text-align: left;">match_type</th>
+<th style="text-align: left;">modified</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">317534</td>
+<td style="text-align: left;">https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=317534</td>
+<td style="text-align: left;">Ctenodon lineatus</td>
+<td style="text-align: left;">(Linnaeus, 1758)</td>
+<td style="text-align: left;">unaccepted</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">220</td>
+<td style="text-align: left;">Species</td>
+<td style="text-align: right;">159582</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: left;">(Linnaeus, 1758)</td>
+<td style="text-align: right;">296440</td>
+<td style="text-align: left;">Animalia</td>
+<td style="text-align: left;">Chordata</td>
+<td style="text-align: left;">Teleostei</td>
+<td style="text-align: left;">Acanthuriformes</td>
+<td style="text-align: left;">Acanthuridae</td>
+<td style="text-align: left;">Ctenodon</td>
+<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2024). FishBase. Ctenodon lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=317534 on 2024-10-28</td>
+<td style="text-align: left;">urn:lsid:marinespecies.org:taxname:317534</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">like</td>
+<td style="text-align: left;">2008-02-28T13:41:07.550Z</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="worrms-example-2" class="slide level2">
+<h2><code>worrms</code> example</h2>
+<p><strong>Classification</strong></p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href=""></a><span class="do">## Get classification from AphiaID ----</span></span>
+<span id="cb143-2"><a href=""></a></span>
+<span id="cb143-3"><a href=""></a>worrms<span class="sc">::</span><span class="fu">wm_classification</span>(<span class="at">id =</span> <span class="dv">159582</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">AphiaID</th>
+<th style="text-align: left;">rank</th>
+<th style="text-align: left;">scientificname</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Kingdom</td>
+<td style="text-align: left;">Animalia</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1821</td>
+<td style="text-align: left;">Phylum</td>
+<td style="text-align: left;">Chordata</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">146419</td>
+<td style="text-align: left;">Subphylum</td>
+<td style="text-align: left;">Vertebrata</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1828</td>
+<td style="text-align: left;">Infraphylum</td>
+<td style="text-align: left;">Gnathostomata</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">152352</td>
+<td style="text-align: left;">Parvphylum</td>
+<td style="text-align: left;">Osteichthyes</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10194</td>
+<td style="text-align: left;">Gigaclass</td>
+<td style="text-align: left;">Actinopterygii</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">843664</td>
+<td style="text-align: left;">Superclass</td>
+<td style="text-align: left;">Actinopteri</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">293496</td>
+<td style="text-align: left;">Class</td>
+<td style="text-align: left;">Teleostei</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1517548</td>
+<td style="text-align: left;">Order</td>
+<td style="text-align: left;">Acanthuriformes</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">125515</td>
+<td style="text-align: left;">Family</td>
+<td style="text-align: left;">Acanthuridae</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">125908</td>
+<td style="text-align: left;">Genus</td>
+<td style="text-align: left;">Acanthurus</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">159582</td>
+<td style="text-align: left;">Species</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div>
+</section>
+<section id="rotl-example" class="slide level2">
+<h2><code>rotl</code> example</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/rotl-screenshot.png"></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p>Available at: <a href="https://docs.ropensci.org/rotl/index.html" class="uri">https://docs.ropensci.org/rotl/index.html</a></p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href=""></a><span class="co"># Install 'rotl' package ----</span></span>
+<span id="cb144-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"rotl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="rotl-example-1" class="slide level2">
+<h2><code>rotl</code> example</h2>
+<p><strong>Accepted name</strong></p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
+<span id="cb145-2"><a href=""></a></span>
+<span id="cb145-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Acanthurus lineatus"</span></span>
+<span id="cb145-4"><a href=""></a></span>
+<span id="cb145-5"><a href=""></a></span>
+<span id="cb145-6"><a href=""></a><span class="do">## Check name in OTL database ----</span></span>
+<span id="cb145-7"><a href=""></a></span>
+<span id="cb145-8"><a href=""></a>rotl<span class="sc">::</span><span class="fu">tnrs_match_names</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 10%">
+<col style="width: 5%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">search_string</th>
+<th style="text-align: left;">unique_name</th>
+<th style="text-align: left;">approximate_match</th>
+<th style="text-align: right;">score</th>
+<th style="text-align: right;">ott_id</th>
+<th style="text-align: left;">is_synonym</th>
+<th style="text-align: left;">flags</th>
+<th style="text-align: right;">number_matches</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">acanthurus lineatus</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">93141</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div>
+<div class="fragment">
+<p><br></p>
+<p><strong>Synonym name</strong></p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
+<span id="cb146-2"><a href=""></a></span>
+<span id="cb146-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
+<span id="cb146-4"><a href=""></a></span>
+<span id="cb146-5"><a href=""></a></span>
+<span id="cb146-6"><a href=""></a><span class="do">## Check name in OTL database ----</span></span>
+<span id="cb146-7"><a href=""></a></span>
+<span id="cb146-8"><a href=""></a>rotl<span class="sc">::</span><span class="fu">tnrs_match_names</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 10%">
+<col style="width: 5%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">search_string</th>
+<th style="text-align: left;">unique_name</th>
+<th style="text-align: left;">approximate_match</th>
+<th style="text-align: right;">score</th>
+<th style="text-align: right;">ott_id</th>
+<th style="text-align: left;">is_synonym</th>
+<th style="text-align: left;">flags</th>
+<th style="text-align: right;">number_matches</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ctenodon lineatus</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">93141</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="an-unified-pipeline" class="slide level2">
+<h2>An unified pipeline</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
+<span id="cb147-2"><a href=""></a></span>
+<span id="cb147-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
+<span id="cb147-4"><a href=""></a></span>
+<span id="cb147-5"><a href=""></a></span>
+<span id="cb147-6"><a href=""></a><span class="do">## Check name in GBIF database ----</span></span>
+<span id="cb147-7"><a href=""></a></span>
+<span id="cb147-8"><a href=""></a>gbif <span class="ot">&lt;-</span> rgbif<span class="sc">::</span><span class="fu">name_backbone</span>(species) <span class="sc">|&gt;</span> </span>
+<span id="cb147-9"><a href=""></a>  </span>
+<span id="cb147-10"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(species, acceptedUsageKey) <span class="sc">|&gt;</span> </span>
+<span id="cb147-11"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">gbif_acc_name =</span> species,</span>
+<span id="cb147-12"><a href=""></a>                <span class="at">gbif_acc_id   =</span> acceptedUsageKey)</span>
+<span id="cb147-13"><a href=""></a></span>
+<span id="cb147-14"><a href=""></a></span>
+<span id="cb147-15"><a href=""></a><span class="do">## Check name in WORMS database ----</span></span>
+<span id="cb147-16"><a href=""></a></span>
+<span id="cb147-17"><a href=""></a>worms <span class="ot">&lt;-</span> worrms<span class="sc">::</span><span class="fu">wm_records_name</span>(species) <span class="sc">|&gt;</span> </span>
+<span id="cb147-18"><a href=""></a>  </span>
+<span id="cb147-19"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(valid_name, valid_AphiaID) <span class="sc">|&gt;</span> </span>
+<span id="cb147-20"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">worms_acc_name =</span> valid_name,</span>
+<span id="cb147-21"><a href=""></a>                <span class="at">worms_acc_id   =</span> valid_AphiaID)</span>
+<span id="cb147-22"><a href=""></a></span>
+<span id="cb147-23"><a href=""></a></span>
+<span id="cb147-24"><a href=""></a><span class="do">## Check name in OTL database ----</span></span>
+<span id="cb147-25"><a href=""></a></span>
+<span id="cb147-26"><a href=""></a>otl <span class="ot">&lt;-</span> rotl<span class="sc">::</span><span class="fu">tnrs_match_names</span>(species) <span class="sc">|&gt;</span> </span>
+<span id="cb147-27"><a href=""></a>  </span>
+<span id="cb147-28"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(unique_name, ott_id) <span class="sc">|&gt;</span> </span>
+<span id="cb147-29"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">otl_acc_name =</span> unique_name,</span>
+<span id="cb147-30"><a href=""></a>                <span class="at">otl_acc_id   =</span> ott_id)</span>
+<span id="cb147-31"><a href=""></a></span>
+<span id="cb147-32"><a href=""></a></span>
+<span id="cb147-33"><a href=""></a><span class="do">## Append results ----</span></span>
+<span id="cb147-34"><a href=""></a></span>
+<span id="cb147-35"><a href=""></a><span class="fu">data.frame</span>(<span class="st">"original_name"</span> <span class="ot">=</span> species, gbif, worms, otl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 17%">
+<col style="width: 10%">
+<col style="width: 17%">
+<col style="width: 11%">
+<col style="width: 17%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">original_name</th>
+<th style="text-align: left;">gbif_acc_name</th>
+<th style="text-align: right;">gbif_acc_id</th>
+<th style="text-align: left;">worms_acc_name</th>
+<th style="text-align: right;">worms_acc_id</th>
+<th style="text-align: left;">otl_acc_name</th>
+<th style="text-align: right;">otl_acc_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ctenodon lineatus</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: right;">5209244</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: right;">159582</td>
+<td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: right;">93141</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div>
+</section>
+<section id="see-also" class="slide level2">
+<h2>See also</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/taxize-screenshot.png"></p>
+<p>Available at: <a href="https://docs.ropensci.org/taxize/" class="uri">https://docs.ropensci.org/taxize/</a></p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href=""></a><span class="co"># Install 'rotl' package ----</span></span>
+<span id="cb148-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"rotl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Package <strong>archived</strong> on the CRAN (October 2024)</p>
+</div><div class="column center" style="width:50%;">
+<p><img data-src="images/taxize-datasources.png" style="width:80.0%"></p>
+</div></div>
 <!-- Insert section 'Exercise' -->
 </section></section>
 <section>
@@ -2210,7 +3068,7 @@ Author name<br/>
 <h1><i class="fa-solid fa-user-clock fa-1x" aria-label="user-clock"></i> &nbsp;&nbsp;Exercise (20 min)</h1>
 
 </section>
-<section id="coming-soon-1" class="slide level2">
+<section id="coming-soon" class="slide level2">
 <h2>Coming soon</h2>
 <p>Work in progress…</p>
 <div class="quarto-auto-generated-content">
