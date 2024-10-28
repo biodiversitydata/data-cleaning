@@ -1,9 +1,577 @@
 # {{< fa circle-check size=1x >}} &nbsp;&nbsp;Working w/ taxonomy (15 min)
 
-## Coming soon
 
-Work in progress...
+## The Eternal problem of taxonomy
+
+:::: {.columns}
+
+::: {.column width=60%}
+<br/>
+<br/>
+<br/>
+<br/>
+
+- Species names regularly change (genetics)
+- Species names can be different between countries
+- Species names can have different synonyms
+
+<br/>
+
+
+{{< fa circle-right >}} &nbsp;Many taxonomic data sources available
+:::
+
+::: {.column .center width=40%}
+![Source: [BnF](https://www.bnf.fr/fr/mediatheque/carl-von-linne)](images/systema-naturae.jpg){width=80%}
+:::
+
+::::
+
+
+## Taxonomic data sources
+
+:::: {.columns}
+
+::: {.column width=50%}
+- National Inventory of Natural Heritage (INPN) &nbsp;&nbsp;[{{< fa up-right-from-square size=xs >}}](https://inpn.mnhn.fr/accueil/index?lg=en)
+- IUCN Red List &nbsp;&nbsp;[{{< fa up-right-from-square size=xs >}}](https://www.iucnredlist.org/)
+- Global Biodiversity Information Facility (GBIF) &nbsp;&nbsp;[{{< fa up-right-from-square size=xs >}}](https://gbif.org)
+- Encyclopedia of Life (EOL) &nbsp;&nbsp;[{{< fa up-right-from-square size=xs >}}](https://eol.org/)
+- Open Tree of Life (OTL) &nbsp;&nbsp;[{{< fa up-right-from-square size=xs >}}](https://tree.opentreeoflife.org/)
+:::
+
+::: {.column width=50%}
+- FishBase &nbsp;&nbsp;[{{< fa up-right-from-square size=xs >}}](https://fishbase.se/)
+- World Register of Marine Species (WoRMS) &nbsp;&nbsp;[{{< fa up-right-from-square size=xs >}}](https://www.marinespecies.org/)
+- Integrated Taxonomic Information Service (ITIS) &nbsp;&nbsp;[{{< fa up-right-from-square size=xs >}}](https://www.usgs.gov/tools/integrated-taxonomic-information-system-itis)
+- World Flora &nbsp;&nbsp;[{{< fa up-right-from-square size=xs >}}](https://www.worldfloraonline.org/)
+- Barcode of Life Data Systems (BOLD) &nbsp;&nbsp;[{{< fa up-right-from-square size=xs >}}](https://v3.boldsystems.org/)
+:::
+
+::::
+
+. . .
+
+<br/>
+
+{{< fa circle-right >}} &nbsp;Most of these taxonomic databases provide an **API**
+
+{{< fa circle-right >}} &nbsp;Most of these taxonomic databases provide an {{< fa brands r-project >}} package &nbsp;:tada:
+
+
+## `rgbif` example
+
+:::: {.columns}
+
+::: {.column width=50%}
+![](images/rgbif-screenshot.png)
+:::
+
+::: {.column width=50%}
+<br>
+
+Available at: <https://docs.ropensci.org/rgbif/>
 
 <br>
 
-- Example of taxonomy homogenization
+```{r}
+#| eval: false
+#| echo: true
+
+# Install 'rgbif' package ----
+install.packages("rgbif")
+```
+:::
+
+::::
+
+<br/>
+
+{{< fa circle-right >}} &nbsp;Dedicated vignette on [**Working with taxonomic names**](https://docs.ropensci.org/rgbif/articles/taxonomic_names.html)
+
+
+
+## `rgbif` example
+
+**Accepted name**
+
+:::: {.columns}
+
+::: {.column width=35%}
+```{r}
+#| echo: true
+#| eval: false
+
+## Species to look for ----
+
+species <- "Acanthurus lineatus"
+
+
+## Check name in GBIF database ----
+
+rgbif::name_backbone(species)
+```
+:::
+
+::: {.column width=65%}
+```{r}
+#| echo: false
+#| eval: true
+
+species <- "Acanthurus lineatus"
+
+rgbif::name_backbone(species) |>
+  knitr::kable()
+```
+:::
+
+::::
+
+
+. . .
+
+<br/>
+
+
+**Synonym name**
+
+:::: {.columns}
+
+::: {.column width=35%}
+```{r}
+#| echo: true
+#| eval: false
+
+## Species to look for ----
+
+species <- "Ctenodon lineatus"
+
+
+## Check name in GBIF database ----
+
+rgbif::name_backbone(species)
+```
+:::
+
+::: {.column width=65%}
+
+```{r}
+#| echo: false
+#| eval: true
+
+species <- "Ctenodon lineatus"
+
+rgbif::name_backbone(species) |>
+  knitr::kable()
+```
+:::
+
+::::
+
+
+. . .
+
+<br/>
+
+
+**Mispelled name**
+
+:::: {.columns}
+
+::: {.column width=35%}
+```{r}
+#| echo: true
+#| eval: false
+
+## Species to look for ----
+
+species <- "Ctenodon lineat"
+
+
+## Check name in GBIF database ----
+
+rgbif::name_suggest(species)
+```
+:::
+
+::: {.column width=65%}
+
+```{r}
+#| echo: false
+#| eval: true
+
+species <- "Ctenodon lineat"
+
+rgbif::name_suggest(species)$"data" |>
+  knitr::kable()
+```
+:::
+
+::::
+
+
+## `worrms` example
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+![](images/worrms-screenshot.png)
+:::
+
+::: {.column width=50%}
+<br>
+
+Available at: <https://docs.ropensci.org/worrms/index.html>
+
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+
+# Install 'worrms' package ----
+install.packages("worrms")
+```
+:::
+
+::::
+
+
+## `worrms` example
+
+**Accepted name**
+
+:::: {.columns}
+
+::: {.column width=35%}
+```{r}
+#| echo: true
+#| eval: false
+
+## Species to look for ----
+
+species <- "Acanthurus lineatus"
+
+
+## Check name in WORMS database ----
+
+worrms::wm_records_name(species)
+```
+:::
+
+::: {.column width=65%}
+
+```{r}
+#| echo: false
+#| eval: true
+
+species <- "Acanthurus lineatus"
+
+worrms::wm_records_name(species) |>
+  knitr::kable()
+```
+:::
+
+::::
+
+. . .
+
+<br/>
+
+
+**Synonym name**
+
+:::: {.columns}
+
+::: {.column width=35%}
+```{r}
+#| echo: true
+#| eval: false
+
+## Species to look for ----
+
+species <- "Ctenodon lineatus"
+
+
+## Check name in WORMS database ----
+
+worrms::wm_records_name(species)
+```
+:::
+
+::: {.column width=65%}
+
+```{r}
+#| echo: false
+#| eval: true
+
+species <- "Ctenodon lineatus"
+
+worrms::wm_records_name(species) |>
+  knitr::kable()
+```
+:::
+
+::::
+
+
+## `worrms` example
+
+**Classification**
+
+:::: {.columns}
+
+::: {.column width=35%}
+```{r}
+#| echo: true
+#| eval: false
+
+## Get classification from AphiaID ----
+
+worrms::wm_classification(id = 159582)
+```
+:::
+
+::: {.column width=65%}
+
+```{r}
+#| echo: false
+#| eval: true
+
+worrms::wm_classification(id = 159582) |>
+  knitr::kable()
+```
+:::
+
+::::
+
+
+## `rotl` example
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+![](images/rotl-screenshot.png)
+:::
+
+::: {.column width=50%}
+<br>
+
+Available at: <https://docs.ropensci.org/rotl/index.html>
+
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+
+# Install 'rotl' package ----
+install.packages("rotl")
+```
+:::
+
+::::
+
+
+## `rotl` example
+
+
+**Accepted name**
+
+:::: {.columns}
+
+::: {.column width=35%}
+```{r}
+#| echo: true
+#| eval: false
+
+## Species to look for ----
+
+species <- "Acanthurus lineatus"
+
+
+## Check name in OTL database ----
+
+rotl::tnrs_match_names(species)
+```
+:::
+
+::: {.column width=65%}
+
+```{r}
+#| echo: false
+#| eval: true
+
+species <- "Acanthurus lineatus"
+
+rotl::tnrs_match_names(species) |>
+  knitr::kable()
+```
+:::
+
+::::
+
+. . .
+
+<br/>
+
+
+**Synonym name**
+
+:::: {.columns}
+
+::: {.column width=35%}
+```{r}
+#| echo: true
+#| eval: false
+
+## Species to look for ----
+
+species <- "Ctenodon lineatus"
+
+
+## Check name in OTL database ----
+
+rotl::tnrs_match_names(species)
+```
+:::
+
+::: {.column width=65%}
+
+```{r}
+#| echo: false
+#| eval: true
+
+species <- "Ctenodon lineatus"
+
+rotl::tnrs_match_names(species) |>
+  knitr::kable()
+```
+:::
+
+::::
+
+
+## An unified pipeline
+
+:::: {.columns}
+
+::: {.column width=40%}
+```{r}
+#| echo: true
+#| eval: false
+
+## Species to look for ----
+
+species <- "Ctenodon lineatus"
+
+
+## Check name in GBIF database ----
+
+gbif <- rgbif::name_backbone(species) |> 
+  
+  dplyr::select(species, acceptedUsageKey) |> 
+  dplyr::rename(gbif_acc_name = species,
+                gbif_acc_id   = acceptedUsageKey)
+
+
+## Check name in WORMS database ----
+
+worms <- worrms::wm_records_name(species) |> 
+  
+  dplyr::select(valid_name, valid_AphiaID) |> 
+  dplyr::rename(worms_acc_name = valid_name,
+                worms_acc_id   = valid_AphiaID)
+
+
+## Check name in OTL database ----
+
+otl <- rotl::tnrs_match_names(species) |> 
+  
+  dplyr::select(unique_name, ott_id) |> 
+  dplyr::rename(otl_acc_name = unique_name,
+                otl_acc_id   = ott_id)
+
+
+## Append results ----
+
+data.frame("original_name" = species, gbif, worms, otl)
+```
+:::
+
+::: {.column width=60%}
+```{r}
+#| echo: false
+#| eval: true
+
+## Species to look for ----
+
+species <- "Ctenodon lineatus"
+
+
+## Check name in GBIF database ----
+
+gbif <- rgbif::name_backbone(species) |> 
+  dplyr::select(species, acceptedUsageKey) |> 
+  dplyr::rename(gbif_acc_name = species,
+                gbif_acc_id   = acceptedUsageKey)
+
+
+## Check name in WORMS database ----
+
+worms <- worrms::wm_records_name(species) |> 
+  dplyr::select(valid_name, valid_AphiaID) |> 
+  dplyr::rename(worms_acc_name = valid_name,
+                worms_acc_id   = valid_AphiaID)
+
+
+## Check name in OTL database ----
+
+otl <- rotl::tnrs_match_names(species) |> 
+  dplyr::select(unique_name, ott_id) |> 
+  dplyr::rename(otl_acc_name = unique_name,
+                otl_acc_id   = ott_id)
+
+
+## Append results ----
+
+data.frame("original_name" = species,
+           gbif, worms, otl) |> 
+  knitr::kable()
+```
+:::
+
+::::
+
+
+## See also
+
+:::: {.columns}
+
+::: {.column width=50%}
+![](images/taxize-screenshot.png)
+
+Available at: <https://docs.ropensci.org/taxize/>
+
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+
+# Install 'rotl' package ----
+install.packages("rotl")
+```
+
+<br/>
+
+{{< fa circle-right >}} &nbsp;Package **archived** on the CRAN (October 2024)
+:::
+
+::: {.column .center width=50%}
+![](images/taxize-datasources.png){width=80%}
+:::
+
+::::

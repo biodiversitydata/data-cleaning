@@ -32,6 +32,9 @@ jobs:
             any::tidyr
             any::stringr
             any::lubridate
+            any::rgbif
+            any::rotl
+            any::worrms
             
       - name: Render qmd files
         run: |
