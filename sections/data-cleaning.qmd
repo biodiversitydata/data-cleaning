@@ -1,4 +1,4 @@
-# {{< fa broom size=1x >}} &nbsp;&nbsp;Data cleaning (15 min)
+# {{< fa broom size=1x >}} &nbsp;&nbsp;Data cleaning
 
 ## Checklist
 
