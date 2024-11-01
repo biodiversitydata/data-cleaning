@@ -561,8 +561,8 @@ Available at: <https://docs.ropensci.org/taxize/>
 #| eval: false
 #| echo: true
 
-# Install 'rotl' package ----
-install.packages("rotl")
+# Install 'taxize' package ----
+install.packages("taxize")
 ```
 
 <br/>
