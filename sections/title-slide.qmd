@@ -11,11 +11,11 @@
 ::: {.column .information width="68%"}
 
 ::: {.title}
-Aggregating biodiversity data
+Cleaning biodiversity data
 :::
 
 ::: {.subtitle}
-Cleaning, homogenization & standardization
+Good practices, tools and homogenizing taxonomy
 :::
 
 ::: {.date}

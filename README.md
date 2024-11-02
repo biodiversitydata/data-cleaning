@@ -4,9 +4,9 @@
   <br>
   <img src="images/readme/logo-readme.png" alt="Logo" width="200">
   <br>
-  Aggregating biodiversity data
+  Cleaning biodiversity data
   <br>
-  Cleaning, homogenization & standardization
+  Good practices, tools and homogenizing taxonomy
   <br>
 </h1>
 
@@ -63,7 +63,7 @@
 
 ## Overview
 
-This repository contains files used to generate the online presentation [Aggregating biodiversity data](https://biodiversitydata.github.io/data-cleaning) based on [Quarto](https://quarto.org/) and the [RevealJS](https://quarto.org/docs/presentations/revealjs/) framework.
+This repository contains files used to generate the online presentation [Cleaning biodiversity data](https://biodiversitydata.github.io/data-cleaning) based on [Quarto](https://quarto.org/) and the [RevealJS](https://quarto.org/docs/presentations/revealjs/) framework.
 
 
 ## Usage
@@ -82,7 +82,7 @@ To understand the file organisation of this repository, please read this [Wiki](
 
 ## Citation
 
-Casajus N & Coux C (2024) Aggregating biodiversity data. Online presentation available at <https://github.com/biodiversitydata/data-cleaning/>.
+Casajus N & Coux C (2024) Cleaning biodiversity data. Online presentation available at <https://github.com/biodiversitydata/data-cleaning/>.
 
 
 ## Contributing
