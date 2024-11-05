@@ -2151,7 +2151,7 @@ Author name<br/>
 <span id="cb128-3"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">now</span>()</span>
 <span id="cb128-4"><a href=""></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-11-04 19:53:44 UTC"</code></pre>
+<pre><code>[1] "2024-11-05 15:13:14 UTC"</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -2160,7 +2160,7 @@ Author name<br/>
 <span id="cb130-2"><a href=""></a></span>
 <span id="cb130-3"><a href=""></a><span class="fu">date</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-11-04"</code></pre>
+<pre><code>[1] "2024-11-05"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -2176,7 +2176,7 @@ Author name<br/>
 <span id="cb134-2"><a href=""></a></span>
 <span id="cb134-3"><a href=""></a><span class="fu">hour</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 19</code></pre>
+<pre><code>[1] 15</code></pre>
 </div>
 </div>
 </div></div>
@@ -2614,7 +2614,7 @@ Author name<br/>
 <td style="text-align: left;">Acanthuriformes</td>
 <td style="text-align: left;">Acanthuridae</td>
 <td style="text-align: left;">Acanthurus</td>
-<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2024). FishBase. Acanthurus lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=159582 on 2024-11-04</td>
+<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2024). FishBase. Acanthurus lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=159582 on 2024-11-05</td>
 <td style="text-align: left;">urn:lsid:marinespecies.org:taxname:159582</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
@@ -2728,7 +2728,7 @@ Author name<br/>
 <td style="text-align: left;">Acanthuriformes</td>
 <td style="text-align: left;">Acanthuridae</td>
 <td style="text-align: left;">Ctenodon</td>
-<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2024). FishBase. Ctenodon lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=317534 on 2024-11-04</td>
+<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2024). FishBase. Ctenodon lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=317534 on 2024-11-05</td>
 <td style="text-align: left;">urn:lsid:marinespecies.org:taxname:317534</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
@@ -3086,6 +3086,65 @@ Author name<br/>
 </ul>
 <p><br></p>
 <p><strong>Part 3</strong> - Merge this table with PanTHERIA (cleaned) to add trait values to these two species</p>
+</section>
+<section id="correction" class="slide level2">
+<h2>Correction</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Part 1</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb149-2"><a href=""></a></span>
+<span id="cb149-3"><a href=""></a><span class="do">## Open PanTHERIA data ----</span></span>
+<span id="cb149-4"><a href=""></a></span>
+<span id="cb149-5"><a href=""></a>pantheria <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"PanTHERIA_1-0_WR05_Aug2008.txt"</span>)</span>
+<span id="cb149-6"><a href=""></a></span>
+<span id="cb149-7"><a href=""></a></span>
+<span id="cb149-8"><a href=""></a><span class="do">## Clean PanTHERIA data ----</span></span>
+<span id="cb149-9"><a href=""></a></span>
+<span id="cb149-10"><a href=""></a>pantheria <span class="ot">&lt;-</span> pantheria <span class="sc">|&gt;</span> </span>
+<span id="cb149-11"><a href=""></a>  </span>
+<span id="cb149-12"><a href=""></a>  <span class="fu">select</span>(MSW05_Binomial, </span>
+<span id="cb149-13"><a href=""></a>         <span class="st">`</span><span class="at">5-1_AdultBodyMass_g</span><span class="st">`</span>, </span>
+<span id="cb149-14"><a href=""></a>         <span class="st">`</span><span class="at">8-1_AdultForearmLen_mm</span><span class="st">`</span>, </span>
+<span id="cb149-15"><a href=""></a>         <span class="st">`</span><span class="at">3-1_AgeatFirstBirth_d</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb149-16"><a href=""></a>  </span>
+<span id="cb149-17"><a href=""></a>  <span class="fu">rename</span>(<span class="at">binomial_name            =</span> MSW05_Binomial,</span>
+<span id="cb149-18"><a href=""></a>         <span class="at">pan_adult_body_mass_g    =</span> <span class="st">`</span><span class="at">5-1_AdultBodyMass_g</span><span class="st">`</span>, </span>
+<span id="cb149-19"><a href=""></a>         <span class="at">pan_adult_forearm_len_mm =</span> <span class="st">`</span><span class="at">8-1_AdultForearmLen_mm</span><span class="st">`</span>, </span>
+<span id="cb149-20"><a href=""></a>         <span class="at">pan_age_at_first_birth_d =</span> <span class="st">`</span><span class="at">3-1_AgeatFirstBirth_d</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb149-21"><a href=""></a>  </span>
+<span id="cb149-22"><a href=""></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"pan_"</span>), <span class="sc">~</span> <span class="fu">ifelse</span>(.x <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>, <span class="cn">NA</span>, .x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Part 2</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href=""></a><span class="do">## Open GBIF occurrences ----</span></span>
+<span id="cb150-2"><a href=""></a></span>
+<span id="cb150-3"><a href=""></a>gbif_occ <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"gbif_occurrences.csv"</span>)</span>
+<span id="cb150-4"><a href=""></a></span>
+<span id="cb150-5"><a href=""></a></span>
+<span id="cb150-6"><a href=""></a><span class="do">## Extract &amp; clean species names ----</span></span>
+<span id="cb150-7"><a href=""></a></span>
+<span id="cb150-8"><a href=""></a>gbif_species <span class="ot">&lt;-</span> gbif_occ <span class="sc">|&gt;</span> </span>
+<span id="cb150-9"><a href=""></a>  </span>
+<span id="cb150-10"><a href=""></a>  <span class="fu">select</span>(scientificName) <span class="sc">|&gt;</span> </span>
+<span id="cb150-11"><a href=""></a>  </span>
+<span id="cb150-12"><a href=""></a>  <span class="fu">distinct</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb150-13"><a href=""></a>  </span>
+<span id="cb150-14"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">scientificName =</span> stringr<span class="sc">::</span><span class="fu">str_extract</span>(scientificName, </span>
+<span id="cb150-15"><a href=""></a>                                               <span class="st">"^[A-z]+</span><span class="sc">\\</span><span class="st">s[a-z]+"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb150-16"><a href=""></a>  </span>
+<span id="cb150-17"><a href=""></a>  <span class="fu">rename</span>(<span class="at">binomial_name =</span> scientificName)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><strong>Part 3</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href=""></a><span class="do">## Merge tables ----</span></span>
+<span id="cb151-2"><a href=""></a></span>
+<span id="cb151-3"><a href=""></a>final_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(gbif_species, pantheria, <span class="at">by =</span> <span class="st">"binomial_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
 <div class="quarto-auto-generated-content">
 <p><img src="images/logo-affiliation.png" class="slide-logo"></p>
 <div class="footer footer-default">
