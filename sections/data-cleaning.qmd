@@ -636,7 +636,7 @@ The function **`tidyr::pivot_longer()`** compiles information from multiple colu
 
 :::: {.columns}
 
-::: {.column .center width=50%}
+::: {.column .center width=60%}
 ```{r}
 #| echo: true
 
@@ -650,7 +650,7 @@ head(relig_income)
 ```
 :::
 
-::: {.column .center width=50%}
+::: {.column .center width=40%}
 :::
 ::::
 
@@ -667,7 +667,7 @@ The function **`tidyr::pivot_longer()`** compiles information from multiple colu
 
 :::: {.columns}
 
-::: {.column .center width=50%}
+::: {.column .center width=60%}
 ```{r}
 #| echo: true
 
@@ -681,7 +681,7 @@ head(relig_income)
 ```
 :::
 
-::: {.column .center width=50%}
+::: {.column .center width=40%}
 
 ```{r}
 #| echo: true
@@ -724,7 +724,7 @@ back
 ```
 :::
 
-::: {.column width=50%}
+::: {.column width=40%}
 :::
 ::::
 
