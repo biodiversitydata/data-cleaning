@@ -251,6 +251,23 @@ Author name<br/>
 </div>
 <!-- Close {.title-slide-container} -->
 </div>
+<!-- Insert section 'Where are we?' -->
+</section>
+<section id="data-lifecycle" class="slide level2">
+<h2>Data lifecycle</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/data-lifecycle-0.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
+</section>
+<section id="data-lifecycle-1" class="slide level2">
+<h2>Data lifecycle</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/data-lifecycle-3.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
 <!-- Insert section 'Table of contents' -->
 </section>
 <section>
@@ -263,22 +280,22 @@ Author name<br/>
 <p><br> <br> <br> <br></p>
 <div class="columns">
 <div class="column center" style="width:20%;">
-<p><i class="fa-solid fa-lock fa-2x" aria-label="lock"></i> <br> Raw vs.&nbsp;derived data</p>
+<p><i class="fa-solid fa-lock fa-2x" aria-label="lock"></i> <br><br> Raw vs.&nbsp;derived data</p>
 </div><div class="column center" style="width:20%;">
 
 </div><div class="column center" style="width:20%;">
-<p><i class="fa-solid fa-broom fa-2x" aria-label="broom"></i> <br> Data cleaning</p>
+<p><i class="fa-solid fa-broom fa-2x" aria-label="broom"></i> <br><br> Data cleaning</p>
 </div><div class="column center" style="width:20%;">
 
 </div><div class="column center" style="width:20%;">
-<p><i class="fa-solid fa-circle-check fa-2x" aria-label="circle-check"></i> <br> Working w/ taxonomy</p>
+<p><i class="fa-solid fa-circle-check fa-2x" aria-label="circle-check"></i> <br><br> Working w/ taxonomy</p>
 </div></div>
 <p><br> <br></p>
 <div class="columns">
 <div class="column center" style="width:40%;">
 
 </div><div class="column center" style="width:20%;">
-<p><i class="fa-solid fa-user-clock fa-2x" aria-label="user-clock"></i> <br> Exercise</p>
+<p><i class="fa-solid fa-user-clock fa-2x" aria-label="user-clock"></i> <br><br> Exercise</p>
 </div><div class="column center" style="width:40%;">
 
 </div></div>
@@ -602,7 +619,7 @@ Author name<br/>
 <div class="column" style="width:50%;">
 <p><img data-src="images/dplyr-screenshot.png"></p>
 <p><br></p>
-<p>Available at: <a href="https://sfirke.github.io/dplyr/" class="uri">https://sfirke.github.io/dplyr/</a></p>
+<p>Available at: <a href="https://dplyr.tidyverse.org/" class="uri">https://dplyr.tidyverse.org/</a></p>
 </div><div class="column" style="width:50%;">
 <p><br></p>
 <div class="cell">
@@ -670,13 +687,14 @@ Author name<br/>
 <section id="sorting-and-arranging" class="slide level2">
 <h2>Sorting and arranging</h2>
 <p><br></p>
-<p>R package <code>dplyr</code> is very useful to :</p>
+<p>R package <code>dplyr</code> is very useful to:</p>
 <p><br></p>
 <ul>
-<li><p><strong>select</strong> columns (based on their names only, no $var [,“var”] etc) : <code>dplyr::select(column1, column2)</code></p></li>
-<li><p><strong>filter</strong> specific lines from those selected columns : <code>dplyr::filter(level1 == a, level2 &gt; x)</code></p></li>
-<li><p>apply a function to the table subset : <code>group_by(factor_column)</code> and then <code>mutate(new_column = old_column*2)</code></p></li>
-<li><p>put it back together in a dataframe/data table etc.</p></li>
+<li><p><strong>select</strong> columns (based on their names only, no <code>$var</code> / <code>[, "var"]</code> / <code>[["var"]]</code>): <code>dplyr::select(column1, column2)</code></p></li>
+<li><p><strong>filter</strong> rows from those selected columns: <code>dplyr::filter(column1 == a, column2 &gt; x)</code></p></li>
+<li><p><strong>group</strong> and <strong>aggregate</strong> rows: <code>group_by(factor_column)</code></p></li>
+<li><p><strong>create</strong> new columns: <code>mutate(new_column = old_column * 2)</code></p></li>
+<li><p>always work with <code>data.frame</code> or <code>tibble</code></p></li>
 </ul>
 </section>
 <section id="dplyr-example" class="slide level2">
@@ -814,8 +832,11 @@ Author name<br/>
 </section>
 <section id="merging-data" class="slide level2">
 <h2>Merging data</h2>
-<p>The family of <strong><code>dplyr::*_join()</code></strong> functions can deal with all types of <code>data.frame</code> merges. It’s the R equivalent to SQL querying.</p>
-<p><br><br></p>
+<p>The family of <strong><code>dplyr::*_join()</code></strong> functions can deal with all types of <code>data.frame</code> merges.</p>
+<blockquote>
+<p>It’s the <i class="fa-brands fa-r-project" aria-label="r-project"></i> equivalent to <strong>SQL</strong> querying (and equivalent to the <code>merge()</code> <i class="fa-brands fa-r-project" aria-label="r-project"></i> function).</p>
+</blockquote>
+<p><br></p>
 <p>Let’s load <code>band_instruments</code> and <code>band_members</code> datasets from <code>dplyr</code>.</p>
 <p><br></p>
 <div class="columns">
@@ -1078,11 +1099,13 @@ Author name<br/>
 <p><br></p>
 <p><strong><code>tidyr::pivot_wider()</code></strong></p>
 <p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/pivot_wider.png"></p>
-</div></div>
-<div class="citation">
-<p>Source: <a href="https://rstudio.github.io/cheatsheets/html/tidyr.html" class="uri">https://rstudio.github.io/cheatsheets/html/tidyr.html</a></p>
+<figcaption>Source: <a href="https://rstudio.github.io/cheatsheets/html/tidyr.html" class="uri">https://rstudio.github.io/cheatsheets/html/tidyr.html</a></figcaption>
+</figure>
 </div>
+</div></div>
 </section>
 <section id="pivot-to-long-format" class="slide level2">
 <h2>Pivot to long format</h2>
@@ -1100,7 +1123,8 @@ Author name<br/>
 <span id="cb51-4"><a href=""></a></span>
 <span id="cb51-5"><a href=""></a></span>
 <span id="cb51-6"><a href=""></a></span>
-<span id="cb51-7"><a href=""></a><span class="fu">head</span>(relig_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb51-7"><a href=""></a></span>
+<span id="cb51-8"><a href=""></a><span class="fu">head</span>(relig_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 11
   religion  `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`
@@ -1135,7 +1159,8 @@ Author name<br/>
 <span id="cb53-4"><a href=""></a></span>
 <span id="cb53-5"><a href=""></a></span>
 <span id="cb53-6"><a href=""></a></span>
-<span id="cb53-7"><a href=""></a><span class="fu">head</span>(relig_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb53-7"><a href=""></a></span>
+<span id="cb53-8"><a href=""></a><span class="fu">head</span>(relig_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 11
   religion  `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`
@@ -1153,12 +1178,13 @@ Author name<br/>
 </div><div class="column center" style="width:40%;">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="do">## Pivot to longer ----</span></span>
-<span id="cb55-2"><a href=""></a>newtab <span class="ot">&lt;-</span> relig_income <span class="sc">|&gt;</span> </span>
-<span id="cb55-3"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols      =</span> <span class="sc">!</span>religion,</span>
-<span id="cb55-4"><a href=""></a>                      <span class="at">names_to  =</span> <span class="st">"income"</span>,</span>
-<span id="cb55-5"><a href=""></a>                      <span class="at">values_to =</span> <span class="st">"count"</span>)</span>
-<span id="cb55-6"><a href=""></a></span>
-<span id="cb55-7"><a href=""></a>newtab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb55-2"><a href=""></a></span>
+<span id="cb55-3"><a href=""></a>newtab <span class="ot">&lt;-</span> relig_income <span class="sc">|&gt;</span> </span>
+<span id="cb55-4"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols      =</span> <span class="sc">!</span>religion,</span>
+<span id="cb55-5"><a href=""></a>                      <span class="at">names_to  =</span> <span class="st">"income"</span>,</span>
+<span id="cb55-6"><a href=""></a>                      <span class="at">values_to =</span> <span class="st">"count"</span>)</span>
+<span id="cb55-7"><a href=""></a></span>
+<span id="cb55-8"><a href=""></a>newtab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 180 × 3
    religion income             count
@@ -1398,7 +1424,6 @@ Author name<br/>
 <span id="cb70-3"><a href=""></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
-<p><br></p>
 <div class="fragment">
 <p><strong>Detect pattern</strong><sup>1</sup></p>
 <div class="columns">
@@ -1468,7 +1493,6 @@ Author name<br/>
 <span id="cb77-3"><a href=""></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
-<p><br></p>
 <p><strong>Subset matches</strong></p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1509,7 +1533,6 @@ Author name<br/>
 <span id="cb82-3"><a href=""></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
-<p><br></p>
 <p><strong>Replace pattern</strong></p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1565,7 +1588,6 @@ Author name<br/>
 <span id="cb87-3"><a href=""></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
-<p><br></p>
 <p><strong>Character case</strong></p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1949,7 +1971,7 @@ Author name<br/>
 <span id="cb128-3"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">now</span>()</span>
 <span id="cb128-4"><a href=""></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-10-24 11:43:15 UTC"</code></pre>
+<pre><code>[1] "2025-10-31 07:39:44 UTC"</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -1958,7 +1980,7 @@ Author name<br/>
 <span id="cb130-2"><a href=""></a></span>
 <span id="cb130-3"><a href=""></a><span class="fu">date</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-10-24"</code></pre>
+<pre><code>[1] "2025-10-31"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1974,7 +1996,7 @@ Author name<br/>
 <span id="cb134-2"><a href=""></a></span>
 <span id="cb134-3"><a href=""></a><span class="fu">hour</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 11</code></pre>
+<pre><code>[1] 7</code></pre>
 </div>
 </div>
 </div></div>
@@ -2038,7 +2060,7 @@ Author name<br/>
 <div class="fragment">
 <p><br></p>
 <p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Most of these taxonomic databases provide an <strong>API</strong></p>
-<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Most of these taxonomic databases provide an <i class="fa-brands fa-r-project" aria-label="r-project"></i> package &nbsp;<span class="emoji" data-emoji="tada">🎉</span></p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Most of these API provide an <i class="fa-brands fa-r-project" aria-label="r-project"></i> package &nbsp;<span class="emoji" data-emoji="tada">🎉</span></p>
 </div>
 </section>
 <section id="rgbif-example" class="slide level2">
@@ -2406,7 +2428,7 @@ Author name<br/>
 <td style="text-align: left;">Acanthuriformes</td>
 <td style="text-align: left;">Acanthuridae</td>
 <td style="text-align: left;">Acanthurus</td>
-<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2025). FishBase. Acanthurus lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=159582 on 2025-10-24</td>
+<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2025). FishBase. Acanthurus lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=159582 on 2025-10-31</td>
 <td style="text-align: left;">urn:lsid:marinespecies.org:taxname:159582</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
@@ -2520,7 +2542,7 @@ Author name<br/>
 <td style="text-align: left;">Acanthuriformes</td>
 <td style="text-align: left;">Acanthuridae</td>
 <td style="text-align: left;">Ctenodon</td>
-<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2025). FishBase. Ctenodon lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=317534 on 2025-10-24</td>
+<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2025). FishBase. Ctenodon lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=317534 on 2025-10-31</td>
 <td style="text-align: left;">urn:lsid:marinespecies.org:taxname:317534</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
@@ -2848,8 +2870,6 @@ Author name<br/>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href=""></a><span class="co"># Install 'taxize' package ----</span></span>
 <span id="cb148-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"taxize"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><br></p>
-<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Package <strong>archived</strong> on the CRAN (October 2024)</p>
 </div><div class="column center" style="width:50%;">
 <p><img data-src="images/taxize-datasources.png" style="width:80.0%"></p>
 </div></div>
@@ -2862,7 +2882,7 @@ Author name<br/>
 </section>
 <section id="cleaning-data" class="slide level2">
 <h2>Cleaning data</h2>
-<p><strong>Part 1</strong> - Clean the <a href="https://esajournals.onlinelibrary.wiley.com/doi/10.1890/08-1494.1">PanTHERIA database</a> from the <a href="https://biodiversitydata.github.io/data-access/#/accessing-data">previous exercise</a></p>
+<p><strong>Part 1</strong> - Clean the <a href="https://esajournals.onlinelibrary.wiley.com/doi/10.1890/08-1494.1">PanTHERIA database</a> from the <a href="https://biodiversitydata.github.io/data-access/#/exercise---accessing-data">previous exercise</a></p>
 <ul>
 <li>use the function <code>readr::read_delim()</code> to import data</li>
 <li>select columns <code>MSW05_Binomial</code>, <code>5-1_AdultBodyMass_g</code>, <code>8-1_AdultForearmLen_mm</code> &amp; <code>3-1_AgeatFirstBirth_d</code></li>
@@ -2870,7 +2890,7 @@ Author name<br/>
 <li>replace <code>-999</code> by <code>NA</code></li>
 </ul>
 <p><br></p>
-<p><strong>Part 2</strong> - Create a reference table from GBIF occurrences downloaded <a href="https://biodiversitydata.github.io/data-access/#/accessing-data">previously</a></p>
+<p><strong>Part 2</strong> - Create a reference table from GBIF occurrences downloaded <a href="https://biodiversitydata.github.io/data-access/#/exercise---accessing-data">previously</a></p>
 <ul>
 <li>remove all columns except <code>scientificName</code></li>
 <li>remove duplicated rows</li>
@@ -2878,6 +2898,9 @@ Author name<br/>
 </ul>
 <p><br></p>
 <p><strong>Part 3</strong> - Merge this table with PanTHERIA (cleaned) to add trait values to these two species</p>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
 </section>
 <section id="correction" class="slide level2">
 <h2>Correction</h2>
@@ -2896,12 +2919,12 @@ Author name<br/>
 <span id="cb149-9"><a href=""></a></span>
 <span id="cb149-10"><a href=""></a>pantheria <span class="ot">&lt;-</span> pantheria <span class="sc">|&gt;</span> </span>
 <span id="cb149-11"><a href=""></a>  </span>
-<span id="cb149-12"><a href=""></a>  <span class="fu">select</span>(MSW05_Binomial, </span>
+<span id="cb149-12"><a href=""></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">MSW05_Binomial</span><span class="st">`</span>, </span>
 <span id="cb149-13"><a href=""></a>         <span class="st">`</span><span class="at">5-1_AdultBodyMass_g</span><span class="st">`</span>, </span>
 <span id="cb149-14"><a href=""></a>         <span class="st">`</span><span class="at">8-1_AdultForearmLen_mm</span><span class="st">`</span>, </span>
 <span id="cb149-15"><a href=""></a>         <span class="st">`</span><span class="at">3-1_AgeatFirstBirth_d</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb149-16"><a href=""></a>  </span>
-<span id="cb149-17"><a href=""></a>  <span class="fu">rename</span>(<span class="at">binomial_name            =</span> MSW05_Binomial,</span>
+<span id="cb149-17"><a href=""></a>  <span class="fu">rename</span>(<span class="at">binomial_name            =</span> <span class="st">`</span><span class="at">MSW05_Binomial</span><span class="st">`</span>,</span>
 <span id="cb149-18"><a href=""></a>         <span class="at">pan_adult_body_mass_g    =</span> <span class="st">`</span><span class="at">5-1_AdultBodyMass_g</span><span class="st">`</span>, </span>
 <span id="cb149-19"><a href=""></a>         <span class="at">pan_adult_forearm_len_mm =</span> <span class="st">`</span><span class="at">8-1_AdultForearmLen_mm</span><span class="st">`</span>, </span>
 <span id="cb149-20"><a href=""></a>         <span class="at">pan_age_at_first_birth_d =</span> <span class="st">`</span><span class="at">3-1_AgeatFirstBirth_d</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
