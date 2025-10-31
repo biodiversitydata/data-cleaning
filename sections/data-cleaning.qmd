@@ -150,7 +150,7 @@ test_df
 
 <br>
 
-Available at: <https://sfirke.github.io/dplyr/>
+Available at: <https://dplyr.tidyverse.org/>
 :::
 
 ::: {.column width=50%}
@@ -190,20 +190,23 @@ install.packages("dplyr")
 
 <br>
 
-R package `dplyr` is very useful to :
+R package `dplyr` is very useful to:
 
 <br>
 
-- **select** columns (based on their names only, no $var [,"var"] etc) : `dplyr::select(column1, column2)`
+- **select** columns (based on their names only, no `$var` / `[, "var"]` / `[["var"]]`): `dplyr::select(column1, column2)`
 
 
-- **filter** specific lines from those selected columns : `dplyr::filter(level1 == a, level2 > x)`
+- **filter** rows from those selected columns: `dplyr::filter(column1 == a, column2 > x)`
 
 
-- apply a function to the table subset : `group_by(factor_column)` and then `mutate(new_column = old_column*2)`
+- **group** and **aggregate** rows: `group_by(factor_column)`
 
 
-- put it back together in a dataframe/data table etc.
+- **create** new columns: `mutate(new_column = old_column * 2)`
+
+
+- always work with `data.frame` or `tibble`
 
 
 ## `dplyr` example
@@ -316,9 +319,11 @@ iris_nice |>
 
 ## Merging data
 
-The family of **`dplyr::*_join()`** functions can deal with all types of `data.frame` merges. It's the R equivalent to SQL querying. 
+The family of **`dplyr::*_join()`** functions can deal with all types of `data.frame` merges.
 
-<br><br>
+> It's the {{< fa brands r-project >}} equivalent to **SQL** querying (and equivalent to the `merge()` {{< fa brands r-project >}} function). 
+
+<br>
 
 Let's load `band_instruments` and `band_members` datasets from `dplyr`.
 
@@ -614,15 +619,13 @@ install.packages("tidyr")
 
 <br>
 
-![](images/pivot_wider.png)
+![Source: <https://rstudio.github.io/cheatsheets/html/tidyr.html>](images/pivot_wider.png)
 
 :::
 
 ::::
 
-::: {.citation}
-Source: <https://rstudio.github.io/cheatsheets/html/tidyr.html>
-:::
+
 
 
 ## Pivot to long format
@@ -643,6 +646,7 @@ The function **`tidyr::pivot_longer()`** compiles information from multiple colu
 ## Load dataset ----
 
 data("relig_income", package = "tidyr")
+
 
 
 
@@ -674,6 +678,7 @@ The function **`tidyr::pivot_longer()`** compiles information from multiple colu
 ## Load dataset ----
 
 data("relig_income", package = "tidyr")
+
 
 
 
@@ -687,6 +692,7 @@ head(relig_income)
 #| echo: true
 
 ## Pivot to longer ----
+
 newtab <- relig_income |> 
   tidyr::pivot_longer(cols      = !religion,
                       names_to  = "income",
@@ -922,7 +928,6 @@ fullnames <- c("Camille", "Nicolas", "Olivier", "Yvan", "Sophie", "Anne-Sophie")
 
 ::::
 
-<br/>
 
 . . .
 
@@ -1025,7 +1030,6 @@ fullnames <- c("Camille", "Nicolas", "Olivier", "Yvan", "Sophie", "Anne-Sophie")
 
 ::::
 
-<br/>
 
 **Subset matches**
 
@@ -1088,7 +1092,6 @@ fullnames <- c("Camille", "Nicolas", "Olivier", "Yvan", "Sophie", "Anne-Sophie")
 
 ::::
 
-<br/>
 
 **Replace pattern**
 
@@ -1168,7 +1171,7 @@ fullnames <- c("Camille", "Nicolas", "Olivier", "Yvan", "Sophie", "Anne-Sophie")
 
 ::::
 
-<br/>
+
 
 **Character case**
 
