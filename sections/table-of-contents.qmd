@@ -14,7 +14,7 @@
 
 ::: { .column .center width="20%"}
 {{< fa lock size=2x >}}
-<br>
+<br><br>
 Raw vs. derived data
 :::
 
@@ -23,7 +23,7 @@ Raw vs. derived data
 
 ::: { .column .center width="20%"}
 {{< fa broom size=2x >}}
-<br>
+<br><br>
 Data cleaning
 :::
 
@@ -32,7 +32,7 @@ Data cleaning
 
 ::: { .column .center width="20%"}
 {{< fa circle-check size=2x >}}
-<br>
+<br><br>
 Working w/ taxonomy
 :::
 
@@ -50,7 +50,7 @@ Working w/ taxonomy
 
 ::: { .column .center width="20%"}
 {{< fa user-clock size=2x >}}
-<br>
+<br><br>
 Exercise
 :::
 
