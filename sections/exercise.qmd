@@ -2,7 +2,7 @@
 
 ## Cleaning data
 
-**Part 1** - Clean the [PanTHERIA database](https://esajournals.onlinelibrary.wiley.com/doi/10.1890/08-1494.1) from the [previous exercise](https://biodiversitydata.github.io/data-access/#/accessing-data)
+**Part 1** - Clean the [PanTHERIA database](https://esajournals.onlinelibrary.wiley.com/doi/10.1890/08-1494.1) from the [previous exercise](https://biodiversitydata.github.io/data-access/#/exercise---accessing-data)
 
 - use the function `readr::read_delim()` to import data
 - select columns `MSW05_Binomial`, `5-1_AdultBodyMass_g`, `8-1_AdultForearmLen_mm` & `3-1_AgeatFirstBirth_d`
@@ -12,7 +12,7 @@
 <br/>
 
 
-**Part 2** - Create a reference table from GBIF occurrences downloaded [previously](https://biodiversitydata.github.io/data-access/#/accessing-data)
+**Part 2** - Create a reference table from GBIF occurrences downloaded [previously](https://biodiversitydata.github.io/data-access/#/exercise---accessing-data)
 
 - remove all columns except `scientificName`
 - remove duplicated rows
@@ -23,6 +23,8 @@
 
 **Part 3** - Merge this table with PanTHERIA (cleaned) to add trait values to these two species
 
+
+##
 
 
 ## Correction
@@ -48,12 +50,12 @@ pantheria <- readr::read_delim("PanTHERIA_1-0_WR05_Aug2008.txt")
 
 pantheria <- pantheria |> 
   
-  select(MSW05_Binomial, 
+  select(`MSW05_Binomial`, 
          `5-1_AdultBodyMass_g`, 
          `8-1_AdultForearmLen_mm`, 
          `3-1_AgeatFirstBirth_d`) |> 
   
-  rename(binomial_name            = MSW05_Binomial,
+  rename(binomial_name            = `MSW05_Binomial`,
          pan_adult_body_mass_g    = `5-1_AdultBodyMass_g`, 
          pan_adult_forearm_len_mm = `8-1_AdultForearmLen_mm`, 
          pan_age_at_first_birth_d = `3-1_AgeatFirstBirth_d`) |> 
