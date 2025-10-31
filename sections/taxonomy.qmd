@@ -56,7 +56,7 @@
 
 {{< fa circle-right >}} &nbsp;Most of these taxonomic databases provide an **API**
 
-{{< fa circle-right >}} &nbsp;Most of these taxonomic databases provide an {{< fa brands r-project >}} package &nbsp;:tada:
+{{< fa circle-right >}} &nbsp;Most of these API provide an {{< fa brands r-project >}} package &nbsp;:tada:
 
 
 ## `rgbif` example
@@ -564,10 +564,6 @@ Available at: <https://docs.ropensci.org/taxize/>
 # Install 'taxize' package ----
 install.packages("taxize")
 ```
-
-<br/>
-
-{{< fa circle-right >}} &nbsp;Package **archived** on the CRAN (October 2024)
 :::
 
 ::: {.column .center width=50%}
