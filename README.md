@@ -82,7 +82,7 @@ To understand the file organisation of this repository, please read this [Wiki](
 
 ## Citation
 
-Casajus N & Coux C (2024) Cleaning biodiversity data. Online presentation available at <https://github.com/biodiversitydata/data-cleaning/>.
+Casajus N & Coux C (2025) Cleaning biodiversity data: Good practices, tools and homogenizing taxonomy. Online presentation available at <https://github.com/biodiversitydata/data-cleaning/>.
 
 
 ## Contributing
