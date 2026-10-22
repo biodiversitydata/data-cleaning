@@ -6,12 +6,12 @@
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="index_files/libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="index_files/libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <link href="index_files/libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
 <link href="index_files/libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+  <meta name="generator" content="quarto-1.10.19">
 
   <title>Data cleaning</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,10 +20,16 @@
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -98,7 +104,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-07f485efc8714db8f6b4922c527fd9df.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-f03f36ac0b4b07ffeba452a5e6dafc9b.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -214,7 +220,7 @@
 <p>Good practices, tools and homogenizing taxonomy</p>
 </div>
 <div class="date">
-<p>November 2025</p>
+<p>October 2026</p>
 </div>
 <div class="columns authors">
 <div class="column author" style="width:32%;">
@@ -302,7 +308,7 @@ Author name<br/>
 <!-- Insert section 'Raw vs. derived data' -->
 </section></section>
 <section>
-<section id="raw-vs.-derived-data" class="title-slide slide level1 center">
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206c6f636b2073697a653d3178203e7d7d-raw-vs.-derived-data" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-lock fa-1x" aria-label="lock"></i> &nbsp;&nbsp;Raw vs.&nbsp;derived data</h1>
 
 </section>
@@ -467,7 +473,7 @@ Author name<br/>
 <!-- Insert section 'Data cleaning' -->
 <aside><ol class="aside-footnotes"><li id="fn5"><p>Wilson <em>et al.</em> (2017) <a href="https://doi.org/10.1371/journal.pcbi.1005510" class="uri">https://doi.org/10.1371/journal.pcbi.1005510</a></p></li></ol></aside></section></section>
 <section>
-<section id="data-cleaning" class="title-slide slide level1 center">
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2066612062726f6f6d2073697a653d3178203e7d7d-data-cleaning" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-broom fa-1x" aria-label="broom"></i> &nbsp;&nbsp;Data cleaning</h1>
 
 </section>
@@ -519,8 +525,8 @@ Author name<br/>
 </div><div class="column" style="width:50%;">
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Install 'janitor' package ----</span></span>
-<span id="cb6-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"janitor"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="" aria-label="1"></a><span class="co"># Install 'janitor' package ----</span></span>
+<span id="cb6-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"janitor"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
 <table class="caption-top">
@@ -561,14 +567,14 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="do">## Create a data.frame with dirty names ----</span></span>
-<span id="cb7-2"><a href=""></a></span>
-<span id="cb7-3"><a href=""></a>test_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">6</span>))</span>
-<span id="cb7-4"><a href=""></a></span>
-<span id="cb7-5"><a href=""></a><span class="fu">names</span>(test_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"firstName"</span>, <span class="st">"ábc@!*"</span>, <span class="st">"% successful (2009)"</span>,</span>
-<span id="cb7-6"><a href=""></a>                    <span class="st">"REPEAT VALUE"</span>, <span class="st">"REPEAT VALUE"</span>, <span class="st">""</span>)</span>
-<span id="cb7-7"><a href=""></a></span>
-<span id="cb7-8"><a href=""></a>test_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a><span class="do">## Create a data.frame with dirty names ----</span></span>
+<span id="cb7-2"><a href="" aria-label="2"></a></span>
+<span id="cb7-3"><a href="" aria-label="3"></a>test_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">6</span>))</span>
+<span id="cb7-4"><a href="" aria-label="4"></a></span>
+<span id="cb7-5"><a href="" aria-label="5"></a><span class="fu">names</span>(test_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"firstName"</span>, <span class="st">"ábc@!*"</span>, <span class="st">"% successful (2009)"</span>,</span>
+<span id="cb7-6"><a href="" aria-label="6"></a>                    <span class="st">"REPEAT VALUE"</span>, <span class="st">"REPEAT VALUE"</span>, <span class="st">""</span>)</span>
+<span id="cb7-7"><a href="" aria-label="7"></a></span>
+<span id="cb7-8"><a href="" aria-label="8"></a>test_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  firstName ábc@!* % successful (2009) REPEAT VALUE REPEAT VALUE   
 1        NA     NA                  NA           NA           NA NA</code></pre>
@@ -583,14 +589,14 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="do">## Create a data.frame with dirty names ----</span></span>
-<span id="cb9-2"><a href=""></a></span>
-<span id="cb9-3"><a href=""></a>test_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">6</span>))</span>
-<span id="cb9-4"><a href=""></a></span>
-<span id="cb9-5"><a href=""></a><span class="fu">names</span>(test_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"firstName"</span>, <span class="st">"ábc@!*"</span>, <span class="st">"% successful (2009)"</span>,</span>
-<span id="cb9-6"><a href=""></a>                    <span class="st">"REPEAT VALUE"</span>, <span class="st">"REPEAT VALUE"</span>, <span class="st">""</span>)</span>
-<span id="cb9-7"><a href=""></a></span>
-<span id="cb9-8"><a href=""></a>test_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a><span class="do">## Create a data.frame with dirty names ----</span></span>
+<span id="cb9-2"><a href="" aria-label="2"></a></span>
+<span id="cb9-3"><a href="" aria-label="3"></a>test_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">6</span>))</span>
+<span id="cb9-4"><a href="" aria-label="4"></a></span>
+<span id="cb9-5"><a href="" aria-label="5"></a><span class="fu">names</span>(test_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"firstName"</span>, <span class="st">"ábc@!*"</span>, <span class="st">"% successful (2009)"</span>,</span>
+<span id="cb9-6"><a href="" aria-label="6"></a>                    <span class="st">"REPEAT VALUE"</span>, <span class="st">"REPEAT VALUE"</span>, <span class="st">""</span>)</span>
+<span id="cb9-7"><a href="" aria-label="7"></a></span>
+<span id="cb9-8"><a href="" aria-label="8"></a>test_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  firstName ábc@!* % successful (2009) REPEAT VALUE REPEAT VALUE   
 1        NA     NA                  NA           NA           NA NA</code></pre>
@@ -598,14 +604,14 @@ Author name<br/>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="do">## Clean column names ----</span></span>
-<span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a>test_df <span class="ot">&lt;-</span> test_df <span class="sc">|&gt;</span></span>
-<span id="cb11-4"><a href=""></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
-<span id="cb11-5"><a href=""></a></span>
-<span id="cb11-6"><a href=""></a></span>
-<span id="cb11-7"><a href=""></a></span>
-<span id="cb11-8"><a href=""></a>test_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-label="1"></a><span class="do">## Clean column names ----</span></span>
+<span id="cb11-2"><a href="" aria-label="2"></a></span>
+<span id="cb11-3"><a href="" aria-label="3"></a>test_df <span class="ot">&lt;-</span> test_df <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="" aria-label="4"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
+<span id="cb11-5"><a href="" aria-label="5"></a></span>
+<span id="cb11-6"><a href="" aria-label="6"></a></span>
+<span id="cb11-7"><a href="" aria-label="7"></a></span>
+<span id="cb11-8"><a href="" aria-label="8"></a>test_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  first_name abc percent_successful_2009 repeat_value repeat_value_2  x
 1         NA  NA                      NA           NA             NA NA</code></pre>
@@ -623,8 +629,8 @@ Author name<br/>
 </div><div class="column" style="width:50%;">
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># Install 'dplyr' package ----</span></span>
-<span id="cb13-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="" aria-label="1"></a><span class="co"># Install 'dplyr' package ----</span></span>
+<span id="cb13-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
 <table class="caption-top">
@@ -702,11 +708,11 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="do">## Load the iris dataset ----</span></span>
-<span id="cb14-2"><a href=""></a></span>
-<span id="cb14-3"><a href=""></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
-<span id="cb14-4"><a href=""></a></span>
-<span id="cb14-5"><a href=""></a><span class="fu">head</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="" aria-label="1"></a><span class="do">## Load the iris dataset ----</span></span>
+<span id="cb14-2"><a href="" aria-label="2"></a></span>
+<span id="cb14-3"><a href="" aria-label="3"></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
+<span id="cb14-4"><a href="" aria-label="4"></a></span>
+<span id="cb14-5"><a href="" aria-label="5"></a><span class="fu">head</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 1          5.1         3.5          1.4         0.2  setosa
@@ -727,11 +733,11 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="do">## Load the iris dataset ----</span></span>
-<span id="cb16-2"><a href=""></a></span>
-<span id="cb16-3"><a href=""></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
-<span id="cb16-4"><a href=""></a></span>
-<span id="cb16-5"><a href=""></a><span class="fu">head</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="" aria-label="1"></a><span class="do">## Load the iris dataset ----</span></span>
+<span id="cb16-2"><a href="" aria-label="2"></a></span>
+<span id="cb16-3"><a href="" aria-label="3"></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
+<span id="cb16-4"><a href="" aria-label="4"></a></span>
+<span id="cb16-5"><a href="" aria-label="5"></a><span class="fu">head</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 1          5.1         3.5          1.4         0.2  setosa
@@ -744,11 +750,11 @@ Author name<br/>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="do">## Clean column names ----</span></span>
-<span id="cb18-2"><a href=""></a></span>
-<span id="cb18-3"><a href=""></a>iris_nice <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(iris)</span>
-<span id="cb18-4"><a href=""></a></span>
-<span id="cb18-5"><a href=""></a><span class="fu">head</span>(iris_nice)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="" aria-label="1"></a><span class="do">## Clean column names ----</span></span>
+<span id="cb18-2"><a href="" aria-label="2"></a></span>
+<span id="cb18-3"><a href="" aria-label="3"></a>iris_nice <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(iris)</span>
+<span id="cb18-4"><a href="" aria-label="4"></a></span>
+<span id="cb18-5"><a href="" aria-label="5"></a><span class="fu">head</span>(iris_nice)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  sepal_length sepal_width petal_length petal_width species
 1          5.1         3.5          1.4         0.2  setosa
@@ -768,11 +774,11 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="do">## Load the iris dataset ----</span></span>
-<span id="cb20-2"><a href=""></a></span>
-<span id="cb20-3"><a href=""></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
-<span id="cb20-4"><a href=""></a></span>
-<span id="cb20-5"><a href=""></a><span class="fu">head</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="" aria-label="1"></a><span class="do">## Load the iris dataset ----</span></span>
+<span id="cb20-2"><a href="" aria-label="2"></a></span>
+<span id="cb20-3"><a href="" aria-label="3"></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
+<span id="cb20-4"><a href="" aria-label="4"></a></span>
+<span id="cb20-5"><a href="" aria-label="5"></a><span class="fu">head</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 1          5.1         3.5          1.4         0.2  setosa
@@ -785,11 +791,11 @@ Author name<br/>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="do">## Clean column names ----</span></span>
-<span id="cb22-2"><a href=""></a></span>
-<span id="cb22-3"><a href=""></a>iris_nice <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(iris)</span>
-<span id="cb22-4"><a href=""></a></span>
-<span id="cb22-5"><a href=""></a><span class="fu">head</span>(iris_nice)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="" aria-label="1"></a><span class="do">## Clean column names ----</span></span>
+<span id="cb22-2"><a href="" aria-label="2"></a></span>
+<span id="cb22-3"><a href="" aria-label="3"></a>iris_nice <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(iris)</span>
+<span id="cb22-4"><a href="" aria-label="4"></a></span>
+<span id="cb22-5"><a href="" aria-label="5"></a><span class="fu">head</span>(iris_nice)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  sepal_length sepal_width petal_length petal_width species
 1          5.1         3.5          1.4         0.2  setosa
@@ -802,14 +808,14 @@ Author name<br/>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="do">## Manipulate data ----</span></span>
-<span id="cb24-2"><a href=""></a></span>
-<span id="cb24-3"><a href=""></a>iris_nice <span class="sc">|&gt;</span></span>
-<span id="cb24-4"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(sepal_length, sepal_width, species) <span class="sc">|&gt;</span></span>
-<span id="cb24-5"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(sepal_length <span class="sc">&lt;=</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
-<span id="cb24-6"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
-<span id="cb24-7"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="st">"mean_length"</span> <span class="ot">=</span> <span class="fu">mean</span>(sepal_length),</span>
-<span id="cb24-8"><a href=""></a>                <span class="st">"mean_width"</span>  <span class="ot">=</span> <span class="fu">mean</span>(sepal_width))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="" aria-label="1"></a><span class="do">## Manipulate data ----</span></span>
+<span id="cb24-2"><a href="" aria-label="2"></a></span>
+<span id="cb24-3"><a href="" aria-label="3"></a>iris_nice <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a href="" aria-label="4"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(sepal_length, sepal_width, species) <span class="sc">|&gt;</span></span>
+<span id="cb24-5"><a href="" aria-label="5"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(sepal_length <span class="sc">&lt;=</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-6"><a href="" aria-label="6"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
+<span id="cb24-7"><a href="" aria-label="7"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="st">"mean_length"</span> <span class="ot">=</span> <span class="fu">mean</span>(sepal_length),</span>
+<span id="cb24-8"><a href="" aria-label="8"></a>                <span class="st">"mean_width"</span>  <span class="ot">=</span> <span class="fu">mean</span>(sepal_width))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 32 × 5
 # Groups:   species [3]
@@ -842,12 +848,12 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="do">## Load 'band_instruments' data ----</span></span>
-<span id="cb26-2"><a href=""></a></span>
-<span id="cb26-3"><a href=""></a>instruments <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>band_instruments <span class="sc">|&gt;</span> </span>
-<span id="cb26-4"><a href=""></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb26-5"><a href=""></a></span>
-<span id="cb26-6"><a href=""></a>instruments</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="" aria-label="1"></a><span class="do">## Load 'band_instruments' data ----</span></span>
+<span id="cb26-2"><a href="" aria-label="2"></a></span>
+<span id="cb26-3"><a href="" aria-label="3"></a>instruments <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>band_instruments <span class="sc">|&gt;</span> </span>
+<span id="cb26-4"><a href="" aria-label="4"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb26-5"><a href="" aria-label="5"></a></span>
+<span id="cb26-6"><a href="" aria-label="6"></a>instruments</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   name  plays
 1  John guitar
@@ -859,12 +865,12 @@ Author name<br/>
 
 </div><div class="column" style="width:45%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="do">## Load 'band_members' data ----</span></span>
-<span id="cb28-2"><a href=""></a></span>
-<span id="cb28-3"><a href=""></a>members <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>band_members <span class="sc">|&gt;</span></span>
-<span id="cb28-4"><a href=""></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb28-5"><a href=""></a></span>
-<span id="cb28-6"><a href=""></a>members</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="" aria-label="1"></a><span class="do">## Load 'band_members' data ----</span></span>
+<span id="cb28-2"><a href="" aria-label="2"></a></span>
+<span id="cb28-3"><a href="" aria-label="3"></a>members <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>band_members <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a href="" aria-label="4"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb28-5"><a href="" aria-label="5"></a></span>
+<span id="cb28-6"><a href="" aria-label="6"></a>members</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band
 1 Mick  Stones
@@ -880,7 +886,7 @@ Author name<br/>
 <div class="column" style="width:45%;">
 <p><strong><code>left_join()</code></strong> keeps all rows in <code>x</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="" aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band  plays
 1 Mick  Stones   &lt;NA&gt;
@@ -909,7 +915,7 @@ Author name<br/>
 <div class="column" style="width:45%;">
 <p><strong><code>left_join()</code></strong> keeps all rows in <code>x</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="" aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band  plays
 1 Mick  Stones   &lt;NA&gt;
@@ -922,7 +928,7 @@ Author name<br/>
 </div><div class="column" style="width:45%;">
 <p><strong><code>right_join()</code></strong> keeps all rows in <code>y</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="" aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   name    band  plays
 1  John Beatles guitar
@@ -947,7 +953,7 @@ Author name<br/>
 <div class="column" style="width:45%;">
 <p><strong><code>left_join()</code></strong> keeps all rows in <code>x</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="" aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band  plays
 1 Mick  Stones   &lt;NA&gt;
@@ -960,7 +966,7 @@ Author name<br/>
 </div><div class="column" style="width:45%;">
 <p><strong><code>right_join()</code></strong> keeps all rows in <code>y</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="" aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   name    band  plays
 1  John Beatles guitar
@@ -974,7 +980,7 @@ Author name<br/>
 <div class="column" style="width:45%;">
 <p><strong><code>inner_join()</code></strong> only keeps rows from <code>x</code> that have a matching key in <code>y</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(members, instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="" aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(members, instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band  plays
 1 John Beatles guitar
@@ -993,7 +999,7 @@ Author name<br/>
 <div class="column" style="width:45%;">
 <p><strong><code>left_join()</code></strong> keeps all rows in <code>x</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="" aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> members, <span class="at">y =</span> instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band  plays
 1 Mick  Stones   &lt;NA&gt;
@@ -1006,7 +1012,7 @@ Author name<br/>
 </div><div class="column" style="width:45%;">
 <p><strong><code>right_join()</code></strong> keeps all rows in <code>y</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="" aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(members, instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   name    band  plays
 1  John Beatles guitar
@@ -1020,7 +1026,7 @@ Author name<br/>
 <div class="column" style="width:45%;">
 <p><strong><code>inner_join()</code></strong> only keeps rows from <code>x</code> that have a matching key in <code>y</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(members, instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="" aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(members, instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name    band  plays
 1 John Beatles guitar
@@ -1032,7 +1038,7 @@ Author name<br/>
 </div><div class="column" style="width:45%;">
 <p><strong><code>full_join()</code></strong> keeps all rows in <code>x</code> and <code>y</code> (most conservative method).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a>dplyr<span class="sc">::</span><span class="fu">full_join</span>(members, instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="" aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">full_join</span>(members, instruments) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   name    band  plays
 1  Mick  Stones   &lt;NA&gt;
@@ -1062,8 +1068,8 @@ Author name<br/>
 </div><div class="column" style="width:50%;">
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="co"># Install 'httr2' package ----</span></span>
-<span id="cb50-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="" aria-label="1"></a><span class="co"># Install 'httr2' package ----</span></span>
+<span id="cb50-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"tidyr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
 <table class="caption-top">
@@ -1117,14 +1123,14 @@ Author name<br/>
 <div class="columns">
 <div class="column center" style="width:60%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="do">## Load dataset ----</span></span>
-<span id="cb51-2"><a href=""></a></span>
-<span id="cb51-3"><a href=""></a><span class="fu">data</span>(<span class="st">"relig_income"</span>, <span class="at">package =</span> <span class="st">"tidyr"</span>)</span>
-<span id="cb51-4"><a href=""></a></span>
-<span id="cb51-5"><a href=""></a></span>
-<span id="cb51-6"><a href=""></a></span>
-<span id="cb51-7"><a href=""></a></span>
-<span id="cb51-8"><a href=""></a><span class="fu">head</span>(relig_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="" aria-label="1"></a><span class="do">## Load dataset ----</span></span>
+<span id="cb51-2"><a href="" aria-label="2"></a></span>
+<span id="cb51-3"><a href="" aria-label="3"></a><span class="fu">data</span>(<span class="st">"relig_income"</span>, <span class="at">package =</span> <span class="st">"tidyr"</span>)</span>
+<span id="cb51-4"><a href="" aria-label="4"></a></span>
+<span id="cb51-5"><a href="" aria-label="5"></a></span>
+<span id="cb51-6"><a href="" aria-label="6"></a></span>
+<span id="cb51-7"><a href="" aria-label="7"></a></span>
+<span id="cb51-8"><a href="" aria-label="8"></a><span class="fu">head</span>(relig_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 11
   religion  `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`
@@ -1153,14 +1159,14 @@ Author name<br/>
 <div class="columns">
 <div class="column center" style="width:60%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="do">## Load dataset ----</span></span>
-<span id="cb53-2"><a href=""></a></span>
-<span id="cb53-3"><a href=""></a><span class="fu">data</span>(<span class="st">"relig_income"</span>, <span class="at">package =</span> <span class="st">"tidyr"</span>)</span>
-<span id="cb53-4"><a href=""></a></span>
-<span id="cb53-5"><a href=""></a></span>
-<span id="cb53-6"><a href=""></a></span>
-<span id="cb53-7"><a href=""></a></span>
-<span id="cb53-8"><a href=""></a><span class="fu">head</span>(relig_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="" aria-label="1"></a><span class="do">## Load dataset ----</span></span>
+<span id="cb53-2"><a href="" aria-label="2"></a></span>
+<span id="cb53-3"><a href="" aria-label="3"></a><span class="fu">data</span>(<span class="st">"relig_income"</span>, <span class="at">package =</span> <span class="st">"tidyr"</span>)</span>
+<span id="cb53-4"><a href="" aria-label="4"></a></span>
+<span id="cb53-5"><a href="" aria-label="5"></a></span>
+<span id="cb53-6"><a href="" aria-label="6"></a></span>
+<span id="cb53-7"><a href="" aria-label="7"></a></span>
+<span id="cb53-8"><a href="" aria-label="8"></a><span class="fu">head</span>(relig_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 11
   religion  `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`
@@ -1177,14 +1183,14 @@ Author name<br/>
 </div>
 </div><div class="column center" style="width:40%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="do">## Pivot to longer ----</span></span>
-<span id="cb55-2"><a href=""></a></span>
-<span id="cb55-3"><a href=""></a>newtab <span class="ot">&lt;-</span> relig_income <span class="sc">|&gt;</span> </span>
-<span id="cb55-4"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols      =</span> <span class="sc">!</span>religion,</span>
-<span id="cb55-5"><a href=""></a>                      <span class="at">names_to  =</span> <span class="st">"income"</span>,</span>
-<span id="cb55-6"><a href=""></a>                      <span class="at">values_to =</span> <span class="st">"count"</span>)</span>
-<span id="cb55-7"><a href=""></a></span>
-<span id="cb55-8"><a href=""></a>newtab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="" aria-label="1"></a><span class="do">## Pivot to longer ----</span></span>
+<span id="cb55-2"><a href="" aria-label="2"></a></span>
+<span id="cb55-3"><a href="" aria-label="3"></a>newtab <span class="ot">&lt;-</span> relig_income <span class="sc">|&gt;</span> </span>
+<span id="cb55-4"><a href="" aria-label="4"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols      =</span> <span class="sc">!</span>religion,</span>
+<span id="cb55-5"><a href="" aria-label="5"></a>                      <span class="at">names_to  =</span> <span class="st">"income"</span>,</span>
+<span id="cb55-6"><a href="" aria-label="6"></a>                      <span class="at">values_to =</span> <span class="st">"count"</span>)</span>
+<span id="cb55-7"><a href="" aria-label="7"></a></span>
+<span id="cb55-8"><a href="" aria-label="8"></a>newtab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 180 × 3
    religion income             count
@@ -1211,13 +1217,13 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:60%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="do">## Pivot to wider ----</span></span>
-<span id="cb57-2"><a href=""></a></span>
-<span id="cb57-3"><a href=""></a>back <span class="ot">&lt;-</span> newtab <span class="sc">|&gt;</span> </span>
-<span id="cb57-4"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from  =</span> income,</span>
-<span id="cb57-5"><a href=""></a>                     <span class="at">values_from =</span> count)</span>
-<span id="cb57-6"><a href=""></a></span>
-<span id="cb57-7"><a href=""></a>back</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="" aria-label="1"></a><span class="do">## Pivot to wider ----</span></span>
+<span id="cb57-2"><a href="" aria-label="2"></a></span>
+<span id="cb57-3"><a href="" aria-label="3"></a>back <span class="ot">&lt;-</span> newtab <span class="sc">|&gt;</span> </span>
+<span id="cb57-4"><a href="" aria-label="4"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from  =</span> income,</span>
+<span id="cb57-5"><a href="" aria-label="5"></a>                     <span class="at">values_from =</span> count)</span>
+<span id="cb57-6"><a href="" aria-label="6"></a></span>
+<span id="cb57-7"><a href="" aria-label="7"></a>back</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 18 × 11
    religion `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`
@@ -1262,21 +1268,21 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="do">## Creating strings ----</span></span>
-<span id="cb59-2"><a href=""></a></span>
-<span id="cb59-3"><a href=""></a>string0 <span class="ot">&lt;-</span> <span class="st">""</span></span>
-<span id="cb59-4"><a href=""></a>string1 <span class="ot">&lt;-</span> <span class="st">"This is a string"</span></span>
-<span id="cb59-5"><a href=""></a>string2 <span class="ot">&lt;-</span> <span class="st">'This is a string with a "quote" inside'</span></span>
-<span id="cb59-6"><a href=""></a>string3 <span class="ot">&lt;-</span> <span class="st">"Another string with a </span><span class="sc">\"</span><span class="st">quote</span><span class="sc">\"</span><span class="st"> inside"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="" aria-label="1"></a><span class="do">## Creating strings ----</span></span>
+<span id="cb59-2"><a href="" aria-label="2"></a></span>
+<span id="cb59-3"><a href="" aria-label="3"></a>string0 <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb59-4"><a href="" aria-label="4"></a>string1 <span class="ot">&lt;-</span> <span class="st">"This is a string"</span></span>
+<span id="cb59-5"><a href="" aria-label="5"></a>string2 <span class="ot">&lt;-</span> <span class="st">'This is a string with a "quote" inside'</span></span>
+<span id="cb59-6"><a href="" aria-label="6"></a>string3 <span class="ot">&lt;-</span> <span class="st">"Another string with a </span><span class="sc">\"</span><span class="st">quote</span><span class="sc">\"</span><span class="st"> inside"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="do">## Do not forget to close quotes ----</span></span>
-<span id="cb60-2"><a href=""></a></span>
-<span id="cb60-3"><a href=""></a><span class="sc">&gt;</span> <span class="st">"This is a string without a closing quote</span></span>
-<span id="cb60-4"><a href=""></a><span class="st">+ </span></span>
-<span id="cb60-5"><a href=""></a><span class="st">+ </span></span>
-<span id="cb60-6"><a href=""></a><span class="st">+ HELP I'M STUCK</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="" aria-label="1"></a><span class="do">## Do not forget to close quotes ----</span></span>
+<span id="cb60-2"><a href="" aria-label="2"></a></span>
+<span id="cb60-3"><a href="" aria-label="3"></a><span class="sc">&gt;</span> <span class="st">"This is a string without a closing quote</span></span>
+<span id="cb60-4"><a href="" aria-label="4"></a><span class="st">+ </span></span>
+<span id="cb60-5"><a href="" aria-label="5"></a><span class="st">+ </span></span>
+<span id="cb60-6"><a href="" aria-label="6"></a><span class="st">+ HELP I'M STUCK</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 <p><br></p>
@@ -1285,24 +1291,24 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="do">## Paste two vectors ----</span></span>
-<span id="cb61-2"><a href=""></a></span>
-<span id="cb61-3"><a href=""></a>firstname <span class="ot">&lt;-</span> <span class="st">"Camille"</span></span>
-<span id="cb61-4"><a href=""></a>lastname  <span class="ot">&lt;-</span> <span class="st">"Coux"</span></span>
-<span id="cb61-5"><a href=""></a></span>
-<span id="cb61-6"><a href=""></a><span class="fu">paste</span>(firstname, lastname)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="" aria-label="1"></a><span class="do">## Paste two vectors ----</span></span>
+<span id="cb61-2"><a href="" aria-label="2"></a></span>
+<span id="cb61-3"><a href="" aria-label="3"></a>firstname <span class="ot">&lt;-</span> <span class="st">"Camille"</span></span>
+<span id="cb61-4"><a href="" aria-label="4"></a>lastname  <span class="ot">&lt;-</span> <span class="st">"Coux"</span></span>
+<span id="cb61-5"><a href="" aria-label="5"></a></span>
+<span id="cb61-6"><a href="" aria-label="6"></a><span class="fu">paste</span>(firstname, lastname)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Camille Coux"</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="do">## Collapse elements of a vector ----</span></span>
-<span id="cb63-2"><a href=""></a></span>
-<span id="cb63-3"><a href=""></a>fullname <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Coux"</span>)</span>
-<span id="cb63-4"><a href=""></a></span>
-<span id="cb63-5"><a href=""></a></span>
-<span id="cb63-6"><a href=""></a><span class="fu">paste</span>(fullname, <span class="at">collapse =</span> <span class="st">", "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="" aria-label="1"></a><span class="do">## Collapse elements of a vector ----</span></span>
+<span id="cb63-2"><a href="" aria-label="2"></a></span>
+<span id="cb63-3"><a href="" aria-label="3"></a>fullname <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Coux"</span>)</span>
+<span id="cb63-4"><a href="" aria-label="4"></a></span>
+<span id="cb63-5"><a href="" aria-label="5"></a></span>
+<span id="cb63-6"><a href="" aria-label="6"></a><span class="fu">paste</span>(fullname, <span class="at">collapse =</span> <span class="st">", "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Camille, Coux"</code></pre>
 </div>
@@ -1315,11 +1321,11 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="do">## Split a string by a pattern ----</span></span>
-<span id="cb65-2"><a href=""></a></span>
-<span id="cb65-3"><a href=""></a>fullname <span class="ot">&lt;-</span> <span class="st">"Camille Coux"</span></span>
-<span id="cb65-4"><a href=""></a></span>
-<span id="cb65-5"><a href=""></a><span class="fu">strsplit</span>(fullname, <span class="at">split =</span> <span class="st">" "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="" aria-label="1"></a><span class="do">## Split a string by a pattern ----</span></span>
+<span id="cb65-2"><a href="" aria-label="2"></a></span>
+<span id="cb65-3"><a href="" aria-label="3"></a>fullname <span class="ot">&lt;-</span> <span class="st">"Camille Coux"</span></span>
+<span id="cb65-4"><a href="" aria-label="4"></a></span>
+<span id="cb65-5"><a href="" aria-label="5"></a><span class="fu">strsplit</span>(fullname, <span class="at">split =</span> <span class="st">" "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "Camille" "Coux"   </code></pre>
@@ -1327,11 +1333,11 @@ Author name<br/>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="do">## Split a string by a pattern (2) ----</span></span>
-<span id="cb67-2"><a href=""></a></span>
-<span id="cb67-3"><a href=""></a>fullname <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille Coux"</span>, <span class="st">"Nicolas Casajus"</span>)</span>
-<span id="cb67-4"><a href=""></a></span>
-<span id="cb67-5"><a href=""></a><span class="fu">strsplit</span>(fullname, <span class="at">split =</span> <span class="st">" "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="" aria-label="1"></a><span class="do">## Split a string by a pattern (2) ----</span></span>
+<span id="cb67-2"><a href="" aria-label="2"></a></span>
+<span id="cb67-3"><a href="" aria-label="3"></a>fullname <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille Coux"</span>, <span class="st">"Nicolas Casajus"</span>)</span>
+<span id="cb67-4"><a href="" aria-label="4"></a></span>
+<span id="cb67-5"><a href="" aria-label="5"></a><span class="fu">strsplit</span>(fullname, <span class="at">split =</span> <span class="st">" "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "Camille" "Coux"   
@@ -1353,8 +1359,8 @@ Author name<br/>
 </div><div class="column" style="width:50%;">
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="co"># Install 'stringr' package ----</span></span>
-<span id="cb69-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="" aria-label="1"></a><span class="co"># Install 'stringr' package ----</span></span>
+<span id="cb69-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
 <table class="caption-top">
@@ -1419,9 +1425,9 @@ Author name<br/>
 
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a><span class="do">## Create a string vector ----</span></span>
-<span id="cb70-2"><a href=""></a></span>
-<span id="cb70-3"><a href=""></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="" aria-label="1"></a><span class="do">## Create a string vector ----</span></span>
+<span id="cb70-2"><a href="" aria-label="2"></a></span>
+<span id="cb70-3"><a href="" aria-label="3"></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 <div class="fragment">
@@ -1433,9 +1439,9 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="do">## Detect a pattern (boolean) ----</span></span>
-<span id="cb71-2"><a href=""></a></span>
-<span id="cb71-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_detect</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="" aria-label="1"></a><span class="do">## Detect a pattern (boolean) ----</span></span>
+<span id="cb71-2"><a href="" aria-label="2"></a></span>
+<span id="cb71-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_detect</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE FALSE FALSE FALSE  TRUE  TRUE</code></pre>
 </div>
@@ -1451,9 +1457,9 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a><span class="do">## Detect pattern (position) ----</span></span>
-<span id="cb73-2"><a href=""></a></span>
-<span id="cb73-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_which</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="" aria-label="1"></a><span class="do">## Detect pattern (position) ----</span></span>
+<span id="cb73-2"><a href="" aria-label="2"></a></span>
+<span id="cb73-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_which</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5 6</code></pre>
 </div>
@@ -1469,9 +1475,9 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="do">## Count occurrences ----</span></span>
-<span id="cb75-2"><a href=""></a></span>
-<span id="cb75-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_count</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"n"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="" aria-label="1"></a><span class="do">## Count occurrences ----</span></span>
+<span id="cb75-2"><a href="" aria-label="2"></a></span>
+<span id="cb75-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_count</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"n"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0 0 0 1 0 2</code></pre>
 </div>
@@ -1488,9 +1494,9 @@ Author name<br/>
 
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="do">## Create a string vector ----</span></span>
-<span id="cb77-2"><a href=""></a></span>
-<span id="cb77-3"><a href=""></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="" aria-label="1"></a><span class="do">## Create a string vector ----</span></span>
+<span id="cb77-2"><a href="" aria-label="2"></a></span>
+<span id="cb77-3"><a href="" aria-label="3"></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 <p><strong>Subset matches</strong></p>
@@ -1501,18 +1507,18 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a><span class="do">## Subset matches ----</span></span>
-<span id="cb78-2"><a href=""></a></span>
-<span id="cb78-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_subset</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="" aria-label="1"></a><span class="do">## Subset matches ----</span></span>
+<span id="cb78-2"><a href="" aria-label="2"></a></span>
+<span id="cb78-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_subset</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Sophie"      "Anne-Sophie"</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="do">## Subset matches (negate) ----</span></span>
-<span id="cb80-2"><a href=""></a></span>
-<span id="cb80-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_subset</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>, <span class="at">negate =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="" aria-label="1"></a><span class="do">## Subset matches (negate) ----</span></span>
+<span id="cb80-2"><a href="" aria-label="2"></a></span>
+<span id="cb80-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_subset</span>(<span class="at">string =</span> fullnames, <span class="at">pattern =</span> <span class="st">"phi"</span>, <span class="at">negate =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Camille" "Nicolas" "Olivier" "Yvan"   </code></pre>
 </div>
@@ -1528,9 +1534,9 @@ Author name<br/>
 
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a><span class="do">## Create a string vector ----</span></span>
-<span id="cb82-2"><a href=""></a></span>
-<span id="cb82-3"><a href=""></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="" aria-label="1"></a><span class="do">## Create a string vector ----</span></span>
+<span id="cb82-2"><a href="" aria-label="2"></a></span>
+<span id="cb82-3"><a href="" aria-label="3"></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 <p><strong>Replace pattern</strong></p>
@@ -1541,11 +1547,11 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a><span class="do">## Replace first occurrence of a pattern ----</span></span>
-<span id="cb83-2"><a href=""></a></span>
-<span id="cb83-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_replace</span>(<span class="at">string      =</span> fullnames, </span>
-<span id="cb83-4"><a href=""></a>                     <span class="at">pattern     =</span> <span class="st">"i"</span>, </span>
-<span id="cb83-5"><a href=""></a>                     <span class="at">replacement =</span> <span class="st">"u"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="" aria-label="1"></a><span class="do">## Replace first occurrence of a pattern ----</span></span>
+<span id="cb83-2"><a href="" aria-label="2"></a></span>
+<span id="cb83-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_replace</span>(<span class="at">string      =</span> fullnames, </span>
+<span id="cb83-4"><a href="" aria-label="4"></a>                     <span class="at">pattern     =</span> <span class="st">"i"</span>, </span>
+<span id="cb83-5"><a href="" aria-label="5"></a>                     <span class="at">replacement =</span> <span class="st">"u"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Camulle"     "Nucolas"     "Oluvier"     "Yvan"        "Sophue"     
 [6] "Anne-Sophue"</code></pre>
@@ -1561,11 +1567,11 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a><span class="do">## Replace all occurrences of a pattern ----</span></span>
-<span id="cb85-2"><a href=""></a></span>
-<span id="cb85-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_replace_all</span>(<span class="at">string      =</span> fullnames, </span>
-<span id="cb85-4"><a href=""></a>                         <span class="at">pattern     =</span> <span class="st">"i"</span>, </span>
-<span id="cb85-5"><a href=""></a>                         <span class="at">replacement =</span> <span class="st">"u"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="" aria-label="1"></a><span class="do">## Replace all occurrences of a pattern ----</span></span>
+<span id="cb85-2"><a href="" aria-label="2"></a></span>
+<span id="cb85-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_replace_all</span>(<span class="at">string      =</span> fullnames, </span>
+<span id="cb85-4"><a href="" aria-label="4"></a>                         <span class="at">pattern     =</span> <span class="st">"i"</span>, </span>
+<span id="cb85-5"><a href="" aria-label="5"></a>                         <span class="at">replacement =</span> <span class="st">"u"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Camulle"     "Nucolas"     "Oluvuer"     "Yvan"        "Sophue"     
 [6] "Anne-Sophue"</code></pre>
@@ -1583,9 +1589,9 @@ Author name<br/>
 
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a><span class="do">## Create a string vector ----</span></span>
-<span id="cb87-2"><a href=""></a></span>
-<span id="cb87-3"><a href=""></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="" aria-label="1"></a><span class="do">## Create a string vector ----</span></span>
+<span id="cb87-2"><a href="" aria-label="2"></a></span>
+<span id="cb87-3"><a href="" aria-label="3"></a>fullnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camille"</span>, <span class="st">"Nicolas"</span>, <span class="st">"Olivier"</span>, <span class="st">"Yvan"</span>, <span class="st">"Sophie"</span>, <span class="st">"Anne-Sophie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 <p><strong>Character case</strong></p>
@@ -1596,9 +1602,9 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a><span class="do">## Convert to upper case ----</span></span>
-<span id="cb88-2"><a href=""></a></span>
-<span id="cb88-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_to_upper</span>(<span class="at">string =</span> fullnames)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="" aria-label="1"></a><span class="do">## Convert to upper case ----</span></span>
+<span id="cb88-2"><a href="" aria-label="2"></a></span>
+<span id="cb88-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_to_upper</span>(<span class="at">string =</span> fullnames)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "CAMILLE"     "NICOLAS"     "OLIVIER"     "YVAN"        "SOPHIE"     
 [6] "ANNE-SOPHIE"</code></pre>
@@ -1614,9 +1620,9 @@ Author name<br/>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a><span class="do">## Convert to lower case ----</span></span>
-<span id="cb90-2"><a href=""></a></span>
-<span id="cb90-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(<span class="at">string =</span> fullnames)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="" aria-label="1"></a><span class="do">## Convert to lower case ----</span></span>
+<span id="cb90-2"><a href="" aria-label="2"></a></span>
+<span id="cb90-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(<span class="at">string =</span> fullnames)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "camille"     "nicolas"     "olivier"     "yvan"        "sophie"     
 [6] "anne-sophie"</code></pre>
@@ -1641,9 +1647,9 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a><span class="do">## Create a string ----</span></span>
-<span id="cb92-2"><a href=""></a></span>
-<span id="cb92-3"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="" aria-label="1"></a><span class="do">## Create a string ----</span></span>
+<span id="cb92-2"><a href="" aria-label="2"></a></span>
+<span id="cb92-3"><a href="" aria-label="3"></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:60%;">
 
@@ -1660,33 +1666,33 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a><span class="do">## Create a string ----</span></span>
-<span id="cb93-2"><a href=""></a></span>
-<span id="cb93-3"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="" aria-label="1"></a><span class="do">## Create a string ----</span></span>
+<span id="cb93-2"><a href="" aria-label="2"></a></span>
+<span id="cb93-3"><a href="" aria-label="3"></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a><span class="do">## Extract first number ----</span></span>
-<span id="cb94-2"><a href=""></a></span>
-<span id="cb94-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">d"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="" aria-label="1"></a><span class="do">## Extract first number ----</span></span>
+<span id="cb94-2"><a href="" aria-label="2"></a></span>
+<span id="cb94-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">d"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1"</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a><span class="do">## Extract first consecutive numbers ----</span></span>
-<span id="cb96-2"><a href=""></a></span>
-<span id="cb96-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="" aria-label="1"></a><span class="do">## Extract first consecutive numbers ----</span></span>
+<span id="cb96-2"><a href="" aria-label="2"></a></span>
+<span id="cb96-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "123"</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a><span class="do">## Alternative ----</span></span>
-<span id="cb98-2"><a href=""></a></span>
-<span id="cb98-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"[0-9]+"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="" aria-label="1"></a><span class="do">## Alternative ----</span></span>
+<span id="cb98-2"><a href="" aria-label="2"></a></span>
+<span id="cb98-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"[0-9]+"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "123"</code></pre>
 </div>
@@ -1703,15 +1709,15 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a><span class="do">## Create a string ----</span></span>
-<span id="cb100-2"><a href=""></a></span>
-<span id="cb100-3"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="" aria-label="1"></a><span class="do">## Create a string ----</span></span>
+<span id="cb100-2"><a href="" aria-label="2"></a></span>
+<span id="cb100-3"><a href="" aria-label="3"></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href=""></a><span class="do">## Extract all letters ----</span></span>
-<span id="cb101-2"><a href=""></a></span>
-<span id="cb101-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract_all</span>(my_string, <span class="st">"[A-z]"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="" aria-label="1"></a><span class="do">## Extract all letters ----</span></span>
+<span id="cb101-2"><a href="" aria-label="2"></a></span>
+<span id="cb101-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_extract_all</span>(my_string, <span class="st">"[A-z]"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
  [1] "M" "y" "e" "m" "a" "i" "l" "i" "s" "c" "a" "m" "i" "l" "l" "e" "g" "m" "a"
@@ -1720,18 +1726,18 @@ Author name<br/>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href=""></a><span class="do">## Extract first consecutive letters ----</span></span>
-<span id="cb103-2"><a href=""></a></span>
-<span id="cb103-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"[A-z]+"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="" aria-label="1"></a><span class="do">## Extract first consecutive letters ----</span></span>
+<span id="cb103-2"><a href="" aria-label="2"></a></span>
+<span id="cb103-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"[A-z]+"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "My"</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href=""></a><span class="do">## Extract complex pattern ----</span></span>
-<span id="cb105-2"><a href=""></a></span>
-<span id="cb105-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"[A-z|</span><span class="sc">\\</span><span class="st">s]+"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="" aria-label="1"></a><span class="do">## Extract complex pattern ----</span></span>
+<span id="cb105-2"><a href="" aria-label="2"></a></span>
+<span id="cb105-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_extract</span>(my_string, <span class="st">"[A-z|</span><span class="sc">\\</span><span class="st">s]+"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "My email is"</code></pre>
 </div>
@@ -1748,33 +1754,33 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a><span class="do">## Create a string ----</span></span>
-<span id="cb107-2"><a href=""></a></span>
-<span id="cb107-3"><a href=""></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="" aria-label="1"></a><span class="do">## Create a string ----</span></span>
+<span id="cb107-2"><a href="" aria-label="2"></a></span>
+<span id="cb107-3"><a href="" aria-label="3"></a>my_string <span class="ot">&lt;-</span> <span class="st">"My email is: camille123@gmail.com ."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href=""></a><span class="do">## Check for double 'l' ----</span></span>
-<span id="cb108-2"><a href=""></a></span>
-<span id="cb108-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_detect</span>(my_string, <span class="st">"l{2}"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="" aria-label="1"></a><span class="do">## Check for double 'l' ----</span></span>
+<span id="cb108-2"><a href="" aria-label="2"></a></span>
+<span id="cb108-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_detect</span>(my_string, <span class="st">"l{2}"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href=""></a><span class="do">## Remove trailing whitespace and dot ----</span></span>
-<span id="cb110-2"><a href=""></a></span>
-<span id="cb110-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_remove</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">s</span><span class="sc">\\</span><span class="st">.$"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="" aria-label="1"></a><span class="do">## Remove trailing whitespace and dot ----</span></span>
+<span id="cb110-2"><a href="" aria-label="2"></a></span>
+<span id="cb110-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_remove</span>(my_string, <span class="st">"</span><span class="sc">\\</span><span class="st">s</span><span class="sc">\\</span><span class="st">.$"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "My email is: camille123@gmail.com"</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href=""></a><span class="do">## Extract email ----</span></span>
-<span id="cb112-2"><a href=""></a></span>
-<span id="cb112-3"><a href=""></a>stringr<span class="sc">::</span><span class="fu">str_remove</span>(my_string, <span class="st">"^[^c]*"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="" aria-label="1"></a><span class="do">## Extract email ----</span></span>
+<span id="cb112-2"><a href="" aria-label="2"></a></span>
+<span id="cb112-3"><a href="" aria-label="3"></a>stringr<span class="sc">::</span><span class="fu">str_remove</span>(my_string, <span class="st">"^[^c]*"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "camille123@gmail.com ."</code></pre>
 </div>
@@ -1800,8 +1806,8 @@ Author name<br/>
 </div><div class="column" style="width:50%;">
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href=""></a><span class="co"># Install 'lubridate' package ----</span></span>
-<span id="cb114-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"lubridate"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="" aria-label="1"></a><span class="co"># Install 'lubridate' package ----</span></span>
+<span id="cb114-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"lubridate"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
 <table class="caption-top">
@@ -1858,9 +1864,9 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href=""></a><span class="do">## Attach the package 'lubridate' ----</span></span>
-<span id="cb115-2"><a href=""></a></span>
-<span id="cb115-3"><a href=""></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="" aria-label="1"></a><span class="do">## Attach the package 'lubridate' ----</span></span>
+<span id="cb115-2"><a href="" aria-label="2"></a></span>
+<span id="cb115-3"><a href="" aria-label="3"></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 
@@ -1870,12 +1876,12 @@ Author name<br/>
 <div class="column" style="width:50%;">
 <p><strong>Parsing date</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href=""></a><span class="do">## Parse dates ----</span></span>
-<span id="cb116-2"><a href=""></a></span>
-<span id="cb116-3"><a href=""></a>dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), </span>
-<span id="cb116-4"><a href=""></a>           <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span>
-<span id="cb116-5"><a href=""></a></span>
-<span id="cb116-6"><a href=""></a>dates</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="" aria-label="1"></a><span class="do">## Parse dates ----</span></span>
+<span id="cb116-2"><a href="" aria-label="2"></a></span>
+<span id="cb116-3"><a href="" aria-label="3"></a>dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), </span>
+<span id="cb116-4"><a href="" aria-label="4"></a>           <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span>
+<span id="cb116-5"><a href="" aria-label="5"></a></span>
+<span id="cb116-6"><a href="" aria-label="6"></a>dates</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2011-06-04" "2011-06-04" "2011-06-04" "2011-06-04"</code></pre>
 </div>
@@ -1890,9 +1896,9 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href=""></a><span class="do">## Attach the package 'lubridate' ----</span></span>
-<span id="cb118-2"><a href=""></a></span>
-<span id="cb118-3"><a href=""></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="" aria-label="1"></a><span class="do">## Attach the package 'lubridate' ----</span></span>
+<span id="cb118-2"><a href="" aria-label="2"></a></span>
+<span id="cb118-3"><a href="" aria-label="3"></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 
@@ -1902,12 +1908,12 @@ Author name<br/>
 <div class="column" style="width:50%;">
 <p><strong>Parsing date</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href=""></a><span class="do">## Parse dates ----</span></span>
-<span id="cb119-2"><a href=""></a></span>
-<span id="cb119-3"><a href=""></a>dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), </span>
-<span id="cb119-4"><a href=""></a>           <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span>
-<span id="cb119-5"><a href=""></a></span>
-<span id="cb119-6"><a href=""></a>dates</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="" aria-label="1"></a><span class="do">## Parse dates ----</span></span>
+<span id="cb119-2"><a href="" aria-label="2"></a></span>
+<span id="cb119-3"><a href="" aria-label="3"></a>dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), </span>
+<span id="cb119-4"><a href="" aria-label="4"></a>           <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span>
+<span id="cb119-5"><a href="" aria-label="5"></a></span>
+<span id="cb119-6"><a href="" aria-label="6"></a>dates</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2011-06-04" "2011-06-04" "2011-06-04" "2011-06-04"</code></pre>
 </div>
@@ -1915,9 +1921,9 @@ Author name<br/>
 <p><br></p>
 <p><strong>Parsing date-times</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href=""></a><span class="do">## Parse date-time (and specify timezone) ----</span></span>
-<span id="cb121-2"><a href=""></a></span>
-<span id="cb121-3"><a href=""></a><span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>, <span class="at">tz=</span><span class="st">"Pacific/Auckland"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="" aria-label="1"></a><span class="do">## Parse date-time (and specify timezone) ----</span></span>
+<span id="cb121-2"><a href="" aria-label="2"></a></span>
+<span id="cb121-3"><a href="" aria-label="3"></a><span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>, <span class="at">tz=</span><span class="st">"Pacific/Auckland"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2017-11-28 14:02:00 NZDT"</code></pre>
 </div>
@@ -1931,9 +1937,9 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href=""></a><span class="do">## Attach the package 'lubridate' ----</span></span>
-<span id="cb123-2"><a href=""></a></span>
-<span id="cb123-3"><a href=""></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="" aria-label="1"></a><span class="do">## Attach the package 'lubridate' ----</span></span>
+<span id="cb123-2"><a href="" aria-label="2"></a></span>
+<span id="cb123-3"><a href="" aria-label="3"></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 
@@ -1943,12 +1949,12 @@ Author name<br/>
 <div class="column" style="width:50%;">
 <p><strong>Parsing date</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href=""></a><span class="do">## Parse dates ----</span></span>
-<span id="cb124-2"><a href=""></a></span>
-<span id="cb124-3"><a href=""></a>dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), </span>
-<span id="cb124-4"><a href=""></a>           <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span>
-<span id="cb124-5"><a href=""></a></span>
-<span id="cb124-6"><a href=""></a>dates</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="" aria-label="1"></a><span class="do">## Parse dates ----</span></span>
+<span id="cb124-2"><a href="" aria-label="2"></a></span>
+<span id="cb124-3"><a href="" aria-label="3"></a>dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">ymd</span>(<span class="st">"20110604"</span>), <span class="fu">mdy</span>(<span class="st">"06-04-2011"</span>), <span class="fu">dmy</span>(<span class="st">"04/06/2011"</span>), </span>
+<span id="cb124-4"><a href="" aria-label="4"></a>           <span class="fu">mdy</span>(<span class="st">"June 4th, 2011"</span>))</span>
+<span id="cb124-5"><a href="" aria-label="5"></a></span>
+<span id="cb124-6"><a href="" aria-label="6"></a>dates</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2011-06-04" "2011-06-04" "2011-06-04" "2011-06-04"</code></pre>
 </div>
@@ -1956,9 +1962,9 @@ Author name<br/>
 <p><br></p>
 <p><strong>Parsing date-times</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href=""></a><span class="do">## Parse date-time (and specify timezone) ----</span></span>
-<span id="cb126-2"><a href=""></a></span>
-<span id="cb126-3"><a href=""></a><span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>, <span class="at">tz=</span><span class="st">"Pacific/Auckland"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="" aria-label="1"></a><span class="do">## Parse date-time (and specify timezone) ----</span></span>
+<span id="cb126-2"><a href="" aria-label="2"></a></span>
+<span id="cb126-3"><a href="" aria-label="3"></a><span class="fu">ymd_hms</span>(<span class="st">"2017-11-28T14:02:00"</span>, <span class="at">tz=</span><span class="st">"Pacific/Auckland"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2017-11-28 14:02:00 NZDT"</code></pre>
 </div>
@@ -1966,37 +1972,37 @@ Author name<br/>
 </div><div class="column" style="width:50%;">
 <p><strong>Extract components</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href=""></a><span class="do">## Get current date-time ----</span></span>
-<span id="cb128-2"><a href=""></a></span>
-<span id="cb128-3"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">now</span>()</span>
-<span id="cb128-4"><a href=""></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="" aria-label="1"></a><span class="do">## Get current date-time ----</span></span>
+<span id="cb128-2"><a href="" aria-label="2"></a></span>
+<span id="cb128-3"><a href="" aria-label="3"></a>x <span class="ot">&lt;-</span> <span class="fu">now</span>()</span>
+<span id="cb128-4"><a href="" aria-label="4"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-11-02 07:34:55 UTC"</code></pre>
+<pre><code>[1] "2026-10-22 13:52:41 UTC"</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href=""></a><span class="do">## Extract date ----</span></span>
-<span id="cb130-2"><a href=""></a></span>
-<span id="cb130-3"><a href=""></a><span class="fu">date</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="" aria-label="1"></a><span class="do">## Extract date ----</span></span>
+<span id="cb130-2"><a href="" aria-label="2"></a></span>
+<span id="cb130-3"><a href="" aria-label="3"></a><span class="fu">date</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-11-02"</code></pre>
+<pre><code>[1] "2026-10-22"</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href=""></a><span class="do">## Extract year ----</span></span>
-<span id="cb132-2"><a href=""></a></span>
-<span id="cb132-3"><a href=""></a><span class="fu">year</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="" aria-label="1"></a><span class="do">## Extract year ----</span></span>
+<span id="cb132-2"><a href="" aria-label="2"></a></span>
+<span id="cb132-3"><a href="" aria-label="3"></a><span class="fu">year</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2025</code></pre>
+<pre><code>[1] 2026</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href=""></a><span class="do">## Extract hour ----</span></span>
-<span id="cb134-2"><a href=""></a></span>
-<span id="cb134-3"><a href=""></a><span class="fu">hour</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="" aria-label="1"></a><span class="do">## Extract hour ----</span></span>
+<span id="cb134-2"><a href="" aria-label="2"></a></span>
+<span id="cb134-3"><a href="" aria-label="3"></a><span class="fu">hour</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
+<pre><code>[1] 13</code></pre>
 </div>
 </div>
 </div></div>
@@ -2012,7 +2018,7 @@ Author name<br/>
 <!-- Insert section 'Data homogenization' -->
 </section></section>
 <section>
-<section id="working-w-taxonomy" class="title-slide slide level1 center">
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120636972636c652d636865636b2073697a653d3178203e7d7d-working-w-taxonomy" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-circle-check fa-1x" aria-label="circle-check"></i> &nbsp;&nbsp;Working w/ taxonomy</h1>
 
 </section>
@@ -2073,8 +2079,8 @@ Author name<br/>
 <p>Available at: <a href="https://docs.ropensci.org/rgbif/" class="uri">https://docs.ropensci.org/rgbif/</a></p>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href=""></a><span class="co"># Install 'rgbif' package ----</span></span>
-<span id="cb136-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"rgbif"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="" aria-label="1"></a><span class="co"># Install 'rgbif' package ----</span></span>
+<span id="cb136-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"rgbif"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 <p><br></p>
@@ -2086,87 +2092,156 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
-<span id="cb137-2"><a href=""></a></span>
-<span id="cb137-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Acanthurus lineatus"</span></span>
-<span id="cb137-4"><a href=""></a></span>
-<span id="cb137-5"><a href=""></a></span>
-<span id="cb137-6"><a href=""></a><span class="do">## Check name in GBIF database ----</span></span>
-<span id="cb137-7"><a href=""></a></span>
-<span id="cb137-8"><a href=""></a>rgbif<span class="sc">::</span><span class="fu">name_backbone</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
+<span id="cb137-2"><a href="" aria-label="2"></a></span>
+<span id="cb137-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Acanthurus lineatus"</span></span>
+<span id="cb137-4"><a href="" aria-label="4"></a></span>
+<span id="cb137-5"><a href="" aria-label="5"></a></span>
+<span id="cb137-6"><a href="" aria-label="6"></a><span class="do">## Check name in GBIF database ----</span></span>
+<span id="cb137-7"><a href="" aria-label="7"></a></span>
+<span id="cb137-8"><a href="" aria-label="8"></a>rgbif<span class="sc">::</span><span class="fu">name_backbone</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:65%;">
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top" style="width:100%;">
 <colgroup>
+<col style="width: 1%">
+<col style="width: 6%">
 <col style="width: 3%">
-<col style="width: 14%">
-<col style="width: 7%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 8%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
 <col style="width: 3%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 0%">
 <col style="width: 3%">
-<col style="width: 4%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 4%">
-<col style="width: 5%">
-<col style="width: 4%">
-<col style="width: 7%">
-<col style="width: 4%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 4%">
-<col style="width: 7%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;">usageKey</th>
+<th style="text-align: left;">usageKey</th>
 <th style="text-align: left;">scientificName</th>
 <th style="text-align: left;">canonicalName</th>
+<th style="text-align: left;">authorship</th>
 <th style="text-align: left;">rank</th>
+<th style="text-align: left;">code</th>
 <th style="text-align: left;">status</th>
-<th style="text-align: right;">confidence</th>
+<th style="text-align: left;">genericName</th>
+<th style="text-align: left;">specificEpithet</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: left;">formattedName</th>
 <th style="text-align: left;">matchType</th>
+<th style="text-align: right;">confidence</th>
+<th style="text-align: right;">timeTaken</th>
+<th style="text-align: left;">domain</th>
 <th style="text-align: left;">kingdom</th>
 <th style="text-align: left;">phylum</th>
+<th style="text-align: left;">subphylum</th>
+<th style="text-align: left;">infraphylum</th>
+<th style="text-align: left;">parvphylum</th>
+<th style="text-align: left;">gigaclass</th>
+<th style="text-align: left;">superclass</th>
+<th style="text-align: left;">class</th>
 <th style="text-align: left;">order</th>
 <th style="text-align: left;">family</th>
 <th style="text-align: left;">genus</th>
 <th style="text-align: left;">species</th>
-<th style="text-align: right;">kingdomKey</th>
-<th style="text-align: right;">phylumKey</th>
-<th style="text-align: right;">orderKey</th>
-<th style="text-align: right;">familyKey</th>
-<th style="text-align: right;">genusKey</th>
-<th style="text-align: right;">speciesKey</th>
+<th style="text-align: left;">domainKey</th>
+<th style="text-align: left;">kingdomKey</th>
+<th style="text-align: left;">phylumKey</th>
+<th style="text-align: left;">subphylumKey</th>
+<th style="text-align: left;">infraphylumKey</th>
+<th style="text-align: left;">parvphylumKey</th>
+<th style="text-align: left;">gigaclassKey</th>
+<th style="text-align: left;">superclassKey</th>
+<th style="text-align: left;">classKey</th>
+<th style="text-align: left;">orderKey</th>
+<th style="text-align: left;">familyKey</th>
+<th style="text-align: left;">genusKey</th>
+<th style="text-align: left;">speciesKey</th>
+<th style="text-align: left;">value</th>
 <th style="text-align: left;">verbatim_name</th>
+<th style="text-align: left;">verbatim_checklistKey</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">5209244</td>
+<td style="text-align: left;">64FQT</td>
 <td style="text-align: left;">Acanthurus lineatus (Linnaeus, 1758)</td>
 <td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: left;">(Linnaeus, 1758)</td>
 <td style="text-align: left;">SPECIES</td>
+<td style="text-align: left;">ZOOLOGICAL</td>
 <td style="text-align: left;">ACCEPTED</td>
-<td style="text-align: right;">99</td>
+<td style="text-align: left;">Acanthurus</td>
+<td style="text-align: left;">lineatus</td>
+<td style="text-align: left;">SCIENTIFIC</td>
+<td style="text-align: left;"><i>Acanthurus</i> <i>lineatus</i> (Linnaeus, 1758)</td>
 <td style="text-align: left;">EXACT</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Eukaryota</td>
 <td style="text-align: left;">Animalia</td>
 <td style="text-align: left;">Chordata</td>
-<td style="text-align: left;">Perciformes</td>
+<td style="text-align: left;">Vertebrata</td>
+<td style="text-align: left;">Gnathostomata</td>
+<td style="text-align: left;">Osteichthyes</td>
+<td style="text-align: left;">Actinopterygii</td>
+<td style="text-align: left;">Actinopteri</td>
+<td style="text-align: left;">Teleostei</td>
+<td style="text-align: left;">Acanthuriformes</td>
 <td style="text-align: left;">Acanthuridae</td>
 <td style="text-align: left;">Acanthurus</td>
 <td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">44</td>
-<td style="text-align: right;">587</td>
-<td style="text-align: right;">4233</td>
-<td style="text-align: right;">2379647</td>
-<td style="text-align: right;">5209244</td>
+<td style="text-align: left;">CS5HF</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">CH2</td>
+<td style="text-align: left;">8V4V3</td>
+<td style="text-align: left;">8V4V5</td>
+<td style="text-align: left;">8VVWB</td>
+<td style="text-align: left;">8VR36</td>
+<td style="text-align: left;">KTWM8</td>
+<td style="text-align: left;">8V4VD</td>
+<td style="text-align: left;">KTZYT</td>
+<td style="text-align: left;">KTYZ3</td>
+<td style="text-align: left;">KTZYY</td>
+<td style="text-align: left;">64FQT</td>
+<td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">Acanthurus lineatus</td>
+<td style="text-align: left;">7ddf754f-d193-4cc9-b351-99906754a03b</td>
 </tr>
 </tbody>
 </table>
@@ -2179,90 +2254,162 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
-<span id="cb138-2"><a href=""></a></span>
-<span id="cb138-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
-<span id="cb138-4"><a href=""></a></span>
-<span id="cb138-5"><a href=""></a></span>
-<span id="cb138-6"><a href=""></a><span class="do">## Check name in GBIF database ----</span></span>
-<span id="cb138-7"><a href=""></a></span>
-<span id="cb138-8"><a href=""></a>rgbif<span class="sc">::</span><span class="fu">name_backbone</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
+<span id="cb138-2"><a href="" aria-label="2"></a></span>
+<span id="cb138-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
+<span id="cb138-4"><a href="" aria-label="4"></a></span>
+<span id="cb138-5"><a href="" aria-label="5"></a></span>
+<span id="cb138-6"><a href="" aria-label="6"></a><span class="do">## Check name in GBIF database ----</span></span>
+<span id="cb138-7"><a href="" aria-label="7"></a></span>
+<span id="cb138-8"><a href="" aria-label="8"></a>rgbif<span class="sc">::</span><span class="fu">name_backbone</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:65%;">
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top" style="width:100%;">
+<table class="caption-top">
 <colgroup>
-<col style="width: 3%">
-<col style="width: 6%">
-<col style="width: 13%">
-<col style="width: 6%">
+<col style="width: 1%">
+<col style="width: 5%">
 <col style="width: 2%">
 <col style="width: 2%">
-<col style="width: 4%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
 <col style="width: 7%">
-<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 5%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
 <col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 4%">
-<col style="width: 6%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 2%">
+<col style="width: 5%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;">usageKey</th>
-<th style="text-align: right;">acceptedUsageKey</th>
+<th style="text-align: left;">usageKey</th>
 <th style="text-align: left;">scientificName</th>
 <th style="text-align: left;">canonicalName</th>
+<th style="text-align: left;">authorship</th>
 <th style="text-align: left;">rank</th>
+<th style="text-align: left;">code</th>
 <th style="text-align: left;">status</th>
-<th style="text-align: right;">confidence</th>
+<th style="text-align: left;">genericName</th>
+<th style="text-align: left;">specificEpithet</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: left;">formattedName</th>
+<th style="text-align: left;">acceptedUsageKey</th>
+<th style="text-align: left;">acceptedScientificName</th>
 <th style="text-align: left;">matchType</th>
+<th style="text-align: right;">confidence</th>
+<th style="text-align: right;">timeTaken</th>
+<th style="text-align: left;">domain</th>
 <th style="text-align: left;">kingdom</th>
 <th style="text-align: left;">phylum</th>
+<th style="text-align: left;">subphylum</th>
+<th style="text-align: left;">infraphylum</th>
+<th style="text-align: left;">parvphylum</th>
+<th style="text-align: left;">gigaclass</th>
+<th style="text-align: left;">superclass</th>
+<th style="text-align: left;">class</th>
 <th style="text-align: left;">order</th>
 <th style="text-align: left;">family</th>
 <th style="text-align: left;">genus</th>
 <th style="text-align: left;">species</th>
-<th style="text-align: right;">kingdomKey</th>
-<th style="text-align: right;">phylumKey</th>
-<th style="text-align: right;">orderKey</th>
-<th style="text-align: right;">familyKey</th>
-<th style="text-align: right;">genusKey</th>
-<th style="text-align: right;">speciesKey</th>
+<th style="text-align: left;">domainKey</th>
+<th style="text-align: left;">kingdomKey</th>
+<th style="text-align: left;">phylumKey</th>
+<th style="text-align: left;">subphylumKey</th>
+<th style="text-align: left;">infraphylumKey</th>
+<th style="text-align: left;">parvphylumKey</th>
+<th style="text-align: left;">gigaclassKey</th>
+<th style="text-align: left;">superclassKey</th>
+<th style="text-align: left;">classKey</th>
+<th style="text-align: left;">orderKey</th>
+<th style="text-align: left;">familyKey</th>
+<th style="text-align: left;">genusKey</th>
+<th style="text-align: left;">speciesKey</th>
+<th style="text-align: left;">value</th>
 <th style="text-align: left;">verbatim_name</th>
+<th style="text-align: left;">verbatim_checklistKey</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">5209245</td>
-<td style="text-align: right;">5209244</td>
+<td style="text-align: left;">325RG</td>
 <td style="text-align: left;">Ctenodon lineatus (Linnaeus, 1758)</td>
 <td style="text-align: left;">Ctenodon lineatus</td>
+<td style="text-align: left;">(Linnaeus, 1758)</td>
 <td style="text-align: left;">SPECIES</td>
+<td style="text-align: left;">ZOOLOGICAL</td>
 <td style="text-align: left;">SYNONYM</td>
-<td style="text-align: right;">98</td>
+<td style="text-align: left;">Ctenodon</td>
+<td style="text-align: left;">lineatus</td>
+<td style="text-align: left;">SCIENTIFIC</td>
+<td style="text-align: left;"><i>Ctenodon</i> <i>lineatus</i> (Linnaeus, 1758)</td>
+<td style="text-align: left;">64FQT</td>
+<td style="text-align: left;">Acanthurus lineatus (Linnaeus, 1758)</td>
 <td style="text-align: left;">EXACT</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">Eukaryota</td>
 <td style="text-align: left;">Animalia</td>
 <td style="text-align: left;">Chordata</td>
-<td style="text-align: left;">Perciformes</td>
+<td style="text-align: left;">Vertebrata</td>
+<td style="text-align: left;">Gnathostomata</td>
+<td style="text-align: left;">Osteichthyes</td>
+<td style="text-align: left;">Actinopterygii</td>
+<td style="text-align: left;">Actinopteri</td>
+<td style="text-align: left;">Teleostei</td>
+<td style="text-align: left;">Acanthuriformes</td>
 <td style="text-align: left;">Acanthuridae</td>
 <td style="text-align: left;">Acanthurus</td>
 <td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">44</td>
-<td style="text-align: right;">587</td>
-<td style="text-align: right;">4233</td>
-<td style="text-align: right;">2379647</td>
-<td style="text-align: right;">5209244</td>
+<td style="text-align: left;">CS5HF</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">CH2</td>
+<td style="text-align: left;">8V4V3</td>
+<td style="text-align: left;">8V4V5</td>
+<td style="text-align: left;">8VVWB</td>
+<td style="text-align: left;">8VR36</td>
+<td style="text-align: left;">KTWM8</td>
+<td style="text-align: left;">8V4VD</td>
+<td style="text-align: left;">KTZYT</td>
+<td style="text-align: left;">KTYZ3</td>
+<td style="text-align: left;">KTZYY</td>
+<td style="text-align: left;">64FQT</td>
+<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">Ctenodon lineatus</td>
+<td style="text-align: left;">7ddf754f-d193-4cc9-b351-99906754a03b</td>
 </tr>
 </tbody>
 </table>
@@ -2276,14 +2423,14 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
-<span id="cb139-2"><a href=""></a></span>
-<span id="cb139-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineat"</span></span>
-<span id="cb139-4"><a href=""></a></span>
-<span id="cb139-5"><a href=""></a></span>
-<span id="cb139-6"><a href=""></a><span class="do">## Check name in GBIF database ----</span></span>
-<span id="cb139-7"><a href=""></a></span>
-<span id="cb139-8"><a href=""></a>rgbif<span class="sc">::</span><span class="fu">name_suggest</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
+<span id="cb139-2"><a href="" aria-label="2"></a></span>
+<span id="cb139-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineat"</span></span>
+<span id="cb139-4"><a href="" aria-label="4"></a></span>
+<span id="cb139-5"><a href="" aria-label="5"></a></span>
+<span id="cb139-6"><a href="" aria-label="6"></a><span class="do">## Check name in GBIF database ----</span></span>
+<span id="cb139-7"><a href="" aria-label="7"></a></span>
+<span id="cb139-8"><a href="" aria-label="8"></a>rgbif<span class="sc">::</span><span class="fu">name_suggest</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:65%;">
 <div class="cell">
@@ -2324,8 +2471,8 @@ Author name<br/>
 <p>Available at: <a href="https://docs.ropensci.org/worrms/index.html" class="uri">https://docs.ropensci.org/worrms/index.html</a></p>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href=""></a><span class="co"># Install 'worrms' package ----</span></span>
-<span id="cb140-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"worrms"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="" aria-label="1"></a><span class="co"># Install 'worrms' package ----</span></span>
+<span id="cb140-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"worrms"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -2335,19 +2482,19 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
-<span id="cb141-2"><a href=""></a></span>
-<span id="cb141-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Acanthurus lineatus"</span></span>
-<span id="cb141-4"><a href=""></a></span>
-<span id="cb141-5"><a href=""></a></span>
-<span id="cb141-6"><a href=""></a><span class="do">## Check name in WORMS database ----</span></span>
-<span id="cb141-7"><a href=""></a></span>
-<span id="cb141-8"><a href=""></a>worrms<span class="sc">::</span><span class="fu">wm_records_name</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
+<span id="cb141-2"><a href="" aria-label="2"></a></span>
+<span id="cb141-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Acanthurus lineatus"</span></span>
+<span id="cb141-4"><a href="" aria-label="4"></a></span>
+<span id="cb141-5"><a href="" aria-label="5"></a></span>
+<span id="cb141-6"><a href="" aria-label="6"></a><span class="do">## Check name in WORMS database ----</span></span>
+<span id="cb141-7"><a href="" aria-label="7"></a></span>
+<span id="cb141-8"><a href="" aria-label="8"></a>worrms<span class="sc">::</span><span class="fu">wm_records_name</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:65%;">
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
 <col style="width: 1%">
 <col style="width: 9%">
@@ -2361,17 +2508,18 @@ Author name<br/>
 <col style="width: 3%">
 <col style="width: 2%">
 <col style="width: 2%">
+<col style="width: 3%">
 <col style="width: 1%">
 <col style="width: 1%">
 <col style="width: 1%">
 <col style="width: 2%">
-<col style="width: 2%">
 <col style="width: 1%">
-<col style="width: 34%">
+<col style="width: 1%">
+<col style="width: 33%">
 <col style="width: 6%">
 <col style="width: 1%">
 <col style="width: 1%">
-<col style="width: 2%">
+<col style="width: 1%">
 <col style="width: 2%">
 <col style="width: 1%">
 <col style="width: 1%">
@@ -2391,6 +2539,7 @@ Author name<br/>
 <th style="text-align: left;">valid_name</th>
 <th style="text-align: left;">valid_authority</th>
 <th style="text-align: right;">parentNameUsageID</th>
+<th style="text-align: right;">originalNameUsageID</th>
 <th style="text-align: left;">kingdom</th>
 <th style="text-align: left;">phylum</th>
 <th style="text-align: left;">class</th>
@@ -2422,13 +2571,14 @@ Author name<br/>
 <td style="text-align: left;">Acanthurus lineatus</td>
 <td style="text-align: left;">(Linnaeus, 1758)</td>
 <td style="text-align: right;">125908</td>
+<td style="text-align: right;">302692</td>
 <td style="text-align: left;">Animalia</td>
 <td style="text-align: left;">Chordata</td>
 <td style="text-align: left;">Teleostei</td>
 <td style="text-align: left;">Acanthuriformes</td>
 <td style="text-align: left;">Acanthuridae</td>
 <td style="text-align: left;">Acanthurus</td>
-<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2025). FishBase. Acanthurus lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=159582 on 2025-11-02</td>
+<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2026). FishBase. Acanthurus lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=159582 on 2026-10-22</td>
 <td style="text-align: left;">urn:lsid:marinespecies.org:taxname:159582</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
@@ -2449,14 +2599,14 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
-<span id="cb142-2"><a href=""></a></span>
-<span id="cb142-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
-<span id="cb142-4"><a href=""></a></span>
-<span id="cb142-5"><a href=""></a></span>
-<span id="cb142-6"><a href=""></a><span class="do">## Check name in WORMS database ----</span></span>
-<span id="cb142-7"><a href=""></a></span>
-<span id="cb142-8"><a href=""></a>worrms<span class="sc">::</span><span class="fu">wm_records_name</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
+<span id="cb142-2"><a href="" aria-label="2"></a></span>
+<span id="cb142-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
+<span id="cb142-4"><a href="" aria-label="4"></a></span>
+<span id="cb142-5"><a href="" aria-label="5"></a></span>
+<span id="cb142-6"><a href="" aria-label="6"></a><span class="do">## Check name in WORMS database ----</span></span>
+<span id="cb142-7"><a href="" aria-label="7"></a></span>
+<span id="cb142-8"><a href="" aria-label="8"></a>worrms<span class="sc">::</span><span class="fu">wm_records_name</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:65%;">
 <div class="cell">
@@ -2475,17 +2625,18 @@ Author name<br/>
 <col style="width: 3%">
 <col style="width: 2%">
 <col style="width: 2%">
+<col style="width: 3%">
 <col style="width: 1%">
 <col style="width: 1%">
 <col style="width: 1%">
 <col style="width: 2%">
-<col style="width: 2%">
 <col style="width: 1%">
-<col style="width: 34%">
+<col style="width: 1%">
+<col style="width: 33%">
 <col style="width: 6%">
 <col style="width: 1%">
 <col style="width: 1%">
-<col style="width: 2%">
+<col style="width: 1%">
 <col style="width: 2%">
 <col style="width: 1%">
 <col style="width: 1%">
@@ -2505,6 +2656,7 @@ Author name<br/>
 <th style="text-align: left;">valid_name</th>
 <th style="text-align: left;">valid_authority</th>
 <th style="text-align: right;">parentNameUsageID</th>
+<th style="text-align: right;">originalNameUsageID</th>
 <th style="text-align: left;">kingdom</th>
 <th style="text-align: left;">phylum</th>
 <th style="text-align: left;">class</th>
@@ -2536,13 +2688,14 @@ Author name<br/>
 <td style="text-align: left;">Acanthurus lineatus</td>
 <td style="text-align: left;">(Linnaeus, 1758)</td>
 <td style="text-align: right;">296440</td>
+<td style="text-align: right;">302692</td>
 <td style="text-align: left;">Animalia</td>
 <td style="text-align: left;">Chordata</td>
 <td style="text-align: left;">Teleostei</td>
 <td style="text-align: left;">Acanthuriformes</td>
 <td style="text-align: left;">Acanthuridae</td>
 <td style="text-align: left;">Ctenodon</td>
-<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2025). FishBase. Ctenodon lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=317534 on 2025-11-02</td>
+<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2026). FishBase. Ctenodon lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=317534 on 2026-10-22</td>
 <td style="text-align: left;">urn:lsid:marinespecies.org:taxname:317534</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
@@ -2565,9 +2718,9 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href=""></a><span class="do">## Get classification from AphiaID ----</span></span>
-<span id="cb143-2"><a href=""></a></span>
-<span id="cb143-3"><a href=""></a>worrms<span class="sc">::</span><span class="fu">wm_classification</span>(<span class="at">id =</span> <span class="dv">159582</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="" aria-label="1"></a><span class="do">## Get classification from AphiaID ----</span></span>
+<span id="cb143-2"><a href="" aria-label="2"></a></span>
+<span id="cb143-3"><a href="" aria-label="3"></a>worrms<span class="sc">::</span><span class="fu">wm_classification</span>(<span class="at">id =</span> <span class="dv">159582</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:65%;">
 <div class="cell">
@@ -2657,8 +2810,8 @@ Author name<br/>
 <p>Available at: <a href="https://docs.ropensci.org/rotl/index.html" class="uri">https://docs.ropensci.org/rotl/index.html</a></p>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href=""></a><span class="co"># Install 'rotl' package ----</span></span>
-<span id="cb144-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"rotl"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="" aria-label="1"></a><span class="co"># Install 'rotl' package ----</span></span>
+<span id="cb144-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"rotl"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -2668,14 +2821,14 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
-<span id="cb145-2"><a href=""></a></span>
-<span id="cb145-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Acanthurus lineatus"</span></span>
-<span id="cb145-4"><a href=""></a></span>
-<span id="cb145-5"><a href=""></a></span>
-<span id="cb145-6"><a href=""></a><span class="do">## Check name in OTL database ----</span></span>
-<span id="cb145-7"><a href=""></a></span>
-<span id="cb145-8"><a href=""></a>rotl<span class="sc">::</span><span class="fu">tnrs_match_names</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
+<span id="cb145-2"><a href="" aria-label="2"></a></span>
+<span id="cb145-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Acanthurus lineatus"</span></span>
+<span id="cb145-4"><a href="" aria-label="4"></a></span>
+<span id="cb145-5"><a href="" aria-label="5"></a></span>
+<span id="cb145-6"><a href="" aria-label="6"></a><span class="do">## Check name in OTL database ----</span></span>
+<span id="cb145-7"><a href="" aria-label="7"></a></span>
+<span id="cb145-8"><a href="" aria-label="8"></a>rotl<span class="sc">::</span><span class="fu">tnrs_match_names</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:65%;">
 <div class="cell">
@@ -2725,14 +2878,14 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
-<span id="cb146-2"><a href=""></a></span>
-<span id="cb146-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
-<span id="cb146-4"><a href=""></a></span>
-<span id="cb146-5"><a href=""></a></span>
-<span id="cb146-6"><a href=""></a><span class="do">## Check name in OTL database ----</span></span>
-<span id="cb146-7"><a href=""></a></span>
-<span id="cb146-8"><a href=""></a>rotl<span class="sc">::</span><span class="fu">tnrs_match_names</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
+<span id="cb146-2"><a href="" aria-label="2"></a></span>
+<span id="cb146-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
+<span id="cb146-4"><a href="" aria-label="4"></a></span>
+<span id="cb146-5"><a href="" aria-label="5"></a></span>
+<span id="cb146-6"><a href="" aria-label="6"></a><span class="do">## Check name in OTL database ----</span></span>
+<span id="cb146-7"><a href="" aria-label="7"></a></span>
+<span id="cb146-8"><a href="" aria-label="8"></a>rotl<span class="sc">::</span><span class="fu">tnrs_match_names</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:65%;">
 <div class="cell">
@@ -2783,41 +2936,41 @@ Author name<br/>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href=""></a><span class="do">## Species to look for ----</span></span>
-<span id="cb147-2"><a href=""></a></span>
-<span id="cb147-3"><a href=""></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
-<span id="cb147-4"><a href=""></a></span>
-<span id="cb147-5"><a href=""></a></span>
-<span id="cb147-6"><a href=""></a><span class="do">## Check name in GBIF database ----</span></span>
-<span id="cb147-7"><a href=""></a></span>
-<span id="cb147-8"><a href=""></a>gbif <span class="ot">&lt;-</span> rgbif<span class="sc">::</span><span class="fu">name_backbone</span>(species) <span class="sc">|&gt;</span> </span>
-<span id="cb147-9"><a href=""></a>  </span>
-<span id="cb147-10"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(species, acceptedUsageKey) <span class="sc">|&gt;</span> </span>
-<span id="cb147-11"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">gbif_acc_name =</span> species,</span>
-<span id="cb147-12"><a href=""></a>                <span class="at">gbif_acc_id   =</span> acceptedUsageKey)</span>
-<span id="cb147-13"><a href=""></a></span>
-<span id="cb147-14"><a href=""></a></span>
-<span id="cb147-15"><a href=""></a><span class="do">## Check name in WORMS database ----</span></span>
-<span id="cb147-16"><a href=""></a></span>
-<span id="cb147-17"><a href=""></a>worms <span class="ot">&lt;-</span> worrms<span class="sc">::</span><span class="fu">wm_records_name</span>(species) <span class="sc">|&gt;</span> </span>
-<span id="cb147-18"><a href=""></a>  </span>
-<span id="cb147-19"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(valid_name, valid_AphiaID) <span class="sc">|&gt;</span> </span>
-<span id="cb147-20"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">worms_acc_name =</span> valid_name,</span>
-<span id="cb147-21"><a href=""></a>                <span class="at">worms_acc_id   =</span> valid_AphiaID)</span>
-<span id="cb147-22"><a href=""></a></span>
-<span id="cb147-23"><a href=""></a></span>
-<span id="cb147-24"><a href=""></a><span class="do">## Check name in OTL database ----</span></span>
-<span id="cb147-25"><a href=""></a></span>
-<span id="cb147-26"><a href=""></a>otl <span class="ot">&lt;-</span> rotl<span class="sc">::</span><span class="fu">tnrs_match_names</span>(species) <span class="sc">|&gt;</span> </span>
-<span id="cb147-27"><a href=""></a>  </span>
-<span id="cb147-28"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(unique_name, ott_id) <span class="sc">|&gt;</span> </span>
-<span id="cb147-29"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">otl_acc_name =</span> unique_name,</span>
-<span id="cb147-30"><a href=""></a>                <span class="at">otl_acc_id   =</span> ott_id)</span>
-<span id="cb147-31"><a href=""></a></span>
-<span id="cb147-32"><a href=""></a></span>
-<span id="cb147-33"><a href=""></a><span class="do">## Append results ----</span></span>
-<span id="cb147-34"><a href=""></a></span>
-<span id="cb147-35"><a href=""></a><span class="fu">data.frame</span>(<span class="st">"original_name"</span> <span class="ot">=</span> species, gbif, worms, otl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
+<span id="cb147-2"><a href="" aria-label="2"></a></span>
+<span id="cb147-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
+<span id="cb147-4"><a href="" aria-label="4"></a></span>
+<span id="cb147-5"><a href="" aria-label="5"></a></span>
+<span id="cb147-6"><a href="" aria-label="6"></a><span class="do">## Check name in GBIF database ----</span></span>
+<span id="cb147-7"><a href="" aria-label="7"></a></span>
+<span id="cb147-8"><a href="" aria-label="8"></a>gbif <span class="ot">&lt;-</span> rgbif<span class="sc">::</span><span class="fu">name_backbone</span>(species) <span class="sc">|&gt;</span> </span>
+<span id="cb147-9"><a href="" aria-label="9"></a>  </span>
+<span id="cb147-10"><a href="" aria-label="10"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(species, acceptedUsageKey) <span class="sc">|&gt;</span> </span>
+<span id="cb147-11"><a href="" aria-label="11"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">gbif_acc_name =</span> species,</span>
+<span id="cb147-12"><a href="" aria-label="12"></a>                <span class="at">gbif_acc_id   =</span> acceptedUsageKey)</span>
+<span id="cb147-13"><a href="" aria-label="13"></a></span>
+<span id="cb147-14"><a href="" aria-label="14"></a></span>
+<span id="cb147-15"><a href="" aria-label="15"></a><span class="do">## Check name in WORMS database ----</span></span>
+<span id="cb147-16"><a href="" aria-label="16"></a></span>
+<span id="cb147-17"><a href="" aria-label="17"></a>worms <span class="ot">&lt;-</span> worrms<span class="sc">::</span><span class="fu">wm_records_name</span>(species) <span class="sc">|&gt;</span> </span>
+<span id="cb147-18"><a href="" aria-label="18"></a>  </span>
+<span id="cb147-19"><a href="" aria-label="19"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(valid_name, valid_AphiaID) <span class="sc">|&gt;</span> </span>
+<span id="cb147-20"><a href="" aria-label="20"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">worms_acc_name =</span> valid_name,</span>
+<span id="cb147-21"><a href="" aria-label="21"></a>                <span class="at">worms_acc_id   =</span> valid_AphiaID)</span>
+<span id="cb147-22"><a href="" aria-label="22"></a></span>
+<span id="cb147-23"><a href="" aria-label="23"></a></span>
+<span id="cb147-24"><a href="" aria-label="24"></a><span class="do">## Check name in OTL database ----</span></span>
+<span id="cb147-25"><a href="" aria-label="25"></a></span>
+<span id="cb147-26"><a href="" aria-label="26"></a>otl <span class="ot">&lt;-</span> rotl<span class="sc">::</span><span class="fu">tnrs_match_names</span>(species) <span class="sc">|&gt;</span> </span>
+<span id="cb147-27"><a href="" aria-label="27"></a>  </span>
+<span id="cb147-28"><a href="" aria-label="28"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(unique_name, ott_id) <span class="sc">|&gt;</span> </span>
+<span id="cb147-29"><a href="" aria-label="29"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">otl_acc_name =</span> unique_name,</span>
+<span id="cb147-30"><a href="" aria-label="30"></a>                <span class="at">otl_acc_id   =</span> ott_id)</span>
+<span id="cb147-31"><a href="" aria-label="31"></a></span>
+<span id="cb147-32"><a href="" aria-label="32"></a></span>
+<span id="cb147-33"><a href="" aria-label="33"></a><span class="do">## Append results ----</span></span>
+<span id="cb147-34"><a href="" aria-label="34"></a></span>
+<span id="cb147-35"><a href="" aria-label="35"></a><span class="fu">data.frame</span>(<span class="st">"original_name"</span> <span class="ot">=</span> species, gbif, worms, otl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
@@ -2836,7 +2989,7 @@ Author name<br/>
 <tr class="header">
 <th style="text-align: left;">original_name</th>
 <th style="text-align: left;">gbif_acc_name</th>
-<th style="text-align: right;">gbif_acc_id</th>
+<th style="text-align: left;">gbif_acc_id</th>
 <th style="text-align: left;">worms_acc_name</th>
 <th style="text-align: right;">worms_acc_id</th>
 <th style="text-align: left;">otl_acc_name</th>
@@ -2847,7 +3000,7 @@ Author name<br/>
 <tr class="odd">
 <td style="text-align: left;">Ctenodon lineatus</td>
 <td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: right;">5209244</td>
+<td style="text-align: left;">64FQT</td>
 <td style="text-align: left;">Acanthurus lineatus</td>
 <td style="text-align: right;">159582</td>
 <td style="text-align: left;">Acanthurus lineatus</td>
@@ -2867,8 +3020,8 @@ Author name<br/>
 <p>Available at: <a href="https://docs.ropensci.org/taxize/" class="uri">https://docs.ropensci.org/taxize/</a></p>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href=""></a><span class="co"># Install 'taxize' package ----</span></span>
-<span id="cb148-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"taxize"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="" aria-label="1"></a><span class="co"># Install 'taxize' package ----</span></span>
+<span id="cb148-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"taxize"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column center" style="width:50%;">
 <p><img data-src="images/taxize-datasources.png" style="width:80.0%"></p>
@@ -2876,7 +3029,7 @@ Author name<br/>
 <!-- Insert section 'Exercise' -->
 </section></section>
 <section>
-<section id="exercise-20-min" class="title-slide slide level1 center">
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d636c6f636b2073697a653d3178203e7d7d-exercise-20-min" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-user-clock fa-1x" aria-label="user-clock"></i> &nbsp;&nbsp;Exercise (20 min)</h1>
 
 </section>
@@ -2908,56 +3061,56 @@ Author name<br/>
 <div class="column" style="width:50%;">
 <p><strong>Part 1</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb149-2"><a href=""></a></span>
-<span id="cb149-3"><a href=""></a><span class="do">## Open PanTHERIA data ----</span></span>
-<span id="cb149-4"><a href=""></a></span>
-<span id="cb149-5"><a href=""></a>pantheria <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"PanTHERIA_1-0_WR05_Aug2008.txt"</span>)</span>
-<span id="cb149-6"><a href=""></a></span>
-<span id="cb149-7"><a href=""></a></span>
-<span id="cb149-8"><a href=""></a><span class="do">## Clean PanTHERIA data ----</span></span>
-<span id="cb149-9"><a href=""></a></span>
-<span id="cb149-10"><a href=""></a>pantheria <span class="ot">&lt;-</span> pantheria <span class="sc">|&gt;</span> </span>
-<span id="cb149-11"><a href=""></a>  </span>
-<span id="cb149-12"><a href=""></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">MSW05_Binomial</span><span class="st">`</span>, </span>
-<span id="cb149-13"><a href=""></a>         <span class="st">`</span><span class="at">5-1_AdultBodyMass_g</span><span class="st">`</span>, </span>
-<span id="cb149-14"><a href=""></a>         <span class="st">`</span><span class="at">8-1_AdultForearmLen_mm</span><span class="st">`</span>, </span>
-<span id="cb149-15"><a href=""></a>         <span class="st">`</span><span class="at">3-1_AgeatFirstBirth_d</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb149-16"><a href=""></a>  </span>
-<span id="cb149-17"><a href=""></a>  <span class="fu">rename</span>(<span class="at">binomial_name            =</span> <span class="st">`</span><span class="at">MSW05_Binomial</span><span class="st">`</span>,</span>
-<span id="cb149-18"><a href=""></a>         <span class="at">pan_adult_body_mass_g    =</span> <span class="st">`</span><span class="at">5-1_AdultBodyMass_g</span><span class="st">`</span>, </span>
-<span id="cb149-19"><a href=""></a>         <span class="at">pan_adult_forearm_len_mm =</span> <span class="st">`</span><span class="at">8-1_AdultForearmLen_mm</span><span class="st">`</span>, </span>
-<span id="cb149-20"><a href=""></a>         <span class="at">pan_age_at_first_birth_d =</span> <span class="st">`</span><span class="at">3-1_AgeatFirstBirth_d</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb149-21"><a href=""></a>  </span>
-<span id="cb149-22"><a href=""></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"pan_"</span>), <span class="sc">~</span> <span class="fu">ifelse</span>(.x <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>, <span class="cn">NA</span>, .x)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="" aria-label="1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb149-2"><a href="" aria-label="2"></a></span>
+<span id="cb149-3"><a href="" aria-label="3"></a><span class="do">## Open PanTHERIA data ----</span></span>
+<span id="cb149-4"><a href="" aria-label="4"></a></span>
+<span id="cb149-5"><a href="" aria-label="5"></a>pantheria <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"PanTHERIA_1-0_WR05_Aug2008.txt"</span>)</span>
+<span id="cb149-6"><a href="" aria-label="6"></a></span>
+<span id="cb149-7"><a href="" aria-label="7"></a></span>
+<span id="cb149-8"><a href="" aria-label="8"></a><span class="do">## Clean PanTHERIA data ----</span></span>
+<span id="cb149-9"><a href="" aria-label="9"></a></span>
+<span id="cb149-10"><a href="" aria-label="10"></a>pantheria <span class="ot">&lt;-</span> pantheria <span class="sc">|&gt;</span> </span>
+<span id="cb149-11"><a href="" aria-label="11"></a>  </span>
+<span id="cb149-12"><a href="" aria-label="12"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">MSW05_Binomial</span><span class="st">`</span>, </span>
+<span id="cb149-13"><a href="" aria-label="13"></a>         <span class="st">`</span><span class="at">5-1_AdultBodyMass_g</span><span class="st">`</span>, </span>
+<span id="cb149-14"><a href="" aria-label="14"></a>         <span class="st">`</span><span class="at">8-1_AdultForearmLen_mm</span><span class="st">`</span>, </span>
+<span id="cb149-15"><a href="" aria-label="15"></a>         <span class="st">`</span><span class="at">3-1_AgeatFirstBirth_d</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb149-16"><a href="" aria-label="16"></a>  </span>
+<span id="cb149-17"><a href="" aria-label="17"></a>  <span class="fu">rename</span>(<span class="at">binomial_name            =</span> <span class="st">`</span><span class="at">MSW05_Binomial</span><span class="st">`</span>,</span>
+<span id="cb149-18"><a href="" aria-label="18"></a>         <span class="at">pan_adult_body_mass_g    =</span> <span class="st">`</span><span class="at">5-1_AdultBodyMass_g</span><span class="st">`</span>, </span>
+<span id="cb149-19"><a href="" aria-label="19"></a>         <span class="at">pan_adult_forearm_len_mm =</span> <span class="st">`</span><span class="at">8-1_AdultForearmLen_mm</span><span class="st">`</span>, </span>
+<span id="cb149-20"><a href="" aria-label="20"></a>         <span class="at">pan_age_at_first_birth_d =</span> <span class="st">`</span><span class="at">3-1_AgeatFirstBirth_d</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb149-21"><a href="" aria-label="21"></a>  </span>
+<span id="cb149-22"><a href="" aria-label="22"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"pan_"</span>), <span class="sc">~</span> <span class="fu">ifelse</span>(.x <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>, <span class="cn">NA</span>, .x)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><strong>Part 2</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href=""></a><span class="do">## Open GBIF occurrences ----</span></span>
-<span id="cb150-2"><a href=""></a></span>
-<span id="cb150-3"><a href=""></a>gbif_occ <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"gbif_occurrences.csv"</span>)</span>
-<span id="cb150-4"><a href=""></a></span>
-<span id="cb150-5"><a href=""></a></span>
-<span id="cb150-6"><a href=""></a><span class="do">## Extract &amp; clean species names ----</span></span>
-<span id="cb150-7"><a href=""></a></span>
-<span id="cb150-8"><a href=""></a>gbif_species <span class="ot">&lt;-</span> gbif_occ <span class="sc">|&gt;</span> </span>
-<span id="cb150-9"><a href=""></a>  </span>
-<span id="cb150-10"><a href=""></a>  <span class="fu">select</span>(scientificName) <span class="sc">|&gt;</span> </span>
-<span id="cb150-11"><a href=""></a>  </span>
-<span id="cb150-12"><a href=""></a>  <span class="fu">distinct</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb150-13"><a href=""></a>  </span>
-<span id="cb150-14"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">scientificName =</span> stringr<span class="sc">::</span><span class="fu">str_extract</span>(scientificName, </span>
-<span id="cb150-15"><a href=""></a>                                               <span class="st">"^[A-z]+</span><span class="sc">\\</span><span class="st">s[a-z]+"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb150-16"><a href=""></a>  </span>
-<span id="cb150-17"><a href=""></a>  <span class="fu">rename</span>(<span class="at">binomial_name =</span> scientificName)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="" aria-label="1"></a><span class="do">## Open GBIF occurrences ----</span></span>
+<span id="cb150-2"><a href="" aria-label="2"></a></span>
+<span id="cb150-3"><a href="" aria-label="3"></a>gbif_occ <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"gbif_occurrences.csv"</span>)</span>
+<span id="cb150-4"><a href="" aria-label="4"></a></span>
+<span id="cb150-5"><a href="" aria-label="5"></a></span>
+<span id="cb150-6"><a href="" aria-label="6"></a><span class="do">## Extract &amp; clean species names ----</span></span>
+<span id="cb150-7"><a href="" aria-label="7"></a></span>
+<span id="cb150-8"><a href="" aria-label="8"></a>gbif_species <span class="ot">&lt;-</span> gbif_occ <span class="sc">|&gt;</span> </span>
+<span id="cb150-9"><a href="" aria-label="9"></a>  </span>
+<span id="cb150-10"><a href="" aria-label="10"></a>  <span class="fu">select</span>(scientificName) <span class="sc">|&gt;</span> </span>
+<span id="cb150-11"><a href="" aria-label="11"></a>  </span>
+<span id="cb150-12"><a href="" aria-label="12"></a>  <span class="fu">distinct</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb150-13"><a href="" aria-label="13"></a>  </span>
+<span id="cb150-14"><a href="" aria-label="14"></a>  <span class="fu">mutate</span>(<span class="at">scientificName =</span> stringr<span class="sc">::</span><span class="fu">str_extract</span>(scientificName, </span>
+<span id="cb150-15"><a href="" aria-label="15"></a>                                               <span class="st">"^[A-z]+</span><span class="sc">\\</span><span class="st">s[a-z]+"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb150-16"><a href="" aria-label="16"></a>  </span>
+<span id="cb150-17"><a href="" aria-label="17"></a>  <span class="fu">rename</span>(<span class="at">binomial_name =</span> scientificName)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
 <p><strong>Part 3</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href=""></a><span class="do">## Merge tables ----</span></span>
-<span id="cb151-2"><a href=""></a></span>
-<span id="cb151-3"><a href=""></a>final_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(gbif_species, pantheria, <span class="at">by =</span> <span class="st">"binomial_name"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="" aria-label="1"></a><span class="do">## Merge tables ----</span></span>
+<span id="cb151-2"><a href="" aria-label="2"></a></span>
+<span id="cb151-3"><a href="" aria-label="3"></a>final_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(gbif_species, pantheria, <span class="at">by =</span> <span class="st">"binomial_name"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 
