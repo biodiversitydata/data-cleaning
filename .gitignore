@@ -28,3 +28,5 @@ sections/*_files/
 PanTHERIA_*
 gadm*
 gbif*
+
+**/*.quarto_ipynb

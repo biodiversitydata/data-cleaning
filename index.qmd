@@ -31,29 +31,10 @@ engine: knitr
 ```
 
 
-<!-- Insert section 'Raw vs. derived data' -->
-
-```{r}
-#| child: "sections/data-status.qmd"
-```
-
-<!-- Insert section 'Data cleaning' -->
-
-```{r}
-#| child: "sections/data-cleaning.qmd"
-```
-
-
-<!-- Insert section 'Data homogenization' -->
-
-```{r}
-#| child: "sections/taxonomy.qmd"
-```
-
 
 <!-- Insert section 'Exercise' -->
 
 ```{r}
-#| child: "sections/exercise.qmd"
+#| child: "sections/exercise_v2.qmd"
 ```
 
