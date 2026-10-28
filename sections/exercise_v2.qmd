@@ -30,23 +30,6 @@
 
 ## Correction part 1
 
-
-```{r}
-#| echo: false
-#| eval: true
-
-## Load GBIF occurrences ----
-occ <- read.csv2("../gbif_occurrences.csv")
-
-## Load herbarium data ----
-df <- read.csv2("../herbier_gbif.csv")
-
-## Harmonize column names
-df <- df |> janitor::clean_names()
-occ <- occ |> janitor::clean_names()
-
-```
-
 ```{r}
 #| echo: true
 #| eval: false
