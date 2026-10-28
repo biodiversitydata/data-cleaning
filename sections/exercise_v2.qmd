@@ -67,7 +67,7 @@ occ <- occ |> janitor::clean_names()
 
 ```{r}
 #| echo: true
-#| eval: true
+#| eval: false
 
 ## Herbarium data : remove columns we don't need and focus on the 2 selected species ----
 df2 <- df |> 
@@ -87,7 +87,7 @@ str(df2)
 
 ```{r}
 #| echo: true
-#| eval: true
+#| eval: false
 
 ## The parzer package converts them automatically ----
 df2$lat <- parzer::parse_lat(df2$lat) 
@@ -102,7 +102,7 @@ Now inspect GBIF dataset:
 
 ```{r}
 #| echo: true
-#| eval: true
+#| eval: false
 
 ## GBIF occurrences: clean species names so they are consistent with the herbarium ones----
 occ$scientific_name <- stringr::str_replace_all(occ$scientific_name, "Catopsis sessiliflora.*", "Catopsis sessiliflora")
@@ -121,7 +121,7 @@ colnames(occ) == colnames(df2)
 
 ```{r}
 #| echo: true
-#| eval: true
+#| eval: false
 
 ## Append herbarium and GBIf occurrences ----
 tab <- rbind(df2, occ)
@@ -134,7 +134,7 @@ tab <- rbind(df2, occ)
 
 ```{r}
 #| echo: true
-#| eval: true
+#| eval: false
 
 ## Convert occurrences into sf object ----
 tab_sf <- tab |> 
