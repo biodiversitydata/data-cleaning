@@ -1977,7 +1977,7 @@ Author name<br/>
 <span id="cb128-3"><a href="" aria-label="3"></a>x <span class="ot">&lt;-</span> <span class="fu">now</span>()</span>
 <span id="cb128-4"><a href="" aria-label="4"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-10-28 10:49:56 UTC"</code></pre>
+<pre><code>[1] "2026-10-29 07:28:21 UTC"</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -1986,7 +1986,7 @@ Author name<br/>
 <span id="cb130-2"><a href="" aria-label="2"></a></span>
 <span id="cb130-3"><a href="" aria-label="3"></a><span class="fu">date</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-10-28"</code></pre>
+<pre><code>[1] "2026-10-29"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -2002,7 +2002,7 @@ Author name<br/>
 <span id="cb134-2"><a href="" aria-label="2"></a></span>
 <span id="cb134-3"><a href="" aria-label="3"></a><span class="fu">hour</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10</code></pre>
+<pre><code>[1] 7</code></pre>
 </div>
 </div>
 </div></div>
@@ -2016,1139 +2016,225 @@ Author name<br/>
 </figure>
 </div>
 <!-- Insert section 'Data homogenization' -->
-</section></section>
-<section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120636972636c652d636865636b2073697a653d3178203e7d7d-working-w-taxonomy" class="title-slide slide level1 center">
-<h1><i class="fa-solid fa-circle-check fa-1x" aria-label="circle-check"></i> &nbsp;&nbsp;Working w/ taxonomy</h1>
-
-</section>
-<section id="the-eternal-problem-of-taxonomy" class="slide level2">
-<h2>The Eternal problem of taxonomy</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><br> <br> <br> <br></p>
-<ul>
-<li>Species names regularly change (genetics)</li>
-<li>Species names can be different between countries</li>
-<li>Species names can have different synonyms</li>
-</ul>
-<p><br></p>
-<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Many taxonomic data sources available</p>
-</div><div class="column center" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/systema-naturae.jpg" style="width:80.0%"></p>
-<figcaption>Source: <a href="https://www.bnf.fr/fr/mediatheque/carl-von-linne">BnF</a></figcaption>
-</figure>
-</div>
-</div></div>
-</section>
-<section id="taxonomic-data-sources" class="slide level2">
-<h2>Taxonomic data sources</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>National Inventory of Natural Heritage (INPN) &nbsp;&nbsp;<a href="https://inpn.mnhn.fr/accueil/index?lg=en"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
-<li>IUCN Red List &nbsp;&nbsp;<a href="https://www.iucnredlist.org/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
-<li>Global Biodiversity Information Facility (GBIF) &nbsp;&nbsp;<a href="https://gbif.org"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
-<li>Encyclopedia of Life (EOL) &nbsp;&nbsp;<a href="https://eol.org/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
-<li>Open Tree of Life (OTL) &nbsp;&nbsp;<a href="https://tree.opentreeoflife.org/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>FishBase &nbsp;&nbsp;<a href="https://fishbase.se/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
-<li>World Register of Marine Species (WoRMS) &nbsp;&nbsp;<a href="https://www.marinespecies.org/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
-<li>Integrated Taxonomic Information Service (ITIS) &nbsp;&nbsp;<a href="https://www.usgs.gov/tools/integrated-taxonomic-information-system-itis"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
-<li>World Flora &nbsp;&nbsp;<a href="https://www.worldfloraonline.org/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
-<li>Barcode of Life Data Systems (BOLD) &nbsp;&nbsp;<a href="https://v3.boldsystems.org/"><i class="fa-solid fa-up-right-from-square fa-xs" aria-label="up-right-from-square"></i></a></li>
-</ul>
-</div></div>
-<div class="fragment">
-<p><br></p>
-<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Most of these taxonomic databases provide an <strong>API</strong></p>
-<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Most of these API provide an <i class="fa-brands fa-r-project" aria-label="r-project"></i> package &nbsp;<span class="emoji" data-emoji="tada">🎉</span></p>
-</div>
-</section>
-<section id="rgbif-example" class="slide level2">
-<h2><code>rgbif</code> example</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="images/rgbif-screenshot.png"></p>
-</div><div class="column" style="width:50%;">
-<p><br></p>
-<p>Available at: <a href="https://docs.ropensci.org/rgbif/" class="uri">https://docs.ropensci.org/rgbif/</a></p>
-<p><br></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="" aria-label="1"></a><span class="co"># Install 'rgbif' package ----</span></span>
-<span id="cb136-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"rgbif"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div></div>
-<p><br></p>
-<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> &nbsp;Dedicated vignette on <a href="https://docs.ropensci.org/rgbif/articles/taxonomic_names.html"><strong>Working with taxonomic names</strong></a></p>
-</section>
-<section id="rgbif-example-1" class="slide level2">
-<h2><code>rgbif</code> example</h2>
-<p><strong>Accepted name</strong></p>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
-<span id="cb137-2"><a href="" aria-label="2"></a></span>
-<span id="cb137-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Acanthurus lineatus"</span></span>
-<span id="cb137-4"><a href="" aria-label="4"></a></span>
-<span id="cb137-5"><a href="" aria-label="5"></a></span>
-<span id="cb137-6"><a href="" aria-label="6"></a><span class="do">## Check name in GBIF database ----</span></span>
-<span id="cb137-7"><a href="" aria-label="7"></a></span>
-<span id="cb137-8"><a href="" aria-label="8"></a>rgbif<span class="sc">::</span><span class="fu">name_backbone</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column" style="width:65%;">
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top" style="width:100%;">
-<colgroup>
-<col style="width: 1%">
-<col style="width: 6%">
-<col style="width: 3%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 8%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 3%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 0%">
-<col style="width: 3%">
-<col style="width: 6%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">usageKey</th>
-<th style="text-align: left;">scientificName</th>
-<th style="text-align: left;">canonicalName</th>
-<th style="text-align: left;">authorship</th>
-<th style="text-align: left;">rank</th>
-<th style="text-align: left;">code</th>
-<th style="text-align: left;">status</th>
-<th style="text-align: left;">genericName</th>
-<th style="text-align: left;">specificEpithet</th>
-<th style="text-align: left;">type</th>
-<th style="text-align: left;">formattedName</th>
-<th style="text-align: left;">matchType</th>
-<th style="text-align: right;">confidence</th>
-<th style="text-align: right;">timeTaken</th>
-<th style="text-align: left;">domain</th>
-<th style="text-align: left;">kingdom</th>
-<th style="text-align: left;">phylum</th>
-<th style="text-align: left;">subphylum</th>
-<th style="text-align: left;">infraphylum</th>
-<th style="text-align: left;">parvphylum</th>
-<th style="text-align: left;">gigaclass</th>
-<th style="text-align: left;">superclass</th>
-<th style="text-align: left;">class</th>
-<th style="text-align: left;">order</th>
-<th style="text-align: left;">family</th>
-<th style="text-align: left;">genus</th>
-<th style="text-align: left;">species</th>
-<th style="text-align: left;">domainKey</th>
-<th style="text-align: left;">kingdomKey</th>
-<th style="text-align: left;">phylumKey</th>
-<th style="text-align: left;">subphylumKey</th>
-<th style="text-align: left;">infraphylumKey</th>
-<th style="text-align: left;">parvphylumKey</th>
-<th style="text-align: left;">gigaclassKey</th>
-<th style="text-align: left;">superclassKey</th>
-<th style="text-align: left;">classKey</th>
-<th style="text-align: left;">orderKey</th>
-<th style="text-align: left;">familyKey</th>
-<th style="text-align: left;">genusKey</th>
-<th style="text-align: left;">speciesKey</th>
-<th style="text-align: left;">value</th>
-<th style="text-align: left;">verbatim_name</th>
-<th style="text-align: left;">verbatim_checklistKey</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">64FQT</td>
-<td style="text-align: left;">Acanthurus lineatus (Linnaeus, 1758)</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: left;">(Linnaeus, 1758)</td>
-<td style="text-align: left;">SPECIES</td>
-<td style="text-align: left;">ZOOLOGICAL</td>
-<td style="text-align: left;">ACCEPTED</td>
-<td style="text-align: left;">Acanthurus</td>
-<td style="text-align: left;">lineatus</td>
-<td style="text-align: left;">SCIENTIFIC</td>
-<td style="text-align: left;"><i>Acanthurus</i> <i>lineatus</i> (Linnaeus, 1758)</td>
-<td style="text-align: left;">EXACT</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: left;">Eukaryota</td>
-<td style="text-align: left;">Animalia</td>
-<td style="text-align: left;">Chordata</td>
-<td style="text-align: left;">Vertebrata</td>
-<td style="text-align: left;">Gnathostomata</td>
-<td style="text-align: left;">Osteichthyes</td>
-<td style="text-align: left;">Actinopterygii</td>
-<td style="text-align: left;">Actinopteri</td>
-<td style="text-align: left;">Teleostei</td>
-<td style="text-align: left;">Acanthuriformes</td>
-<td style="text-align: left;">Acanthuridae</td>
-<td style="text-align: left;">Acanthurus</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: left;">CS5HF</td>
-<td style="text-align: left;">N</td>
-<td style="text-align: left;">CH2</td>
-<td style="text-align: left;">8V4V3</td>
-<td style="text-align: left;">8V4V5</td>
-<td style="text-align: left;">8VVWB</td>
-<td style="text-align: left;">8VR36</td>
-<td style="text-align: left;">KTWM8</td>
-<td style="text-align: left;">8V4VD</td>
-<td style="text-align: left;">KTZYT</td>
-<td style="text-align: left;">KTYZ3</td>
-<td style="text-align: left;">KTZYY</td>
-<td style="text-align: left;">64FQT</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: left;">7ddf754f-d193-4cc9-b351-99906754a03b</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p><br></p>
-<p><strong>Synonym name</strong></p>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
-<span id="cb138-2"><a href="" aria-label="2"></a></span>
-<span id="cb138-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
-<span id="cb138-4"><a href="" aria-label="4"></a></span>
-<span id="cb138-5"><a href="" aria-label="5"></a></span>
-<span id="cb138-6"><a href="" aria-label="6"></a><span class="do">## Check name in GBIF database ----</span></span>
-<span id="cb138-7"><a href="" aria-label="7"></a></span>
-<span id="cb138-8"><a href="" aria-label="8"></a>rgbif<span class="sc">::</span><span class="fu">name_backbone</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column" style="width:65%;">
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top">
-<colgroup>
-<col style="width: 1%">
-<col style="width: 5%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 7%">
-<col style="width: 2%">
-<col style="width: 5%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 3%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 0%">
-<col style="width: 2%">
-<col style="width: 5%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">usageKey</th>
-<th style="text-align: left;">scientificName</th>
-<th style="text-align: left;">canonicalName</th>
-<th style="text-align: left;">authorship</th>
-<th style="text-align: left;">rank</th>
-<th style="text-align: left;">code</th>
-<th style="text-align: left;">status</th>
-<th style="text-align: left;">genericName</th>
-<th style="text-align: left;">specificEpithet</th>
-<th style="text-align: left;">type</th>
-<th style="text-align: left;">formattedName</th>
-<th style="text-align: left;">acceptedUsageKey</th>
-<th style="text-align: left;">acceptedScientificName</th>
-<th style="text-align: left;">matchType</th>
-<th style="text-align: right;">confidence</th>
-<th style="text-align: right;">timeTaken</th>
-<th style="text-align: left;">domain</th>
-<th style="text-align: left;">kingdom</th>
-<th style="text-align: left;">phylum</th>
-<th style="text-align: left;">subphylum</th>
-<th style="text-align: left;">infraphylum</th>
-<th style="text-align: left;">parvphylum</th>
-<th style="text-align: left;">gigaclass</th>
-<th style="text-align: left;">superclass</th>
-<th style="text-align: left;">class</th>
-<th style="text-align: left;">order</th>
-<th style="text-align: left;">family</th>
-<th style="text-align: left;">genus</th>
-<th style="text-align: left;">species</th>
-<th style="text-align: left;">domainKey</th>
-<th style="text-align: left;">kingdomKey</th>
-<th style="text-align: left;">phylumKey</th>
-<th style="text-align: left;">subphylumKey</th>
-<th style="text-align: left;">infraphylumKey</th>
-<th style="text-align: left;">parvphylumKey</th>
-<th style="text-align: left;">gigaclassKey</th>
-<th style="text-align: left;">superclassKey</th>
-<th style="text-align: left;">classKey</th>
-<th style="text-align: left;">orderKey</th>
-<th style="text-align: left;">familyKey</th>
-<th style="text-align: left;">genusKey</th>
-<th style="text-align: left;">speciesKey</th>
-<th style="text-align: left;">value</th>
-<th style="text-align: left;">verbatim_name</th>
-<th style="text-align: left;">verbatim_checklistKey</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">325RG</td>
-<td style="text-align: left;">Ctenodon lineatus (Linnaeus, 1758)</td>
-<td style="text-align: left;">Ctenodon lineatus</td>
-<td style="text-align: left;">(Linnaeus, 1758)</td>
-<td style="text-align: left;">SPECIES</td>
-<td style="text-align: left;">ZOOLOGICAL</td>
-<td style="text-align: left;">SYNONYM</td>
-<td style="text-align: left;">Ctenodon</td>
-<td style="text-align: left;">lineatus</td>
-<td style="text-align: left;">SCIENTIFIC</td>
-<td style="text-align: left;"><i>Ctenodon</i> <i>lineatus</i> (Linnaeus, 1758)</td>
-<td style="text-align: left;">64FQT</td>
-<td style="text-align: left;">Acanthurus lineatus (Linnaeus, 1758)</td>
-<td style="text-align: left;">EXACT</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">Eukaryota</td>
-<td style="text-align: left;">Animalia</td>
-<td style="text-align: left;">Chordata</td>
-<td style="text-align: left;">Vertebrata</td>
-<td style="text-align: left;">Gnathostomata</td>
-<td style="text-align: left;">Osteichthyes</td>
-<td style="text-align: left;">Actinopterygii</td>
-<td style="text-align: left;">Actinopteri</td>
-<td style="text-align: left;">Teleostei</td>
-<td style="text-align: left;">Acanthuriformes</td>
-<td style="text-align: left;">Acanthuridae</td>
-<td style="text-align: left;">Acanthurus</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: left;">CS5HF</td>
-<td style="text-align: left;">N</td>
-<td style="text-align: left;">CH2</td>
-<td style="text-align: left;">8V4V3</td>
-<td style="text-align: left;">8V4V5</td>
-<td style="text-align: left;">8VVWB</td>
-<td style="text-align: left;">8VR36</td>
-<td style="text-align: left;">KTWM8</td>
-<td style="text-align: left;">8V4VD</td>
-<td style="text-align: left;">KTZYT</td>
-<td style="text-align: left;">KTYZ3</td>
-<td style="text-align: left;">KTZYY</td>
-<td style="text-align: left;">64FQT</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">Ctenodon lineatus</td>
-<td style="text-align: left;">7ddf754f-d193-4cc9-b351-99906754a03b</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div></div>
-</div>
-<div class="fragment">
-<p><br></p>
-<p><strong>Mispelled name</strong></p>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
-<span id="cb139-2"><a href="" aria-label="2"></a></span>
-<span id="cb139-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineat"</span></span>
-<span id="cb139-4"><a href="" aria-label="4"></a></span>
-<span id="cb139-5"><a href="" aria-label="5"></a></span>
-<span id="cb139-6"><a href="" aria-label="6"></a><span class="do">## Check name in GBIF database ----</span></span>
-<span id="cb139-7"><a href="" aria-label="7"></a></span>
-<span id="cb139-8"><a href="" aria-label="8"></a>rgbif<span class="sc">::</span><span class="fu">name_suggest</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column" style="width:65%;">
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;">key</th>
-<th style="text-align: left;">canonicalName</th>
-<th style="text-align: left;">rank</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">5209245</td>
-<td style="text-align: left;">Ctenodon lineatus</td>
-<td style="text-align: left;">SPECIES</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">11237552</td>
-<td style="text-align: left;">Ctenodonta lineata</td>
-<td style="text-align: left;">SPECIES</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section id="worrms-example" class="slide level2">
-<h2><code>worrms</code> example</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="images/worrms-screenshot.png"></p>
-</div><div class="column" style="width:50%;">
-<p><br></p>
-<p>Available at: <a href="https://docs.ropensci.org/worrms/index.html" class="uri">https://docs.ropensci.org/worrms/index.html</a></p>
-<p><br></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="" aria-label="1"></a><span class="co"># Install 'worrms' package ----</span></span>
-<span id="cb140-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"worrms"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div></div>
-</section>
-<section id="worrms-example-1" class="slide level2">
-<h2><code>worrms</code> example</h2>
-<p><strong>Accepted name</strong></p>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
-<span id="cb141-2"><a href="" aria-label="2"></a></span>
-<span id="cb141-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Acanthurus lineatus"</span></span>
-<span id="cb141-4"><a href="" aria-label="4"></a></span>
-<span id="cb141-5"><a href="" aria-label="5"></a></span>
-<span id="cb141-6"><a href="" aria-label="6"></a><span class="do">## Check name in WORMS database ----</span></span>
-<span id="cb141-7"><a href="" aria-label="7"></a></span>
-<span id="cb141-8"><a href="" aria-label="8"></a>worrms<span class="sc">::</span><span class="fu">wm_records_name</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column" style="width:65%;">
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top" style="width:100%;">
-<colgroup>
-<col style="width: 1%">
-<col style="width: 9%">
-<col style="width: 3%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 3%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 3%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 33%">
-<col style="width: 6%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 3%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">AphiaID</th>
-<th style="text-align: left;">url</th>
-<th style="text-align: left;">scientificname</th>
-<th style="text-align: left;">authority</th>
-<th style="text-align: left;">status</th>
-<th style="text-align: left;">unacceptreason</th>
-<th style="text-align: right;">taxonRankID</th>
-<th style="text-align: left;">rank</th>
-<th style="text-align: right;">valid_AphiaID</th>
-<th style="text-align: left;">valid_name</th>
-<th style="text-align: left;">valid_authority</th>
-<th style="text-align: right;">parentNameUsageID</th>
-<th style="text-align: right;">originalNameUsageID</th>
-<th style="text-align: left;">kingdom</th>
-<th style="text-align: left;">phylum</th>
-<th style="text-align: left;">class</th>
-<th style="text-align: left;">order</th>
-<th style="text-align: left;">family</th>
-<th style="text-align: left;">genus</th>
-<th style="text-align: left;">citation</th>
-<th style="text-align: left;">lsid</th>
-<th style="text-align: right;">isMarine</th>
-<th style="text-align: right;">isBrackish</th>
-<th style="text-align: right;">isFreshwater</th>
-<th style="text-align: right;">isTerrestrial</th>
-<th style="text-align: left;">isExtinct</th>
-<th style="text-align: left;">match_type</th>
-<th style="text-align: left;">modified</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">159582</td>
-<td style="text-align: left;">https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=159582</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: left;">(Linnaeus, 1758)</td>
-<td style="text-align: left;">accepted</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">220</td>
-<td style="text-align: left;">Species</td>
-<td style="text-align: right;">159582</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: left;">(Linnaeus, 1758)</td>
-<td style="text-align: right;">125908</td>
-<td style="text-align: right;">302692</td>
-<td style="text-align: left;">Animalia</td>
-<td style="text-align: left;">Chordata</td>
-<td style="text-align: left;">Teleostei</td>
-<td style="text-align: left;">Acanthuriformes</td>
-<td style="text-align: left;">Acanthuridae</td>
-<td style="text-align: left;">Acanthurus</td>
-<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2026). FishBase. Acanthurus lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=159582 on 2026-10-28</td>
-<td style="text-align: left;">urn:lsid:marinespecies.org:taxname:159582</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">like</td>
-<td style="text-align: left;">2008-01-15T17:27:08.177Z</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p><br></p>
-<p><strong>Synonym name</strong></p>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
-<span id="cb142-2"><a href="" aria-label="2"></a></span>
-<span id="cb142-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
-<span id="cb142-4"><a href="" aria-label="4"></a></span>
-<span id="cb142-5"><a href="" aria-label="5"></a></span>
-<span id="cb142-6"><a href="" aria-label="6"></a><span class="do">## Check name in WORMS database ----</span></span>
-<span id="cb142-7"><a href="" aria-label="7"></a></span>
-<span id="cb142-8"><a href="" aria-label="8"></a>worrms<span class="sc">::</span><span class="fu">wm_records_name</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column" style="width:65%;">
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top" style="width:100%;">
-<colgroup>
-<col style="width: 1%">
-<col style="width: 9%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 3%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 3%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 33%">
-<col style="width: 6%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 3%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">AphiaID</th>
-<th style="text-align: left;">url</th>
-<th style="text-align: left;">scientificname</th>
-<th style="text-align: left;">authority</th>
-<th style="text-align: left;">status</th>
-<th style="text-align: left;">unacceptreason</th>
-<th style="text-align: right;">taxonRankID</th>
-<th style="text-align: left;">rank</th>
-<th style="text-align: right;">valid_AphiaID</th>
-<th style="text-align: left;">valid_name</th>
-<th style="text-align: left;">valid_authority</th>
-<th style="text-align: right;">parentNameUsageID</th>
-<th style="text-align: right;">originalNameUsageID</th>
-<th style="text-align: left;">kingdom</th>
-<th style="text-align: left;">phylum</th>
-<th style="text-align: left;">class</th>
-<th style="text-align: left;">order</th>
-<th style="text-align: left;">family</th>
-<th style="text-align: left;">genus</th>
-<th style="text-align: left;">citation</th>
-<th style="text-align: left;">lsid</th>
-<th style="text-align: right;">isMarine</th>
-<th style="text-align: right;">isBrackish</th>
-<th style="text-align: right;">isFreshwater</th>
-<th style="text-align: right;">isTerrestrial</th>
-<th style="text-align: left;">isExtinct</th>
-<th style="text-align: left;">match_type</th>
-<th style="text-align: left;">modified</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">317534</td>
-<td style="text-align: left;">https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=317534</td>
-<td style="text-align: left;">Ctenodon lineatus</td>
-<td style="text-align: left;">(Linnaeus, 1758)</td>
-<td style="text-align: left;">unaccepted</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">220</td>
-<td style="text-align: left;">Species</td>
-<td style="text-align: right;">159582</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: left;">(Linnaeus, 1758)</td>
-<td style="text-align: right;">296440</td>
-<td style="text-align: right;">302692</td>
-<td style="text-align: left;">Animalia</td>
-<td style="text-align: left;">Chordata</td>
-<td style="text-align: left;">Teleostei</td>
-<td style="text-align: left;">Acanthuriformes</td>
-<td style="text-align: left;">Acanthuridae</td>
-<td style="text-align: left;">Ctenodon</td>
-<td style="text-align: left;">Froese, R. and D. Pauly. Editors. (2026). FishBase. Ctenodon lineatus (Linnaeus, 1758). Accessed through: World Register of Marine Species at: https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=317534 on 2026-10-28</td>
-<td style="text-align: left;">urn:lsid:marinespecies.org:taxname:317534</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">like</td>
-<td style="text-align: left;">2008-02-28T13:41:07.550Z</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section id="worrms-example-2" class="slide level2">
-<h2><code>worrms</code> example</h2>
-<p><strong>Classification</strong></p>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="" aria-label="1"></a><span class="do">## Get classification from AphiaID ----</span></span>
-<span id="cb143-2"><a href="" aria-label="2"></a></span>
-<span id="cb143-3"><a href="" aria-label="3"></a>worrms<span class="sc">::</span><span class="fu">wm_classification</span>(<span class="at">id =</span> <span class="dv">159582</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column" style="width:65%;">
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;">AphiaID</th>
-<th style="text-align: left;">rank</th>
-<th style="text-align: left;">scientificname</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Kingdom</td>
-<td style="text-align: left;">Animalia</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1821</td>
-<td style="text-align: left;">Phylum</td>
-<td style="text-align: left;">Chordata</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">146419</td>
-<td style="text-align: left;">Subphylum</td>
-<td style="text-align: left;">Vertebrata</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1828</td>
-<td style="text-align: left;">Infraphylum</td>
-<td style="text-align: left;">Gnathostomata</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">152352</td>
-<td style="text-align: left;">Parvphylum</td>
-<td style="text-align: left;">Osteichthyes</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">10194</td>
-<td style="text-align: left;">Gigaclass</td>
-<td style="text-align: left;">Actinopterygii</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">843664</td>
-<td style="text-align: left;">Superclass</td>
-<td style="text-align: left;">Actinopteri</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">293496</td>
-<td style="text-align: left;">Class</td>
-<td style="text-align: left;">Teleostei</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1517548</td>
-<td style="text-align: left;">Order</td>
-<td style="text-align: left;">Acanthuriformes</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">125515</td>
-<td style="text-align: left;">Family</td>
-<td style="text-align: left;">Acanthuridae</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">125908</td>
-<td style="text-align: left;">Genus</td>
-<td style="text-align: left;">Acanthurus</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">159582</td>
-<td style="text-align: left;">Species</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div></div>
-</section>
-<section id="rotl-example" class="slide level2">
-<h2><code>rotl</code> example</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="images/rotl-screenshot.png"></p>
-</div><div class="column" style="width:50%;">
-<p><br></p>
-<p>Available at: <a href="https://docs.ropensci.org/rotl/index.html" class="uri">https://docs.ropensci.org/rotl/index.html</a></p>
-<p><br></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="" aria-label="1"></a><span class="co"># Install 'rotl' package ----</span></span>
-<span id="cb144-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"rotl"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div></div>
-</section>
-<section id="rotl-example-1" class="slide level2">
-<h2><code>rotl</code> example</h2>
-<p><strong>Accepted name</strong></p>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
-<span id="cb145-2"><a href="" aria-label="2"></a></span>
-<span id="cb145-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Acanthurus lineatus"</span></span>
-<span id="cb145-4"><a href="" aria-label="4"></a></span>
-<span id="cb145-5"><a href="" aria-label="5"></a></span>
-<span id="cb145-6"><a href="" aria-label="6"></a><span class="do">## Check name in OTL database ----</span></span>
-<span id="cb145-7"><a href="" aria-label="7"></a></span>
-<span id="cb145-8"><a href="" aria-label="8"></a>rotl<span class="sc">::</span><span class="fu">tnrs_match_names</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column" style="width:65%;">
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top" style="width:100%;">
-<colgroup>
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 17%">
-<col style="width: 5%">
-<col style="width: 6%">
-<col style="width: 10%">
-<col style="width: 5%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">search_string</th>
-<th style="text-align: left;">unique_name</th>
-<th style="text-align: left;">approximate_match</th>
-<th style="text-align: right;">score</th>
-<th style="text-align: right;">ott_id</th>
-<th style="text-align: left;">is_synonym</th>
-<th style="text-align: left;">flags</th>
-<th style="text-align: right;">number_matches</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">acanthurus lineatus</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">93141</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;"></td>
-<td style="text-align: right;">1</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p><br></p>
-<p><strong>Synonym name</strong></p>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
-<span id="cb146-2"><a href="" aria-label="2"></a></span>
-<span id="cb146-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
-<span id="cb146-4"><a href="" aria-label="4"></a></span>
-<span id="cb146-5"><a href="" aria-label="5"></a></span>
-<span id="cb146-6"><a href="" aria-label="6"></a><span class="do">## Check name in OTL database ----</span></span>
-<span id="cb146-7"><a href="" aria-label="7"></a></span>
-<span id="cb146-8"><a href="" aria-label="8"></a>rotl<span class="sc">::</span><span class="fu">tnrs_match_names</span>(species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column" style="width:65%;">
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 19%">
-<col style="width: 17%">
-<col style="width: 5%">
-<col style="width: 6%">
-<col style="width: 10%">
-<col style="width: 5%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">search_string</th>
-<th style="text-align: left;">unique_name</th>
-<th style="text-align: left;">approximate_match</th>
-<th style="text-align: right;">score</th>
-<th style="text-align: right;">ott_id</th>
-<th style="text-align: left;">is_synonym</th>
-<th style="text-align: left;">flags</th>
-<th style="text-align: right;">number_matches</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">ctenodon lineatus</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">93141</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;"></td>
-<td style="text-align: right;">1</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section id="a-unified-pipeline" class="slide level2">
-<h2>A unified pipeline</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="" aria-label="1"></a><span class="do">## Species to look for ----</span></span>
-<span id="cb147-2"><a href="" aria-label="2"></a></span>
-<span id="cb147-3"><a href="" aria-label="3"></a>species <span class="ot">&lt;-</span> <span class="st">"Ctenodon lineatus"</span></span>
-<span id="cb147-4"><a href="" aria-label="4"></a></span>
-<span id="cb147-5"><a href="" aria-label="5"></a></span>
-<span id="cb147-6"><a href="" aria-label="6"></a><span class="do">## Check name in GBIF database ----</span></span>
-<span id="cb147-7"><a href="" aria-label="7"></a></span>
-<span id="cb147-8"><a href="" aria-label="8"></a>gbif <span class="ot">&lt;-</span> rgbif<span class="sc">::</span><span class="fu">name_backbone</span>(species) <span class="sc">|&gt;</span> </span>
-<span id="cb147-9"><a href="" aria-label="9"></a>  </span>
-<span id="cb147-10"><a href="" aria-label="10"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(species, acceptedUsageKey) <span class="sc">|&gt;</span> </span>
-<span id="cb147-11"><a href="" aria-label="11"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">gbif_acc_name =</span> species,</span>
-<span id="cb147-12"><a href="" aria-label="12"></a>                <span class="at">gbif_acc_id   =</span> acceptedUsageKey)</span>
-<span id="cb147-13"><a href="" aria-label="13"></a></span>
-<span id="cb147-14"><a href="" aria-label="14"></a></span>
-<span id="cb147-15"><a href="" aria-label="15"></a><span class="do">## Check name in WORMS database ----</span></span>
-<span id="cb147-16"><a href="" aria-label="16"></a></span>
-<span id="cb147-17"><a href="" aria-label="17"></a>worms <span class="ot">&lt;-</span> worrms<span class="sc">::</span><span class="fu">wm_records_name</span>(species) <span class="sc">|&gt;</span> </span>
-<span id="cb147-18"><a href="" aria-label="18"></a>  </span>
-<span id="cb147-19"><a href="" aria-label="19"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(valid_name, valid_AphiaID) <span class="sc">|&gt;</span> </span>
-<span id="cb147-20"><a href="" aria-label="20"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">worms_acc_name =</span> valid_name,</span>
-<span id="cb147-21"><a href="" aria-label="21"></a>                <span class="at">worms_acc_id   =</span> valid_AphiaID)</span>
-<span id="cb147-22"><a href="" aria-label="22"></a></span>
-<span id="cb147-23"><a href="" aria-label="23"></a></span>
-<span id="cb147-24"><a href="" aria-label="24"></a><span class="do">## Check name in OTL database ----</span></span>
-<span id="cb147-25"><a href="" aria-label="25"></a></span>
-<span id="cb147-26"><a href="" aria-label="26"></a>otl <span class="ot">&lt;-</span> rotl<span class="sc">::</span><span class="fu">tnrs_match_names</span>(species) <span class="sc">|&gt;</span> </span>
-<span id="cb147-27"><a href="" aria-label="27"></a>  </span>
-<span id="cb147-28"><a href="" aria-label="28"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(unique_name, ott_id) <span class="sc">|&gt;</span> </span>
-<span id="cb147-29"><a href="" aria-label="29"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">otl_acc_name =</span> unique_name,</span>
-<span id="cb147-30"><a href="" aria-label="30"></a>                <span class="at">otl_acc_id   =</span> ott_id)</span>
-<span id="cb147-31"><a href="" aria-label="31"></a></span>
-<span id="cb147-32"><a href="" aria-label="32"></a></span>
-<span id="cb147-33"><a href="" aria-label="33"></a><span class="do">## Append results ----</span></span>
-<span id="cb147-34"><a href="" aria-label="34"></a></span>
-<span id="cb147-35"><a href="" aria-label="35"></a><span class="fu">data.frame</span>(<span class="st">"original_name"</span> <span class="ot">=</span> species, gbif, worms, otl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column" style="width:60%;">
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top" style="width:100%;">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 17%">
-<col style="width: 10%">
-<col style="width: 17%">
-<col style="width: 11%">
-<col style="width: 17%">
-<col style="width: 9%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">original_name</th>
-<th style="text-align: left;">gbif_acc_name</th>
-<th style="text-align: left;">gbif_acc_id</th>
-<th style="text-align: left;">worms_acc_name</th>
-<th style="text-align: right;">worms_acc_id</th>
-<th style="text-align: left;">otl_acc_name</th>
-<th style="text-align: right;">otl_acc_id</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ctenodon lineatus</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: left;">64FQT</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: right;">159582</td>
-<td style="text-align: left;">Acanthurus lineatus</td>
-<td style="text-align: right;">93141</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div></div>
-</section>
-<section id="see-also" class="slide level2">
-<h2>See also</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="images/taxize-screenshot.png"></p>
-<p>Available at: <a href="https://docs.ropensci.org/taxize/" class="uri">https://docs.ropensci.org/taxize/</a></p>
-<p><br></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="" aria-label="1"></a><span class="co"># Install 'taxize' package ----</span></span>
-<span id="cb148-2"><a href="" aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"taxize"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column center" style="width:50%;">
-<p><img data-src="images/taxize-datasources.png" style="width:80.0%"></p>
-</div></div>
 <!-- Insert section 'Exercise' -->
 </section></section>
 <section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d636c6f636b2073697a653d3178203e7d7d-exercise-2-20-min" class="title-slide slide level1 center">
-<h1><i class="fa-solid fa-user-clock fa-1x" aria-label="user-clock"></i> &nbsp;&nbsp;Exercise 2 (20 min)</h1>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d636c6f636b2073697a653d3178203e7d7d-exercise-30-min" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-user-clock fa-1x" aria-label="user-clock"></i> &nbsp;&nbsp;Exercise (30 min)</h1>
 
 </section>
-<section id="exercise-2" class="slide level2">
-<h2>Exercise 2</h2>
-<h4 id="part-1-merge-herbarium-and-gbif-data"><strong>Part 1</strong>: Merge herbarium and GBIF data</h4>
-<blockquote>
-<p>Remember Excercise 1 : our goal is to complete the herbarium data with extra field observations from GBIF. We downloaded both datasets, but before we can merge them together, we need to homogenize column names and make sure the column contents are compatible (format, units, etc).</p>
-</blockquote>
-<ul>
-<li>Load the herbarium data and the GBIF occurrences into R and inspect the formats. What needs to be cleaned ? <br></li>
-</ul>
-<blockquote>
-<p><i class="fa-solid fa-lightbulb" aria-label="lightbulb"></i> &nbsp; To convert latitude coordinates from DMS (Days Minutes Seconds) to decimal degrees, use the <code>parzer::parse_lat()</code> function.</p>
-</blockquote>
+<section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+<p>Remember the <a href="https://biodiversitydata.github.io/data-access/#/exercise"><strong>previous exercise</strong></a>. We worked with two datasets: the <strong>herbarium</strong> data the <strong>GBIF occurrences</strong>. In this exercise, we are going to <strong>clean</strong> each dataset and <strong>merge</strong> them into a single dataset.</p>
+<p><br><br></p>
+<div class="columns">
+<div class="column fragment" style="width:50%;">
+<h4 id="part-1---clean-herbarium-data"><strong>Part 1 - Clean herbarium data</strong></h4>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Import the csv file</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Clean the column names (w/ <code>janitor</code>)</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Select the columns <code>country_col</code>, <code>full_name</code>, <code>lon</code> &amp; <code>lat</code></p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Clean the column <code>country_col</code> (remove whitespaces)</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Clean the column <code>full_name</code> (remove whitespaces)</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Clean the column <code>lon</code> (w/ <a href="https://docs.ropensci.org/parzer/reference/parse_lon.html"><code>parzer::parse_lon()</code></a>)</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Clean the column <code>lat</code> (w/ <a href="https://docs.ropensci.org/parzer/reference/parse_lat.html"><code>parzer::parse_lat()</code></a>)</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Filter data for <em>Catopsis sessiliflora</em> and <em>C. nutans</em></p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Check each column</p>
+</div><div class="column fragment" style="width:50%;">
+<h4 id="part-2---clean-gbif-occurrences"><strong>Part 2 - Clean GBIF occurrences</strong></h4>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Import the csv file</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Clean the column names (w/ <code>janitor</code>)</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Clean the column <code>scientific_name</code> (remove author &amp; variety)</p>
 <p><br></p>
-<h4 id="part-2-plot-the-combined-observations-on-a-map"><strong>Part 2</strong>: Plot the combined observations on a map</h4>
-<ul>
-<li><p>Use the <code>sf</code> pacakge to transform the datapoints into an sf object. &gt; <i class="fa-solid fa-lightbulb" aria-label="lightbulb"></i> &nbsp; Use the 4326 projection as coordinate refence system (crs).</p></li>
-<li><p>Use the <code>mapview</code> package to produce an interactive map and vizalise the plant occurrences. What can you see ?</p></li>
-<li><p>Bonus question : instead of <code>mapview</code>, use the <code>rnaturalearth</code> package combined with <code>ggplot</code>, and export the map.</p></li>
-</ul>
+<div class="fragment">
+<h4 id="part-3---row-bind-the-two-datasets"><strong>Part 3 - Row bind the two datasets</strong></h4>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Row bind the two datasets</p>
+</div>
+</div></div>
 </section>
-<section id="correction-part-1" class="slide level2">
-<h2>Correction part 1</h2>
+<section id="exercise-bonus" class="slide level2">
+<h2>Exercise (bonus)</h2>
+<p>Remember the <a href="https://biodiversitydata.github.io/data-access/#/exercise"><strong>previous exercise</strong></a>. We worked with two datasets: the <strong>herbarium</strong> data the <strong>GBIF occurrences</strong>. In this exercise, we are going to <strong>clean</strong> each dataset and <strong>merge</strong> them into a single dataset.</p>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="part-4---check-coordinates"><strong>Part 4 - Check coordinates</strong></h4>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Some coordinates are outside Guatemala. Remove these data by filtering coordinates w/ the spatial extent of Guatemala:</p>
+<ul>
+<li>Longitude min = <code>-92.22925</code></li>
+<li>Longitude max = <code>-88.22502</code></li>
+<li>Latitude min = <code>13.73534</code></li>
+<li>Latitude max = <code>17.81933</code></li>
+</ul>
+</div><div class="column fragment" style="width:50%;">
+<h4 id="part-5---map-occurrences"><strong>Part 5 - Map occurrences</strong></h4>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Convert the data.frame in a spatial vector (package <code>sf</code>) defined under the CRS <code>EPSG 4326</code></p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Get spatial boundaries of Guatemala (w/ <code>rnaturalearth::ne_countries()</code>)</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Make a map w/ <code>ggplot2</code></p>
+</div></div>
+</section></section>
+<section>
+<section id="section" class="title-slide slide level1 center">
+<h1></h1>
+
+</section>
+<section id="correction" class="slide level2">
+<h2>Correction</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<h4 id="part-1---clean-herbarium-data-1"><strong>Part 1 - Clean herbarium data</strong></h4>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="" aria-label="1"></a><span class="do">## Load GBIF occurrences ----</span></span>
-<span id="cb149-2"><a href="" aria-label="2"></a>occ <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"gbif_occurrences.csv"</span>)</span>
-<span id="cb149-3"><a href="" aria-label="3"></a></span>
-<span id="cb149-4"><a href="" aria-label="4"></a><span class="do">## Load herbarium data ----</span></span>
-<span id="cb149-5"><a href="" aria-label="5"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"herbier_gbif.csv"</span>)</span>
-<span id="cb149-6"><a href="" aria-label="6"></a></span>
-<span id="cb149-7"><a href="" aria-label="7"></a><span class="do">## Harmonize column names</span></span>
-<span id="cb149-8"><a href="" aria-label="8"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
-<span id="cb149-9"><a href="" aria-label="9"></a>occ <span class="ot">&lt;-</span> occ <span class="sc">|&gt;</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="" aria-label="1"></a><span class="do">## Import herbarium data ----</span></span>
+<span id="cb136-2"><a href="" aria-label="2"></a>herbarium <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"UC1-3c-open-refine.csv"</span>)</span>
+<span id="cb136-3"><a href="" aria-label="3"></a></span>
+<span id="cb136-4"><a href="" aria-label="4"></a><span class="do">## Clean data ----</span></span>
+<span id="cb136-5"><a href="" aria-label="5"></a>herbarium <span class="ot">&lt;-</span> herbarium <span class="sc">|&gt;</span></span>
+<span id="cb136-6"><a href="" aria-label="6"></a></span>
+<span id="cb136-7"><a href="" aria-label="7"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb136-8"><a href="" aria-label="8"></a></span>
+<span id="cb136-9"><a href="" aria-label="9"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(country_col, full_name, lat, lon) <span class="sc">|&gt;</span></span>
+<span id="cb136-10"><a href="" aria-label="10"></a></span>
+<span id="cb136-11"><a href="" aria-label="11"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">country_col =</span> stringr<span class="sc">::</span><span class="fu">str_squish</span>(country_col)) <span class="sc">|&gt;</span></span>
+<span id="cb136-12"><a href="" aria-label="12"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">full_name =</span> stringr<span class="sc">::</span><span class="fu">str_squish</span>(full_name)) <span class="sc">|&gt;</span></span>
+<span id="cb136-13"><a href="" aria-label="13"></a></span>
+<span id="cb136-14"><a href="" aria-label="14"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">lon =</span> parzer<span class="sc">::</span><span class="fu">parse_lon</span>(lon)) <span class="sc">|&gt;</span></span>
+<span id="cb136-15"><a href="" aria-label="15"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">lat =</span> parzer<span class="sc">::</span><span class="fu">parse_lat</span>(lat)) <span class="sc">|&gt;</span></span>
+<span id="cb136-16"><a href="" aria-label="16"></a></span>
+<span id="cb136-17"><a href="" aria-label="17"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb136-18"><a href="" aria-label="18"></a>    full_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Catopsis sessiliflora"</span>, <span class="st">"Catopsis nutans"</span>)</span>
+<span id="cb136-19"><a href="" aria-label="19"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
+<div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="" aria-label="1"></a><span class="do">## Herbarium data : remove columns we don't need and focus on the 2 selected species ----</span></span>
-<span id="cb150-2"><a href="" aria-label="2"></a>df2 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
-<span id="cb150-3"><a href="" aria-label="3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(country_col, full_name, lat, lon) <span class="sc">|&gt;</span></span>
-<span id="cb150-4"><a href="" aria-label="4"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(full_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Catopsis sessiliflora"</span>, <span class="st">"Catopsis nutans"</span>))</span>
-<span id="cb150-5"><a href="" aria-label="5"></a></span>
-<span id="cb150-6"><a href="" aria-label="6"></a><span class="do">## Check</span></span>
-<span id="cb150-7"><a href="" aria-label="7"></a><span class="fu">str</span>(df2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="" aria-label="1"></a><span class="do">## Check data ----</span></span>
+<span id="cb137-2"><a href="" aria-label="2"></a><span class="fu">anyNA</span>(herbarium<span class="sc">$</span>country_col)</span>
+<span id="cb137-3"><a href="" aria-label="3"></a><span class="fu">unique</span>(herbarium<span class="sc">$</span>country_col)</span>
+<span id="cb137-4"><a href="" aria-label="4"></a></span>
+<span id="cb137-5"><a href="" aria-label="5"></a><span class="fu">anyNA</span>(herbarium<span class="sc">$</span>full_name)</span>
+<span id="cb137-6"><a href="" aria-label="6"></a><span class="fu">unique</span>(herbarium<span class="sc">$</span>full_name)</span>
+<span id="cb137-7"><a href="" aria-label="7"></a></span>
+<span id="cb137-8"><a href="" aria-label="8"></a><span class="fu">anyNA</span>(herbarium<span class="sc">$</span>lon)</span>
+<span id="cb137-9"><a href="" aria-label="9"></a><span class="fu">range</span>(herbarium<span class="sc">$</span>lon)</span>
+<span id="cb137-10"><a href="" aria-label="10"></a></span>
+<span id="cb137-11"><a href="" aria-label="11"></a><span class="fu">anyNA</span>(herbarium<span class="sc">$</span>lat)</span>
+<span id="cb137-12"><a href="" aria-label="12"></a><span class="fu">range</span>(herbarium<span class="sc">$</span>lat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<blockquote>
-<p>The herbarium dataset structure and column names are OK, but latitude and longitude are not consistent : coordinates are somtimes in DMS format (degree - minutes - seconds, e.g.&nbsp;5° 35’ 12" N) instead of decimal degrees (e.g.&nbsp;17.3187987).</p>
-</blockquote>
+</div>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column fragment" style="width:48%;">
+<h4 id="part-2---clean-gbif-occurrences-1"><strong>Part 2 - Clean GBIF occurrences</strong></h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="" aria-label="1"></a><span class="do">## Import GBIF occurrences data ----</span></span>
+<span id="cb138-2"><a href="" aria-label="2"></a>gbif_occ <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"gbif_occurrences.xlsx"</span>)</span>
+<span id="cb138-3"><a href="" aria-label="3"></a></span>
+<span id="cb138-4"><a href="" aria-label="4"></a><span class="do">## Clean data ----</span></span>
+<span id="cb138-5"><a href="" aria-label="5"></a>gbif_occ <span class="ot">&lt;-</span> gbif_occ <span class="sc">|&gt;</span></span>
+<span id="cb138-6"><a href="" aria-label="6"></a></span>
+<span id="cb138-7"><a href="" aria-label="7"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb138-8"><a href="" aria-label="8"></a></span>
+<span id="cb138-9"><a href="" aria-label="9"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb138-10"><a href="" aria-label="10"></a>    <span class="at">scientific_name =</span> stringr<span class="sc">::</span><span class="fu">str_replace</span>(</span>
+<span id="cb138-11"><a href="" aria-label="11"></a>      scientific_name,</span>
+<span id="cb138-12"><a href="" aria-label="12"></a>      <span class="st">"^([[:alpha:]]+</span><span class="sc">\\</span><span class="st">s+[[:alpha:]]+).*"</span>,</span>
+<span id="cb138-13"><a href="" aria-label="13"></a>      <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span></span>
+<span id="cb138-14"><a href="" aria-label="14"></a>    )</span>
+<span id="cb138-15"><a href="" aria-label="15"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="" aria-label="1"></a><span class="do">## Check data ----</span></span>
+<span id="cb139-2"><a href="" aria-label="2"></a><span class="fu">anyNA</span>(gbif_occ<span class="sc">$</span>scientific_name)</span>
+<span id="cb139-3"><a href="" aria-label="3"></a><span class="fu">unique</span>(gbif_occ<span class="sc">$</span>scientific_name)</span>
+<span id="cb139-4"><a href="" aria-label="4"></a></span>
+<span id="cb139-5"><a href="" aria-label="5"></a><span class="fu">anyNA</span>(gbif_occ<span class="sc">$</span>country)</span>
+<span id="cb139-6"><a href="" aria-label="6"></a><span class="fu">unique</span>(gbif_occ<span class="sc">$</span>country)</span>
+<span id="cb139-7"><a href="" aria-label="7"></a></span>
+<span id="cb139-8"><a href="" aria-label="8"></a><span class="fu">anyNA</span>(gbif_occ<span class="sc">$</span>decimal_longitude)</span>
+<span id="cb139-9"><a href="" aria-label="9"></a><span class="fu">range</span>(gbif_occ<span class="sc">$</span>decimal_longitude)</span>
+<span id="cb139-10"><a href="" aria-label="10"></a></span>
+<span id="cb139-11"><a href="" aria-label="11"></a><span class="fu">anyNA</span>(gbif_occ<span class="sc">$</span>decimal_latitude)</span>
+<span id="cb139-12"><a href="" aria-label="12"></a><span class="fu">range</span>(gbif_occ<span class="sc">$</span>decimal_latitude)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div></div>
 </section>
-<section id="correction-part-1-1" class="slide level2">
-<h2>Correction part 1</h2>
+<section id="correction-1" class="slide level2">
+<h2>Correction</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<h4 id="part-3---row-bind-the-two-datasets-1"><strong>Part 3 - Row bind the two datasets</strong></h4>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="" aria-label="1"></a><span class="do">## The parzer package converts them automatically ----</span></span>
-<span id="cb151-2"><a href="" aria-label="2"></a>df2<span class="sc">$</span>lat <span class="ot">&lt;-</span> parzer<span class="sc">::</span><span class="fu">parse_lat</span>(df2<span class="sc">$</span>lat) </span>
-<span id="cb151-3"><a href="" aria-label="3"></a>df2<span class="sc">$</span>lon <span class="ot">&lt;-</span> parzer<span class="sc">::</span><span class="fu">parse_lon</span>(df2<span class="sc">$</span>lon) </span>
-<span id="cb151-4"><a href="" aria-label="4"></a></span>
-<span id="cb151-5"><a href="" aria-label="5"></a><span class="fu">str</span>(df2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="" aria-label="1"></a><span class="do">## Rename herbarium columns ----</span></span>
+<span id="cb140-2"><a href="" aria-label="2"></a>herbarium <span class="ot">&lt;-</span> herbarium <span class="sc">|&gt;</span></span>
+<span id="cb140-3"><a href="" aria-label="3"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(</span>
+<span id="cb140-4"><a href="" aria-label="4"></a>    <span class="at">country =</span> country_col,</span>
+<span id="cb140-5"><a href="" aria-label="5"></a>    <span class="at">scientific_name =</span> full_name,</span>
+<span id="cb140-6"><a href="" aria-label="6"></a>    <span class="at">decimal_latitude =</span> lat,</span>
+<span id="cb140-7"><a href="" aria-label="7"></a>    <span class="at">decimal_longitude =</span> lon</span>
+<span id="cb140-8"><a href="" aria-label="8"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<blockquote>
-<p>Success !</p>
-</blockquote>
-<p>Now inspect GBIF dataset:</p>
+<p><br></p>
+<div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb152"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="" aria-label="1"></a><span class="do">## GBIF occurrences: clean species names so they are consistent with the herbarium ones----</span></span>
-<span id="cb152-2"><a href="" aria-label="2"></a>occ<span class="sc">$</span>scientific_name <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_replace_all</span>(occ<span class="sc">$</span>scientific_name, <span class="st">"Catopsis sessiliflora.*"</span>, <span class="st">"Catopsis sessiliflora"</span>)</span>
-<span id="cb152-3"><a href="" aria-label="3"></a>occ<span class="sc">$</span>scientific_name <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_replace_all</span>(occ<span class="sc">$</span>scientific_name, <span class="st">"Catopsis nutans.*"</span>, <span class="st">"Catopsis nutans"</span>)</span>
-<span id="cb152-4"><a href="" aria-label="4"></a></span>
-<span id="cb152-5"><a href="" aria-label="5"></a><span class="do">## Rename and reorder column names ----</span></span>
-<span id="cb152-6"><a href="" aria-label="6"></a>occ <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(occ, <span class="at">full_name =</span> scientific_name, <span class="at">lat =</span> decimal_latitude, <span class="at">lon =</span> decimal_longitude) </span>
-<span id="cb152-7"><a href="" aria-label="7"></a>occ <span class="ot">&lt;-</span> occ[,<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)]</span>
-<span id="cb152-8"><a href="" aria-label="8"></a>df2 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(df2, <span class="at">country =</span> country_col)</span>
-<span id="cb152-9"><a href="" aria-label="9"></a></span>
-<span id="cb152-10"><a href="" aria-label="10"></a><span class="do">## Check ----</span></span>
-<span id="cb152-11"><a href="" aria-label="11"></a><span class="fu">colnames</span>(occ) <span class="sc">==</span> <span class="fu">colnames</span>(df2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="" aria-label="1"></a><span class="do">## Row binds the two datasets ----</span></span>
+<span id="cb141-2"><a href="" aria-label="2"></a>final <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(herbarium, gbif_occ)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="" aria-label="1"></a><span class="do">## Append herbarium and GBIf occurrences ----</span></span>
-<span id="cb153-2"><a href="" aria-label="2"></a>tab <span class="ot">&lt;-</span> <span class="fu">rbind</span>(df2, occ)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column" style="width:48%;">
+
+</div></div>
 </section>
-<section id="correction-part-2" class="slide level2">
-<h2>Correction part 2</h2>
+<section id="correction-bonus" class="slide level2">
+<h2>Correction (bonus)</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<h4 id="part-4---check-coordinates-1"><strong>Part 4 - Check coordinates</strong></h4>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb154"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="" aria-label="1"></a><span class="do">## Convert occurrences into sf object ----</span></span>
-<span id="cb154-2"><a href="" aria-label="2"></a>tab_sf <span class="ot">&lt;-</span> tab <span class="sc">|&gt;</span> </span>
-<span id="cb154-3"><a href="" aria-label="3"></a>  sf<span class="sc">::</span><span class="fu">st_as_sf</span>(</span>
-<span id="cb154-4"><a href="" aria-label="4"></a>    <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>),</span>
-<span id="cb154-5"><a href="" aria-label="5"></a>    <span class="at">crs =</span> <span class="dv">4326</span> </span>
-<span id="cb154-6"><a href="" aria-label="6"></a>  )</span>
-<span id="cb154-7"><a href="" aria-label="7"></a></span>
-<span id="cb154-8"><a href="" aria-label="8"></a><span class="do">## Plot map with mapview ----</span></span>
-<span id="cb154-9"><a href="" aria-label="9"></a>mapview<span class="sc">::</span><span class="fu">mapview</span>(tab_sf, <span class="at">map.types =</span> <span class="st">"OpenStreetMap.Mapnik"</span>, <span class="at">zcol =</span> <span class="st">"full_name"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="" aria-label="1"></a><span class="do">## Filter coordinates based on Guatemala extent ----</span></span>
+<span id="cb142-2"><a href="" aria-label="2"></a>final <span class="ot">&lt;-</span> final <span class="sc">|&gt;</span></span>
+<span id="cb142-3"><a href="" aria-label="3"></a></span>
+<span id="cb142-4"><a href="" aria-label="4"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb142-5"><a href="" aria-label="5"></a>    decimal_longitude <span class="sc">&gt;=</span> <span class="sc">-</span><span class="fl">92.22925</span>,</span>
+<span id="cb142-6"><a href="" aria-label="6"></a>    decimal_longitude <span class="sc">&lt;=</span> <span class="sc">-</span><span class="fl">88.22502</span>,</span>
+<span id="cb142-7"><a href="" aria-label="7"></a>    decimal_latitude <span class="sc">&gt;=</span> <span class="fl">13.73534</span>,</span>
+<span id="cb142-8"><a href="" aria-label="8"></a>    decimal_latitude <span class="sc">&lt;=</span> <span class="fl">17.81933</span></span>
+<span id="cb142-9"><a href="" aria-label="9"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="correction-part-2-bonus" class="slide level2">
-<h2>Correction part 2 bonus</h2>
+<p><br></p>
+<div class="fragment">
+<h4 id="part-5---map-occurrences-1"><strong>Part 5 - Map occurrences</strong></h4>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="" aria-label="1"></a><span class="do">## Choose countries you want to see ----</span></span>
-<span id="cb155-2"><a href="" aria-label="2"></a>world <span class="ot">&lt;-</span> rnaturalearth<span class="sc">::</span><span class="fu">ne_countries</span>()</span>
-<span id="cb155-3"><a href="" aria-label="3"></a>gtm <span class="ot">&lt;-</span> rnaturalearth<span class="sc">::</span><span class="fu">ne_countries</span>(<span class="at">country =</span> <span class="st">"Guatemala"</span>)</span>
-<span id="cb155-4"><a href="" aria-label="4"></a>gtm_clb <span class="ot">&lt;-</span> rnaturalearth<span class="sc">::</span><span class="fu">ne_countries</span>(<span class="at">country =</span> <span class="fu">c</span>(<span class="st">"Guatemala"</span>, <span class="st">"Colombia"</span>))</span>
-<span id="cb155-5"><a href="" aria-label="5"></a>americas <span class="ot">&lt;-</span> rnaturalearth<span class="sc">::</span><span class="fu">ne_countries</span>(<span class="at">continent =</span> <span class="fu">c</span>(<span class="st">"North America"</span>, <span class="st">"South America"</span>))</span>
-<span id="cb155-6"><a href="" aria-label="6"></a></span>
-<span id="cb155-7"><a href="" aria-label="7"></a><span class="do">## Plot map ----</span></span>
-<span id="cb155-8"><a href="" aria-label="8"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb155-9"><a href="" aria-label="9"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> gtm_clb)  <span class="sc">+</span></span>
-<span id="cb155-10"><a href="" aria-label="10"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tab_sf, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> full_name)) <span class="sc">+</span></span>
-<span id="cb155-11"><a href="" aria-label="11"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="" aria-label="1"></a><span class="do">## Convert data.frame into sf object ----</span></span>
+<span id="cb143-2"><a href="" aria-label="2"></a>final_sf <span class="ot">&lt;-</span> final <span class="sc">|&gt;</span></span>
+<span id="cb143-3"><a href="" aria-label="3"></a>  sf<span class="sc">::</span><span class="fu">st_as_sf</span>(</span>
+<span id="cb143-4"><a href="" aria-label="4"></a>    <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"decimal_longitude"</span>, <span class="st">"decimal_latitude"</span>),</span>
+<span id="cb143-5"><a href="" aria-label="5"></a>    <span class="at">crs =</span> <span class="dv">4326</span></span>
+<span id="cb143-6"><a href="" aria-label="6"></a>  )</span>
+<span id="cb143-7"><a href="" aria-label="7"></a></span>
+<span id="cb143-8"><a href="" aria-label="8"></a><span class="do">## Get Guatemala boundaries ----</span></span>
+<span id="cb143-9"><a href="" aria-label="9"></a>gtm <span class="ot">&lt;-</span> rnaturalearth<span class="sc">::</span><span class="fu">ne_countries</span>(<span class="at">country =</span> <span class="st">"Guatemala"</span>)</span>
+<span id="cb143-10"><a href="" aria-label="10"></a></span>
+<span id="cb143-11"><a href="" aria-label="11"></a><span class="do">## Plot map ----</span></span>
+<span id="cb143-12"><a href="" aria-label="12"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(<span class="at">data =</span> gtm) <span class="sc">+</span></span>
+<span id="cb143-13"><a href="" aria-label="13"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb143-14"><a href="" aria-label="14"></a></span>
+<span id="cb143-15"><a href="" aria-label="15"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_sf</span>(</span>
+<span id="cb143-16"><a href="" aria-label="16"></a>    <span class="at">data =</span> final_sf,</span>
+<span id="cb143-17"><a href="" aria-label="17"></a>    <span class="at">mapping =</span> ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">color =</span> scientific_name)</span>
+<span id="cb143-18"><a href="" aria-label="18"></a>  ) <span class="sc">+</span></span>
+<span id="cb143-19"><a href="" aria-label="19"></a></span>
+<span id="cb143-20"><a href="" aria-label="20"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/map.png" class="quarto-figure quarto-figure-center" style="width:30.0%"></p>
-</figure>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb156"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href="" aria-label="1"></a><span class="co"># Export map</span></span>
-<span id="cb156-2"><a href="" aria-label="2"></a><span class="fu">ggsave</span>(<span class="st">"images/map.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column fragment" style="width:48%;">
+<p><br><br><br><br><br><br><br><br><br> <img data-src="images/guatemala.png"></p>
+</div></div>
 
 </section></section>
 
