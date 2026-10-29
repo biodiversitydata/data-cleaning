@@ -47,7 +47,7 @@ engine: knitr
 <!-- Insert section 'Data homogenization' -->
 
 ```{r}
-##| child: "sections/taxonomy.qmd"
+#| child: "sections/taxonomy.qmd"
 ```
 
 
