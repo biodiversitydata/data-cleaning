@@ -11,7 +11,7 @@
 ::: {.column .information width="68%"}
 
 ::: {.title}
-Cleaning biodiversity data
+Data cleaning
 :::
 
 ::: {.subtitle}
