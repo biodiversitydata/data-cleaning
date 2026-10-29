@@ -1,108 +1,310 @@
-# {{< fa user-clock size=1x >}} &nbsp;&nbsp;Exercise (20 min)
-
-## Cleaning data
-
-**Part 1** - Clean the [PanTHERIA database](https://esajournals.onlinelibrary.wiley.com/doi/10.1890/08-1494.1) from the [previous exercise](https://biodiversitydata.github.io/data-access/#/exercise---accessing-data)
-
-- use the function `readr::read_delim()` to import data
-- select columns `MSW05_Binomial`, `5-1_AdultBodyMass_g`, `8-1_AdultForearmLen_mm` & `3-1_AgeatFirstBirth_d`
-- rename columns in `pan_binomial_name`, `pan_adult_body_mass_g`, `pan_adult_forearm_len_mm` & `pan_age_at_first_birth_d`
-- replace `-999` by `NA`
-
-<br/>
+# {{< fa user-clock size=1x >}} &nbsp;&nbsp;Exercise (30 min)
 
 
-**Part 2** - Create a reference table from GBIF occurrences downloaded [previously](https://biodiversitydata.github.io/data-access/#/exercise---accessing-data)
+## Exercise 
 
-- remove all columns except `scientificName`
-- remove duplicated rows
-- clean binomial names (remove authors)
+Remember the [**previous exercise**](https://biodiversitydata.github.io/data-access/#/exercise). We worked with two datasets: the **herbarium** 
+data the **GBIF occurrences**. In this exercise, we are going to **clean** each 
+dataset and **merge** them into a single dataset.
 
-<br/>
+<br><br>
+
+:::: {.columns}
+
+::: {.column .fragment width=50%}
+#### **Part 1 - Clean herbarium data**
+
+{{< fa circle-arrow-right >}}&nbsp; Import the csv file
+
+{{< fa circle-arrow-right >}}&nbsp; Clean the column names (w/ `janitor`)
+
+{{< fa circle-arrow-right >}}&nbsp; Select the columns `country_col`, `full_name`, `lon` & `lat`
+
+{{< fa circle-arrow-right >}}&nbsp; Clean the column `country_col` (remove whitespaces)
+
+{{< fa circle-arrow-right >}}&nbsp; Clean the column `full_name` (remove whitespaces)
+
+{{< fa circle-arrow-right >}}&nbsp; Clean the column `lon` (w/ [`parzer::parse_lon()`](https://docs.ropensci.org/parzer/reference/parse_lon.html))
+
+{{< fa circle-arrow-right >}}&nbsp; Clean the column `lat` (w/ [`parzer::parse_lat()`](https://docs.ropensci.org/parzer/reference/parse_lat.html))
+
+{{< fa circle-arrow-right >}}&nbsp; Filter data for _Catopsis sessiliflora_ and _C. nutans_
+
+{{< fa circle-arrow-right >}}&nbsp; Check each column
+:::
+
+::: {.column .fragment width=50%}
+#### **Part 2 - Clean GBIF occurrences**
+
+{{< fa circle-arrow-right >}}&nbsp; Import the csv file
+
+{{< fa circle-arrow-right >}}&nbsp; Clean the column names (w/ `janitor`)
+
+{{< fa circle-arrow-right >}}&nbsp; Clean the column `scientific_name` (remove author & variety)
 
 
-**Part 3** - Merge this table with PanTHERIA (cleaned) to add trait values to these two species
+<br>
+
+::: {.fragment}
+#### **Part 3 - Row bind the two datasets**
+
+{{< fa circle-arrow-right >}}&nbsp; Row bind the two datasets
+:::
+
+:::
+
+::::
 
 
-##
+## Exercise (bonus)
 
+Remember the [**previous exercise**](https://biodiversitydata.github.io/data-access/#/exercise). We worked with two datasets: the **herbarium** 
+data the **GBIF occurrences**. In this exercise, we are going to **clean** each 
+dataset and **merge** them into a single dataset.
 
-## Correction
-
+<br><br>
 
 :::: {.columns}
 
 ::: {.column width=50%}
-**Part 1**
+#### **Part 4 - Check coordinates**
+
+{{< fa circle-arrow-right >}}&nbsp; Some coordinates are outside Guatemala. Remove
+these data by filtering coordinates w/ the spatial extent of Guatemala:
+  
+- Longitude min = `-92.22925`
+- Longitude max = `-88.22502`
+- Latitude min = `13.73534`
+- Latitude max = `17.81933`
+:::
+
+::: {.column .fragment width=50%}
+#### **Part 5 - Map occurrences**
+
+{{< fa circle-arrow-right >}}&nbsp; Convert the data.frame in a spatial vector (package `sf`) defined under the CRS `EPSG 4326`
+
+{{< fa circle-arrow-right >}}&nbsp; Get spatial boundaries of Guatemala (w/ `rnaturalearth::ne_countries()`)
+
+{{< fa circle-arrow-right >}}&nbsp; Make a map w/ `ggplot2`
+:::
+
+::::
+
+#
+
+## Correction
+
+:::: {.columns}
+
+::: {.column width=48%}
+#### **Part 1 - Clean herbarium data**
 
 ```{r}
 #| echo: true
 #| eval: false
 
-library(dplyr)
+## Import herbarium data ----
+herbarium <- read.csv2("UC1-3c-open-refine.csv")
 
-## Open PanTHERIA data ----
+## Clean data ----
+herbarium <- herbarium |>
 
-pantheria <- readr::read_delim("PanTHERIA_1-0_WR05_Aug2008.txt")
+  janitor::clean_names() |>
 
+  dplyr::select(country_col, full_name, lat, lon) |>
 
-## Clean PanTHERIA data ----
+  dplyr::mutate(country_col = stringr::str_squish(country_col)) |>
+  dplyr::mutate(full_name = stringr::str_squish(full_name)) |>
 
-pantheria <- pantheria |> 
-  
-  select(`MSW05_Binomial`, 
-         `5-1_AdultBodyMass_g`, 
-         `8-1_AdultForearmLen_mm`, 
-         `3-1_AgeatFirstBirth_d`) |> 
-  
-  rename(binomial_name            = `MSW05_Binomial`,
-         pan_adult_body_mass_g    = `5-1_AdultBodyMass_g`, 
-         pan_adult_forearm_len_mm = `8-1_AdultForearmLen_mm`, 
-         pan_age_at_first_birth_d = `3-1_AgeatFirstBirth_d`) |> 
-  
-  mutate(across(starts_with("pan_"), ~ ifelse(.x == -999, NA, .x)))
+  dplyr::mutate(lon = parzer::parse_lon(lon)) |>
+  dplyr::mutate(lat = parzer::parse_lat(lat)) |>
+
+  dplyr::filter(
+    full_name %in% c("Catopsis sessiliflora", "Catopsis nutans")
+  )
+```
+
+<br>
+
+::: {.fragment}
+```{r}
+#| echo: true
+#| eval: false
+
+## Check data ----
+anyNA(herbarium$country_col)
+unique(herbarium$country_col)
+
+anyNA(herbarium$full_name)
+unique(herbarium$full_name)
+
+anyNA(herbarium$lon)
+range(herbarium$lon)
+
+anyNA(herbarium$lat)
+range(herbarium$lat)
+```
+:::
+:::
+
+::: {.column width=4%}
+
+:::
+
+::: {.column .fragment width=48%}
+#### **Part 2 - Clean GBIF occurrences**
+
+```{r}
+#| echo: true
+#| eval: false
+
+## Import GBIF occurrences data ----
+gbif_occ <- readxl::read_xlsx("gbif_occurrences.xlsx")
+
+## Clean data ----
+gbif_occ <- gbif_occ |>
+
+  janitor::clean_names() |>
+
+  dplyr::mutate(
+    scientific_name = stringr::str_replace(
+      scientific_name,
+      "^([[:alpha:]]+\\s+[[:alpha:]]+).*",
+      "\\1"
+    )
+  )
+```
+<br>
+
+::: {.fragment}
+```{r}
+#| echo: true
+#| eval: false
+
+## Check data ----
+anyNA(gbif_occ$scientific_name)
+unique(gbif_occ$scientific_name)
+
+anyNA(gbif_occ$country)
+unique(gbif_occ$country)
+
+anyNA(gbif_occ$decimal_longitude)
+range(gbif_occ$decimal_longitude)
+
+anyNA(gbif_occ$decimal_latitude)
+range(gbif_occ$decimal_latitude)
+```
+:::
+:::
+
+::::
+
+## Correction
+
+:::: {.columns}
+
+::: {.column width=48%}
+#### **Part 3 - Row bind the two datasets**
+
+```{r}
+#| echo: true
+#| eval: false
+
+## Rename herbarium columns ----
+herbarium <- herbarium |>
+  dplyr::rename(
+    country = country_col,
+    scientific_name = full_name,
+    decimal_latitude = lat,
+    decimal_longitude = lon
+  )
+```
+
+<br>
+
+::: {.fragment}
+
+```{r}
+#| echo: true
+#| eval: false
+
+## Row binds the two datasets ----
+final <- dplyr::bind_rows(herbarium, gbif_occ)
 ```
 :::
 
-::: {.column width=50%}
-**Part 2**
+:::
+
+::: {.column width=4%}
+:::
+
+::: {.column width=48%}
+:::
+::::
+
+
+## Correction (bonus)
+
+:::: {.columns}
+
+::: {.column width=48%}
+#### **Part 4 - Check coordinates**
 
 ```{r}
 #| echo: true
 #| eval: false
 
-## Open GBIF occurrences ----
+## Filter coordinates based on Guatemala extent ----
+final <- final |>
 
-gbif_occ <- read.csv("gbif_occurrences.csv")
-
-
-## Extract & clean species names ----
-
-gbif_species <- gbif_occ |> 
-  
-  select(scientificName) |> 
-  
-  distinct() |> 
-  
-  mutate(scientificName = stringr::str_extract(scientificName, 
-                                               "^[A-z]+\\s[a-z]+")) |> 
-  
-  rename(binomial_name = scientificName)
-
+  dplyr::filter(
+    decimal_longitude >= -92.22925,
+    decimal_longitude <= -88.22502,
+    decimal_latitude >= 13.73534,
+    decimal_latitude <= 17.81933
+  )
 ```
 
-<br/>
+<br>
 
-**Part 3**
+::: {.fragment}
+
+#### **Part 5 - Map occurrences**
 
 ```{r}
 #| echo: true
 #| eval: false
 
-## Merge tables ----
+## Convert data.frame into sf object ----
+final_sf <- final |>
+  sf::st_as_sf(
+    coords = c("decimal_longitude", "decimal_latitude"),
+    crs = 4326
+  )
 
-final_data <- left_join(gbif_species, pantheria, by = "binomial_name")
+## Get Guatemala boundaries ----
+gtm <- rnaturalearth::ne_countries(country = "Guatemala")
+
+## Plot map ----
+ggplot2::ggplot(data = gtm) +
+  ggplot2::geom_sf() +
+
+  ggplot2::geom_sf(
+    data = final_sf,
+    mapping = ggplot2::aes(color = scientific_name)
+  ) +
+
+  ggplot2::theme_minimal()
 ```
 :::
 
+:::
+
+::: {.column width=4%}
+:::
+
+::: {.column .fragment width=48%}
+<br><br><br><br><br><br><br><br><br>
+![](images/guatemala.png)
+:::
 ::::
